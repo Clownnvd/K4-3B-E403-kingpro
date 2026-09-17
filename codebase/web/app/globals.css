@@ -72,6 +72,15 @@ button:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3
 .evidenceRow span { color: var(--blue); font-size: 18px; font-weight: 800; }
 .evidenceRow p { margin: 2px 0 0; color: var(--muted); font-size: 11px; }
 blockquote { margin: 16px 0 0; padding: 15px 17px; border-left: 4px solid var(--blue); color: #27425d; background: #f1f6fa; line-height: 1.7; }
+.groundingSource { margin-top: 26px; padding: 16px; border: 1px solid var(--line); border-radius: 10px; background: #fbfcfd; transition: border-color .25s, background .25s, box-shadow .25s; }
+.groundingSource > div { display: flex; align-items: center; gap: 9px; color: #34516c; }
+.groundingSource small, .groundingSource strong { display: block; }
+.groundingSource small { font-size: 8px; letter-spacing: .08em; }
+.groundingSource strong { margin-top: 2px; font-size: 12px; }
+.groundingSource p { margin: 9px 0 5px; color: #536171; font-size: 11px; }
+.groundingSource a { color: var(--blue); font-size: 11px; font-weight: 700; overflow-wrap: anywhere; }
+.groundingSource.highlighted { border-color: #e9b949; background: #fff8d9; box-shadow: 0 0 0 4px rgba(233,185,73,.18); animation: sourcePulse .7s ease-out; }
+@keyframes sourcePulse { 0% { transform: scale(.99); } 100% { transform: scale(1); } }
 .lessonFeedback { display: flex; gap: 8px; margin-top: 30px; padding: 16px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .lessonFeedback button { width: 34px; height: 34px; border: 0; border-radius: 8px; background: transparent; cursor: pointer; }
 .lessonFeedback button:hover { background: #f1f5f9; }
@@ -92,6 +101,10 @@ blockquote { margin: 16px 0 0; padding: 15px 17px; border-left: 4px solid var(--
 .tutorContext > div span { color: var(--muted); font-size: 8px; font-weight: 750; letter-spacing: .06em; }
 .tutorContext > div strong { margin-top: 2px; overflow: hidden; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
 .mockPill { flex: none; padding: 4px 7px; border: 1px solid #e8cf89; border-radius: 99px; color: #775000; background: #fff8df; font-size: 8px; font-weight: 800; }
+.runtimeControls { display: flex; flex: none; align-items: center; gap: 5px; }
+.realPill { padding: 4px 7px; border: 1px solid #89d4bc; border-radius: 99px; color: #096346; background: #eaf9f3; font-size: 8px; font-weight: 850; }
+.runRealButton { height: 25px; padding: 0 7px; border: 1px solid #98bad8; border-radius: 6px; color: #15568c; background: #edf6ff; cursor: pointer; font-size: 8px; font-weight: 750; }
+.runRealButton:disabled { cursor: wait; opacity: .5; }
 .scenarioPicker { position: relative; margin: 8px 10px 0; }
 .scenarioTrigger { width: 100%; height: 42px; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 0 10px; border: 1px solid var(--line); border-radius: 8px; background: white; cursor: pointer; }
 .scenarioTrigger span { text-align: left; }
@@ -108,6 +121,8 @@ blockquote { margin: 16px 0 0; padding: 15px 17px; border-left: 4px solid var(--
 .studentBubble { width: fit-content; max-width: 82%; margin: 0 0 10px auto; padding: 8px 10px; border-radius: 12px 4px 12px 12px; color: white; background: #203040; }
 .studentBubble small { color: #cbd5e1; font-size: 8px; }
 .studentBubble p { margin: 2px 0 0; font-size: 11px; }
+.runtimeMeta { display: flex; flex-wrap: wrap; gap: 5px; margin: -2px 0 9px; }
+.runtimeMeta span { padding: 3px 6px; border-radius: 99px; color: #096346; background: #eaf9f3; font-family: Consolas, monospace; font-size: 7px; }
 
 .clarifyCard, .customCard, .answerCard { overflow: hidden; border: 1px solid #c9dbed; border-radius: 11px; background: white; }
 .clarifyCard > header { display: grid; grid-template-columns: 30px 1fr; gap: 9px; padding: 11px; background: #eff6ff; }
@@ -155,6 +170,9 @@ code { padding: 1px 4px; border-radius: 4px; color: #08745b; background: #edf8f5
 .answerCard > header { display: grid; grid-template-columns: 29px 1fr; gap: 8px; padding: 11px; }
 .answerCard header small { font-size: 8px; font-weight: 750; }
 .answerCard header p { margin: 3px 0 0; font-size: 10px; line-height: 1.6; }
+.sourceToggle { width: calc(100% - 20px); min-height: 30px; display: flex; align-items: center; justify-content: space-between; margin: 0 10px 9px; padding: 0 8px; border: 1px solid #c9d8e5; border-radius: 6px; color: #315b7e; background: #f7fafc; cursor: pointer; font-size: 8px; font-weight: 750; }
+.sourceToggle span { display: flex; align-items: center; gap: 5px; }
+.sourceToggle[aria-pressed="true"] { border-color: #e5bd4d; color: #6f5500; background: #fff8d9; }
 .sourceCard { display: flex; align-items: center; gap: 7px; margin: 0 10px 9px; padding: 8px; border: 1px solid #bfe0d4; border-radius: 7px; color: #205743; background: #effaf6; }
 .sourceCard small, .sourceCard strong { display: block; }
 .sourceCard small { font-size: 7px; }

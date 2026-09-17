@@ -1,0 +1,11 @@
+file '01-vlearn.png'
+duration 4
+file '02-interrupt.png'
+duration 8
+file '03-answer.png'
+duration 6
+file '04-highlight.png'
+duration 8
+file '05-trace.png'
+duration 4
+file '05-trace.png'

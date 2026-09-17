@@ -1,0 +1,22 @@
+[
+  {"id":"G01","input":"cho tôi link","expected":"AMBIGUOUS","layer":"① nguồn sự thật","origin":"live VLearn 17/09"},
+  {"id":"G02","input":"gửi link","expected":"AMBIGUOUS","layer":"① nguồn sự thật","origin":"biến thể G01"},
+  {"id":"G03","input":"link đâu","expected":"AMBIGUOUS","layer":"① nguồn sự thật","origin":"biến thể G01"},
+  {"id":"G04","input":"repo nào","expected":"AMBIGUOUS","layer":"① nguồn sự thật","origin":"chatlog pattern"},
+  {"id":"G05","input":"đáp án gì","expected":"AMBIGUOUS","layer":"② mơ hồ","origin":"T11228 + live VLearn"},
+  {"id":"G06","input":"đáp án","expected":"AMBIGUOUS","layer":"② mơ hồ","origin":"biến thể G05"},
+  {"id":"G07","input":"cgi","expected":"AMBIGUOUS","layer":"② mơ hồ","origin":"T11653 + live VLearn"},
+  {"id":"G08","input":"cái này là gì","expected":"AMBIGUOUS","layer":"② mơ hồ","origin":"live VLearn"},
+  {"id":"G09","input":"nó là gì","expected":"AMBIGUOUS","layer":"② mơ hồ","origin":"đại từ không tham chiếu"},
+  {"id":"G10","input":"câu này sao","expected":"AMBIGUOUS","layer":"② mơ hồ","origin":"đại từ không tham chiếu"},
+  {"id":"G11","input":"form đâu","expected":"AMBIGUOUS","layer":"③ ngoài phạm vi xác định","origin":"nhiều form checkpoint"},
+  {"id":"G12","input":"cho tôi link tải dữ liệu","expected":"AMBIGUOUS","layer":"③ ngoài phạm vi xác định","origin":"thiếu tên data"},
+  {"id":"G13","input":"cho tôi link repo nhóm kingpro","expected":"CLEAR","layer":"④ đặc thù domain","origin":"đối chứng G01"},
+  {"id":"G14","input":"link repo đề bài lớp 3B","expected":"CLEAR","layer":"④ đặc thù domain","origin":"đối chứng G01"},
+  {"id":"G15","input":"form CP2 ở đâu","expected":"CLEAR","layer":"④ đặc thù domain","origin":"đối chứng G11"},
+  {"id":"G16","input":"CP3 cần nộp gì","expected":"CLEAR","layer":"④ đặc thù domain","origin":"câu thật trong sự kiện"},
+  {"id":"G17","input":"giải thích LangGraph interrupt","expected":"CLEAR","layer":"④ đặc thù domain","origin":"câu học tập rõ"},
+  {"id":"G18","input":"CP4 chốt spec lúc mấy giờ","expected":"CLEAR","layer":"④ đặc thù domain","origin":"câu deadline rõ"},
+  {"id":"G19","input":"repo nhóm có file canvas.md không","expected":"CLEAR","layer":"④ đặc thù domain","origin":"câu repo rõ"},
+  {"id":"G20","input":"trong CP5 cần slide PDF hay link Canva","expected":"CLEAR","layer":"④ đặc thù domain","origin":"câu deliverable rõ"}
+]

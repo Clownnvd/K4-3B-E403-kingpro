@@ -1,0 +1,331 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "quality_bar": ">=90% routing accuracy; G01/G05/G07/G08 all pass",
+  "passed": 18,
+  "total": 20,
+  "accuracy": 0.9,
+  "hard_cases_pass": true,
+  "total_tokens": 3474,
+  "results": [
+    {
+      "id": "G01",
+      "input": "cho tôi link",
+      "expected": "AMBIGUOUS",
+      "layer": "① nguồn sự thật",
+      "origin": "live VLearn 17/09",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 115,
+        "output_tokens": 58,
+        "total_tokens": 173
+      },
+      "thread_id": "0ecde8e792f949ba81a083d44c73d951"
+    },
+    {
+      "id": "G02",
+      "input": "gửi link",
+      "expected": "AMBIGUOUS",
+      "layer": "① nguồn sự thật",
+      "origin": "biến thể G01",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 114,
+        "output_tokens": 54,
+        "total_tokens": 168
+      },
+      "thread_id": "cf696cc6727e4cc797f178da20dedc9b"
+    },
+    {
+      "id": "G03",
+      "input": "link đâu",
+      "expected": "AMBIGUOUS",
+      "layer": "① nguồn sự thật",
+      "origin": "biến thể G01",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 114,
+        "output_tokens": 65,
+        "total_tokens": 179
+      },
+      "thread_id": "c3be86a8866f45a5a220c83f765a7119"
+    },
+    {
+      "id": "G04",
+      "input": "repo nào",
+      "expected": "AMBIGUOUS",
+      "layer": "① nguồn sự thật",
+      "origin": "chatlog pattern",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 114,
+        "output_tokens": 49,
+        "total_tokens": 163
+      },
+      "thread_id": "a2eaa35e505443e9b031e666fb978811"
+    },
+    {
+      "id": "G05",
+      "input": "đáp án gì",
+      "expected": "AMBIGUOUS",
+      "layer": "② mơ hồ",
+      "origin": "T11228 + live VLearn",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 115,
+        "output_tokens": 59,
+        "total_tokens": 174
+      },
+      "thread_id": "948cf6bfd72e40f8928acf034372894a"
+    },
+    {
+      "id": "G06",
+      "input": "đáp án",
+      "expected": "AMBIGUOUS",
+      "layer": "② mơ hồ",
+      "origin": "biến thể G05",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 114,
+        "output_tokens": 58,
+        "total_tokens": 172
+      },
+      "thread_id": "7281f909f10e4d7f9a4f5f16181f158f"
+    },
+    {
+      "id": "G07",
+      "input": "cgi",
+      "expected": "AMBIGUOUS",
+      "layer": "② mơ hồ",
+      "origin": "T11653 + live VLearn",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 114,
+        "output_tokens": 49,
+        "total_tokens": 163
+      },
+      "thread_id": "66d6f16a9e20402184f22cf09d72f453"
+    },
+    {
+      "id": "G08",
+      "input": "cái này là gì",
+      "expected": "AMBIGUOUS",
+      "layer": "② mơ hồ",
+      "origin": "live VLearn",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 116,
+        "output_tokens": 55,
+        "total_tokens": 171
+      },
+      "thread_id": "407d0eac6cdb4ad3bc8320a47833c0f7"
+    },
+    {
+      "id": "G09",
+      "input": "nó là gì",
+      "expected": "AMBIGUOUS",
+      "layer": "② mơ hồ",
+      "origin": "đại từ không tham chiếu",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 115,
+        "output_tokens": 62,
+        "total_tokens": 177
+      },
+      "thread_id": "f45d7f88049a4d59a982ce13f44c10d6"
+    },
+    {
+      "id": "G10",
+      "input": "câu này sao",
+      "expected": "AMBIGUOUS",
+      "layer": "② mơ hồ",
+      "origin": "đại từ không tham chiếu",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 115,
+        "output_tokens": 56,
+        "total_tokens": 171
+      },
+      "thread_id": "f692860f1b0a4b14a465595092bcfef6"
+    },
+    {
+      "id": "G11",
+      "input": "form đâu",
+      "expected": "AMBIGUOUS",
+      "layer": "③ ngoài phạm vi xác định",
+      "origin": "nhiều form checkpoint",
+      "actual": "CLEAR",
+      "pass": false,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 114,
+        "output_tokens": 73,
+        "total_tokens": 187
+      },
+      "thread_id": "16f5c61d23ff41fd98aa008ed46da0a5"
+    },
+    {
+      "id": "G12",
+      "input": "cho tôi link tải dữ liệu",
+      "expected": "AMBIGUOUS",
+      "layer": "③ ngoài phạm vi xác định",
+      "origin": "thiếu tên data",
+      "actual": "CLEAR",
+      "pass": false,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 118,
+        "output_tokens": 55,
+        "total_tokens": 173
+      },
+      "thread_id": "c96cda7647c343689aa16d053ea5c3c0"
+    },
+    {
+      "id": "G13",
+      "input": "cho tôi link repo nhóm kingpro",
+      "expected": "CLEAR",
+      "layer": "④ đặc thù domain",
+      "origin": "đối chứng G01",
+      "actual": "CLEAR",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 119,
+        "output_tokens": 49,
+        "total_tokens": 168
+      },
+      "thread_id": "f98cf2a89921419da6692aa7c4c4ff91"
+    },
+    {
+      "id": "G14",
+      "input": "link repo đề bài lớp 3B",
+      "expected": "CLEAR",
+      "layer": "④ đặc thù domain",
+      "origin": "đối chứng G01",
+      "actual": "CLEAR",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 120,
+        "output_tokens": 53,
+        "total_tokens": 173
+      },
+      "thread_id": "6914f3a9622248e790ca75f3bf28a454"
+    },
+    {
+      "id": "G15",
+      "input": "form CP2 ở đâu",
+      "expected": "CLEAR",
+      "layer": "④ đặc thù domain",
+      "origin": "đối chứng G11",
+      "actual": "CLEAR",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 117,
+        "output_tokens": 60,
+        "total_tokens": 177
+      },
+      "thread_id": "0d3f091b8881461b915ceccd44be90c4"
+    },
+    {
+      "id": "G16",
+      "input": "CP3 cần nộp gì",
+      "expected": "CLEAR",
+      "layer": "④ đặc thù domain",
+      "origin": "câu thật trong sự kiện",
+      "actual": "CLEAR",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 118,
+        "output_tokens": 78,
+        "total_tokens": 196
+      },
+      "thread_id": "ec300e5e535748518a1c6be8b037be4e"
+    },
+    {
+      "id": "G17",
+      "input": "giải thích LangGraph interrupt",
+      "expected": "CLEAR",
+      "layer": "④ đặc thù domain",
+      "origin": "câu học tập rõ",
+      "actual": "CLEAR",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 117,
+        "output_tokens": 44,
+        "total_tokens": 161
+      },
+      "thread_id": "b40fdc85a0e14c8bae1b2a1f001d512b"
+    },
+    {
+      "id": "G18",
+      "input": "CP4 chốt spec lúc mấy giờ",
+      "expected": "CLEAR",
+      "layer": "④ đặc thù domain",
+      "origin": "câu deadline rõ",
+      "actual": "CLEAR",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 120,
+        "output_tokens": 53,
+        "total_tokens": 173
+      },
+      "thread_id": "3b4d8662d1884e158d348211f3537c43"
+    },
+    {
+      "id": "G19",
+      "input": "repo nhóm có file canvas.md không",
+      "expected": "CLEAR",
+      "layer": "④ đặc thù domain",
+      "origin": "câu repo rõ",
+      "actual": "CLEAR",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 120,
+        "output_tokens": 62,
+        "total_tokens": 182
+      },
+      "thread_id": "855f7135bffa4f2ea73d3b900b7693ce"
+    },
+    {
+      "id": "G20",
+      "input": "trong CP5 cần slide PDF hay link Canva",
+      "expected": "CLEAR",
+      "layer": "④ đặc thù domain",
+      "origin": "câu deliverable rõ",
+      "actual": "CLEAR",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "usage": {
+        "input_tokens": 121,
+        "output_tokens": 52,
+        "total_tokens": 173
+      },
+      "thread_id": "bbabbeefc9674c39a0a2ad71e1bd4b1b"
+    }
+  ]
+}

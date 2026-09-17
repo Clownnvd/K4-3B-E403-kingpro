@@ -1,0 +1,66 @@
+{
+  "start": {
+    "status": "needs_clarification",
+    "thread_id": "592af34341bd4e76af34c8d0fc9943a9",
+    "model": "gemini-3.5-flash-lite",
+    "route": "AMBIGUOUS",
+    "confidence": 1,
+    "usage": {
+      "input_tokens": 115,
+      "output_tokens": 62,
+      "total_tokens": 177
+    },
+    "trace": [
+      "receive_input",
+      "classify_ambiguity:AMBIGUOUS",
+      "build_options"
+    ],
+    "type": "clarification",
+    "prompt": "Anh cần link nào trong phần Mini Hackathon?",
+    "reason": "Câu hỏi sử dụng cụm từ 'cho toi link' thiếu đối tượng cần lấy link, không rõ là link của bài Mini Hackathon hay tài liệu nào khác.",
+    "options": [
+      {
+        "id": "official-repo",
+        "label": "Repo đề bài chính thức lớp 3B",
+        "detail": "Nơi đọc track, rubric và dữ liệu mẫu",
+        "answer": "Đây là repo đề bài chính thức dành cho lớp 3B.",
+        "source": "https://github.com/VinUni-AI20k/K4-3B-Day05-06-AI-Product-Hackathon"
+      },
+      {
+        "id": "team-repo",
+        "label": "Repo của nhóm kingpro",
+        "detail": "Canvas, sơ đồ LangGraph và prototype",
+        "answer": "Đây là repo public của nhóm kingpro.",
+        "source": "https://github.com/Clownnvd/K4-3B-E403-kingpro"
+      },
+      {
+        "id": "checkpoint-form",
+        "label": "Form nộp checkpoint",
+        "detail": "Chọn rõ CP1, CP2 hoặc checkpoint khác",
+        "answer": "Anh cần form checkpoint nào: CP1, CP2, CP3, CP4 hay CP5?",
+        "source": "Live board Mini Hackathon · lớp 3B"
+      }
+    ],
+    "allow_custom": true
+  },
+  "resume": {
+    "status": "completed",
+    "thread_id": "592af34341bd4e76af34c8d0fc9943a9",
+    "model": "gemini-3.5-flash-lite",
+    "answer": "Đây là repo public của nhóm kingpro.",
+    "source": "https://github.com/Clownnvd/K4-3B-E403-kingpro",
+    "usage": {
+      "input_tokens": 115,
+      "output_tokens": 62,
+      "total_tokens": 177
+    },
+    "trace": [
+      "receive_input",
+      "classify_ambiguity:AMBIGUOUS",
+      "build_options",
+      "interrupt",
+      "resume",
+      "answer"
+    ]
+  }
+}
