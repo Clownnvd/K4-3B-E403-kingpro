@@ -9,9 +9,9 @@
 | Họ và Tên | Mã Học Viên | Vai trò chính | Phần việc đảm nhiệm trong dự án |
 |---|---|---|---|
 | NGUYỄN VĂN DUY | 2A202602729 | Đội trưởng · kiến trúc & tích hợp | Màn chính, LangGraph, pgvector, tích hợp và nộp checkpoint |
-| ĐỖ PHÚC HƯNG | Cần bổ sung | Proposal workflow | Màn soạn hồ sơ, confirmation gate, vòng duyệt/sửa |
 | DƯƠNG THỊ NGÂN | 2A202602808 | Authentication UX | Màn đăng nhập, đăng ký, verify email và role states |
-| NGUYỄN QUANG DUY | Cần bổ sung | Monitoring UX | Màn giám sát call còn hiệu lực, sắp hết hạn hoặc cần xác minh |
+| VŨ HUY ĐÔ | 2A202602555 | Proposal & Monitoring UX | Màn soạn hồ sơ, vòng duyệt/sửa và giám sát hiệu lực/deadline |
+|  |  |  |  |
 
 > Nhóm copy nguyên file README này về repo của mình, rồi điền bảng trên. Cột **Phần việc đảm nhiệm** ghi càng cụ thể càng tốt.
 
