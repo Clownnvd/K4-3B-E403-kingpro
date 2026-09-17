@@ -28,7 +28,7 @@
 ## Checklist trước khi bấm nộp
 
 - [ ] Thay `[Tên 1]`, `[Tên 2]` bằng người thật ngoài nhóm đã đồng ý thử.
-- [ ] Cả Duy, Ngân và Đô đã dán cùng link repo vào VLearn.
+- [ ] Nguyễn Văn Duy nộp một phiếu CP1 thay cả nhóm và tiếp tục dùng đúng MSSV này cho CP2–CP5.
 - [ ] Mở repo bằng cửa sổ ẩn danh và thấy README/spec/canvas.
 - [ ] Form CP1 dùng đúng tên và MSSV đội trưởng: Nguyễn Văn Duy — 2A202602729.
 - [ ] Giữ ảnh hoặc tin nhắn xác nhận willing users để dùng ở CP5.
