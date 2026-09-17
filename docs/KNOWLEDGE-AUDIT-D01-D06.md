@@ -9,8 +9,8 @@ Sản phẩm đang dùng đúng mạch kiến thức của khóa: **gọi model 
 Ba khoảng trống lớn nhất:
 
 1. Chưa có validation log và quote thật từ willing users, nên chưa được khai R6.
-2. Chưa có chuỗi thí nghiệm v0→v3 cùng điều kiện như Day 04; hiện mới có một bản Gemini và một lượt eval chính thức.
-3. Chưa tích hợp vào VLearn production; giao diện hiện là bản mô phỏng và dữ liệu nguồn/option case demo còn allowlist.
+2. Chuỗi v0→v3 đã chạy nhưng cả bốn cùng 95%; chưa chứng minh improvement vì bộ base chưa đủ nhạy.
+3. Chưa tích hợp vào VLearn production; giao diện hiện là bản mô phỏng.
 
 ## D01 — LLM API Foundation
 
@@ -26,7 +26,7 @@ Ba khoảng trống lớn nhất:
 | Token/cost | Có | `usageMetadata`, tổng token trong trace/eval | Chưa đổi token thành chi phí tiền |
 | Key hygiene | Có | `.env.example`, key chỉ ở environment; repo không chứa key | Cần rotation vì key từng được chia sẻ trong chat |
 | Streaming | Chưa | — | UI chỉ loading rồi nhận kết quả trọn gói |
-| Retry/backoff | Chưa | — | API lỗi trả failure, chưa exponential backoff |
+| Retry/backoff | Có | 3 lần, backoff 0,5s → 1s | Chưa jitter/circuit breaker |
 | Conversation history | Một phần | LangGraph `thread_id` + checkpointer | In-memory, mất khi restart |
 
 Nguồn: [K4 Day01 LLM API Exploration](https://github.com/VinUni-AI20k/K4-Day01-LLM-API-Exploration).
@@ -63,7 +63,7 @@ Nguồn: [K4 Day02 AI Product Labs](https://github.com/VinUni-AI20k/K4-Day02-AI-
 | Tool call | Chưa đầy đủ | Option selection là action nội bộ | Chưa có tool registry và Observation từ tool ngoài |
 | ReAct loop | Chưa | — | Không có vòng Thought→Action→Observation đa bước |
 | Planning/autonomous | Không chủ đích | Non-goal | Không cần cho lát cắt này |
-| Persistent memory | Chưa | InMemorySaver | Cần Postgres/Redis nếu production |
+| Persistent memory | Có ở prototype | SQLiteSaver; resume qua restart đã pass | Production nên dùng Postgres/Redis |
 | Cross-audit/red-team | Một phần | 20 golden cases | Chưa có nhóm khác tấn công/phản biện |
 
 Nguồn: [K4 Day03 Chatbot vs ReAct Agent](https://github.com/VinUni-AI20k/K4-Day03-Lab-Chatbot-vs-react-agent-E403).
@@ -80,9 +80,9 @@ Nguồn: [K4 Day03 Chatbot vs ReAct Agent](https://github.com/VinUni-AI20k/K4-Da
 | Confirmation/correction | Có | option/custom + “Không phải ý này” | — |
 | UI trace | Có | model, token, route, LangGraph trace | Chưa hiện raw input/output kỹ thuật theo từng tool |
 | Fixed golden set | Có | 20 case, quality bar chốt | Chưa đủ cấu trúc Day04 30+10+12 |
-| 5 single + 5 multi-turn mới | Một phần | 20 routing case chủ yếu single-turn | Thiếu 5 multi-turn được đánh dấu rõ |
-| 12 safety case | Chưa | §5 có 8 scenario thiết kế | Chưa có 12 case chạy thật |
-| v0→v3 | Chưa đạt | Có lịch sử thiết kế nhưng không có bốn run cùng bộ | Phải chạy và lưu version log nếu muốn tái dùng rubric D04 |
+| 5 single + 5 multi-turn mới | Một phần | Có 5 multi-turn, đạt 2/5 | Cần sửa history format |
+| 12 safety case | Có | Đạt 11/12 | S10 cần no-grounding guard |
+| v0→v3 | Đã chạy | `version_log.csv`, bốn run cùng bộ | Cả bốn 95%; chưa chứng minh improvement |
 | Provider error gate | Một phần | HTTP error trả 502 | Chưa log `provider_error_cases == 0` trong eval report |
 | Transcript | Có một phần | E2E trace JSON + video frames | Chưa lưu transcript hội thoại chuẩn hóa từng turn |
 

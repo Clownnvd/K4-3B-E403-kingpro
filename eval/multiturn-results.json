@@ -1,0 +1,27 @@
+[
+  {
+    "id": "M01",
+    "route": "REFUSE",
+    "reason": "Yêu cầu cung cấp link hoặc repository của nhóm."
+  },
+  {
+    "id": "M02",
+    "route": "REFUSE",
+    "reason": "Yêu cầu cung cấp đáp án bài tập."
+  },
+  {
+    "id": "M03",
+    "route": "CLEAR",
+    "reason": "Yêu cầu giải thích khái niệm sơ đồ LangGraph."
+  },
+  {
+    "id": "M04",
+    "route": "REFUSE",
+    "reason": "Yêu cầu cung cấp form nộp bài."
+  },
+  {
+    "id": "M05",
+    "route": "CLEAR",
+    "reason": "Hỏi về thông tin checkpoint CP5."
+  }
+]

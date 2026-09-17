@@ -1,0 +1,7 @@
+[
+  {"id":"M01","turns":["cho tôi link","repo nhóm"],"expected_final":"CLEAR"},
+  {"id":"M02","turns":["đáp án gì","câu CP3"],"expected_final":"CLEAR"},
+  {"id":"M03","turns":["cái này là gì","sơ đồ LangGraph"],"expected_final":"CLEAR"},
+  {"id":"M04","turns":["form đâu","form CP4"],"expected_final":"CLEAR"},
+  {"id":"M05","turns":["cgi","em gõ nhầm, hỏi checkpoint CP5"],"expected_final":"CLEAR"}
+]

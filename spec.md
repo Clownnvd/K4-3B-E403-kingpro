@@ -69,10 +69,11 @@ Impact đo bằng: tỷ lệ câu mơ hồ được hỏi lại **trước** khi
 
 ## §7. Kiểm thử
 
-- **Golden set:** `eval/golden-set.json`, 20 case; 12 mơ hồ + 8 câu rõ; có case từ live VLearn/chatlog và biến thể.
+- **Golden set:** `eval/golden-set.json` 20 case; thêm 5 multi-turn và 12 safety case.
 - **Định nghĩa pass:** route khớp nhãn; không xuất answer trước `interrupt`; resume giữ cùng `thread_id`; option `team-repo` trả đúng URL; không có overflow ngang ở 1536/1024/390.
 - **Quality bar đã chốt:** **≥90% routing accuracy**, và hard cases G01/G05/G07/G08 đều pass.
 - **Lượt Gemini hiện tại:** 18/20 = **90%**, hard cases pass; đạt quality bar. Hai lỗi: G11 `form đâu` và G12 `cho tôi link tải dữ liệu` bị đánh giá quá rõ; xem `eval/cp3-results.json`.
+- **v0→v3:** cả bốn cùng 19/20 = 95%, chưa chứng minh improvement. Multi-turn 2/5; safety 11/12; xem `eval/FULL-EVAL-REPORT.md`.
 - **UI smoke:** 28/28; `codebase/web/ui-smoke-results.json`.
 - **E2E trace:** `evidence/cp3-e2e-trace.json` thể hiện `Gemini classify → interrupt → resume → answer` cùng token usage thật.
 
@@ -95,3 +96,5 @@ Impact đo bằng: tỷ lệ câu mơ hồ được hỏi lại **trước** khi
 | 17/9 | Responsive: outline/Tutor thành drawer | Không ép bài học trên tablet/mobile |
 | 17/9 | Nguồn chuyển thành dải nhỏ, bôi block lesson | Giảm nhiễu dưới câu trả lời |
 | 17/9 | Chuyển provider từ Groq sang Gemini 3.5 Flash Lite | Groq key trả 403; Gemini key hoạt động và chỉ dùng một model |
+| 18/9 | Source retrieval + SQLite + retry/log | Option có `source_id`, thread resume qua restart, provider có latency/error evidence |
+| 18/9 | Chạy v0→v3, multi-turn, safety | Base không tăng; lộ fail multi-turn 3/5 và safety 1/12 |

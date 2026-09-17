@@ -1,0 +1,221 @@
+{
+  "version": "v0",
+  "model": "gemini-3.5-flash-lite",
+  "passed": 19,
+  "total": 20,
+  "accuracy": 0.95,
+  "usage": {
+    "promptTokenCount": 370,
+    "candidatesTokenCount": 701,
+    "totalTokenCount": 1071,
+    "promptTokensDetails": [
+      {
+        "modality": "TEXT",
+        "tokenCount": 370
+      }
+    ],
+    "serviceTier": "standard"
+  },
+  "results": [
+    {
+      "id": "G01",
+      "input": "cho tôi link",
+      "expected": "AMBIGUOUS",
+      "layer": "① nguồn sự thật",
+      "origin": "live VLearn 17/09",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "reason": "Thieu thong tin lien quan den link gi"
+    },
+    {
+      "id": "G02",
+      "input": "gửi link",
+      "expected": "AMBIGUOUS",
+      "layer": "① nguồn sự thật",
+      "origin": "biến thể G01",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "reason": "Thieu thong tin lien quan den link gi"
+    },
+    {
+      "id": "G03",
+      "input": "link đâu",
+      "expected": "AMBIGUOUS",
+      "layer": "① nguồn sự thật",
+      "origin": "biến thể G01",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "reason": "Thieu thong tin lien quan den link gi"
+    },
+    {
+      "id": "G04",
+      "input": "repo nào",
+      "expected": "AMBIGUOUS",
+      "layer": "① nguồn sự thật",
+      "origin": "chatlog pattern",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "reason": "Thieu thong tin repo cua ai hoac du an nao"
+    },
+    {
+      "id": "G05",
+      "input": "đáp án gì",
+      "expected": "AMBIGUOUS",
+      "layer": "② mơ hồ",
+      "origin": "T11228 + live VLearn",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "reason": "Thieu thong tin dap an cua cau hoi hoac bai tap nao"
+    },
+    {
+      "id": "G06",
+      "input": "đáp án",
+      "expected": "AMBIGUOUS",
+      "layer": "② mơ hồ",
+      "origin": "biến thể G05",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "reason": "Thieu thong tin dap an cua bai nao"
+    },
+    {
+      "id": "G07",
+      "input": "cgi",
+      "expected": "AMBIGUOUS",
+      "layer": "② mơ hồ",
+      "origin": "T11653 + live VLearn",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "reason": "Cau hoi qua ngan va mo ho, thieu ngu canh"
+    },
+    {
+      "id": "G08",
+      "input": "cái này là gì",
+      "expected": "AMBIGUOUS",
+      "layer": "② mơ hồ",
+      "origin": "live VLearn",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "reason": "Thieu dai tu chi dinh 'cái này' la cai gi"
+    },
+    {
+      "id": "G09",
+      "input": "nó là gì",
+      "expected": "AMBIGUOUS",
+      "layer": "② mơ hồ",
+      "origin": "đại từ không tham chiếu",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "reason": "Thieu dai tu chi dinh 'nó' la cai gi"
+    },
+    {
+      "id": "G10",
+      "input": "câu này sao",
+      "expected": "AMBIGUOUS",
+      "layer": "② mơ hồ",
+      "origin": "đại từ không tham chiếu",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "reason": "Thieu thong tin 'câu này' la cau nao"
+    },
+    {
+      "id": "G11",
+      "input": "form đâu",
+      "expected": "AMBIGUOUS",
+      "layer": "③ ngoài phạm vi xác định",
+      "origin": "nhiều form checkpoint",
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "reason": "Thieu thong tin form gi va cua muc nao"
+    },
+    {
+      "id": "G12",
+      "input": "cho tôi link tải dữ liệu",
+      "expected": "AMBIGUOUS",
+      "layer": "③ ngoài phạm vi xác định",
+      "origin": "thiếu tên data",
+      "actual": "CLEAR",
+      "pass": false,
+      "reason": "Yeu cau ro rang ve viec xin link tai du lieu"
+    },
+    {
+      "id": "G13",
+      "input": "cho tôi link repo nhóm kingpro",
+      "expected": "CLEAR",
+      "layer": "④ đặc thù domain",
+      "origin": "đối chứng G01",
+      "actual": "CLEAR",
+      "pass": true,
+      "reason": "Yeu cau cu the ve link repo cua nhom kingpro"
+    },
+    {
+      "id": "G14",
+      "input": "link repo đề bài lớp 3B",
+      "expected": "CLEAR",
+      "layer": "④ đặc thù domain",
+      "origin": "đối chứng G01",
+      "actual": "CLEAR",
+      "pass": true,
+      "reason": "Yeu cau cu the ve link repo de bai lop 3B"
+    },
+    {
+      "id": "G15",
+      "input": "form CP2 ở đâu",
+      "expected": "CLEAR",
+      "layer": "④ đặc thù domain",
+      "origin": "đối chứng G11",
+      "actual": "CLEAR",
+      "pass": true,
+      "reason": "Cau hoi cu the ve vi tri form CP2"
+    },
+    {
+      "id": "G16",
+      "input": "CP3 cần nộp gì",
+      "expected": "CLEAR",
+      "layer": "④ đặc thù domain",
+      "origin": "câu thật trong sự kiện",
+      "actual": "CLEAR",
+      "pass": true,
+      "reason": "Cau hoi cu the ve yeu cau nop bai cua CP3"
+    },
+    {
+      "id": "G17",
+      "input": "giải thích LangGraph interrupt",
+      "expected": "CLEAR",
+      "layer": "④ đặc thù domain",
+      "origin": "câu học tập rõ",
+      "actual": "CLEAR",
+      "pass": true,
+      "reason": "Yeu cau giai thich ro rang ve tinh nang LangGraph interrupt"
+    },
+    {
+      "id": "G18",
+      "input": "CP4 chốt spec lúc mấy giờ",
+      "expected": "CLEAR",
+      "layer": "④ đặc thù domain",
+      "origin": "câu deadline rõ",
+      "actual": "CLEAR",
+      "pass": true,
+      "reason": "Cau hoi cu the ve thoi gian chốt spec cua CP4"
+    },
+    {
+      "id": "G19",
+      "input": "repo nhóm có file canvas.md không",
+      "expected": "CLEAR",
+      "layer": "④ đặc thù domain",
+      "origin": "câu repo rõ",
+      "actual": "CLEAR",
+      "pass": true,
+      "reason": "Cau hoi cu the ve su ton tai cua file canvas.md trong repo nhom"
+    },
+    {
+      "id": "G20",
+      "input": "trong CP5 cần slide PDF hay link Canva",
+      "expected": "CLEAR",
+      "layer": "④ đặc thù domain",
+      "origin": "câu deliverable rõ",
+      "actual": "CLEAR",
+      "pass": true,
+      "reason": "Cau hoi cu the ve dinh dang nop bai slide PDF hay link Canva trong CP5"
+    }
+  ]
+}
