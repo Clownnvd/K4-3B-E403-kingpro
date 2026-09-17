@@ -2,11 +2,12 @@
 
 Không điền quote giả. Người test tự thao tác; người quan sát chép nguyên văn.
 
-| Người dùng | Task | Quan sát | Quote nguyên văn | Quyết định |
-|---|---|---|---|---|
-| Lê Thị Thùy Trang — 2A202602678 | Hỏi `cho tôi link` → chọn repo nhóm → mở nguồn | Chờ test | Chờ test | Chờ test |
-| Trần Thanh Thái — 2A202602454 | Hỏi `đáp án gì` → dùng custom input → correction | Chờ test | Chờ test | Chờ test |
-| Phan Đại Cương — 2A202607123 | Dùng trên mobile → mở Tutor → kiểm tra source highlight | Chờ test | Chờ test | Chờ test |
+| Người phụ trách | Người dùng | Task | Quan sát | Quote nguyên văn | Quyết định |
+|---|---|---|---|---|---|
+| Ngân | Lê Thị Thùy Trang — 2A202602678 | Hỏi `cho tôi link` → chọn repo nhóm → mở nguồn | Chờ test | Chờ test | Chờ test |
+| Ngân | Trần Thanh Thái — 2A202602454 | Hỏi `đáp án gì` → dùng custom input → correction | Chờ test | Chờ test | Chờ test |
+| Đô | Phan Đại Cương — 2A202607123 | Dùng trên mobile → mở Tutor → kiểm tra source highlight | Chờ test | Chờ test | Chờ test |
+| Đô | `[Willing user dự phòng]` | Thử lại case gây fail hoặc thay người vắng | Chờ liên hệ | Chờ test | Chờ test |
 
 ## Script 10 phút
 

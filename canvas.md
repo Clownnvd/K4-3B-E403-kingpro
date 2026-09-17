@@ -32,5 +32,5 @@ Một học viên đang đọc một bài trên VLearn và gửi câu hỏi mơ 
 ## 7. Phân công có tên
 
 - **Nguyễn Văn Duy:** đội trưởng; Canvas/spec; LangGraph/Gemini; v0–v3; multi-turn và safety eval; `version_log.csv`; phân tích fail; tích hợp và nộp CP1–CP5.
-- **Dương Thị Ngân:** UX thẻ lựa chọn, ô nhập bổ sung, correction; user validation và changelog.
-- **Vũ Huy Đô:** mining evidence; biên soạn golden set cơ bản; kiểm tra tái lập số đo; video CP3, slide và demo dự phòng.
+- **Dương Thị Ngân:** UX thẻ lựa chọn, ô nhập bổ sung, correction; liên hệ Trang và Thái làm willing users; tổ chức validation, ghi quote và changelog.
+- **Vũ Huy Đô:** mining evidence; golden set cơ bản; liên hệ Cương và tìm thêm 1 willing user dự phòng; kiểm tra số đo; video CP3, slide và demo dự phòng.

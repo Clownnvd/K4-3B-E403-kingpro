@@ -23,7 +23,7 @@
 
 **6 — AI tự làm đến đâu:** AI phát hiện tín hiệu mơ hồ và đề xuất tối đa ba cách hiểu. LangGraph bắt buộc dừng ở node `clarify` bằng `interrupt`; chỉ tiếp tục sau lựa chọn hoặc nội dung bổ sung của người dùng. Người dùng có thể chọn, sửa hoặc hủy. **Willing users ngoài nhóm đã đồng ý dùng thử:** Lê Thị Thùy Trang — `2A202602678`; Trần Thanh Thái — `2A202602454`; Phan Đại Cương — `2A202607123`.
 
-**7 — Phân công:** Nguyễn Văn Duy — Canvas/spec, LangGraph/Gemini, v0–v3, multi-turn, safety, version log, phân tích fail, integration và checkpoint; Dương Thị Ngân — UX clarification, correction, responsive và validation; Vũ Huy Đô — evidence mining, golden set cơ bản, kiểm tra tái lập, video CP3 và slide demo.
+**7 — Phân công:** Nguyễn Văn Duy — Canvas/spec, LangGraph/Gemini, v0–v3, multi-turn, safety, version log, phân tích fail, integration và checkpoint; Dương Thị Ngân — UX, responsive, liên hệ Trang/Thái, tổ chức validation và ghi quote; Vũ Huy Đô — evidence, golden set cơ bản, liên hệ Cương + 1 user dự phòng, kiểm tra tái lập, video CP3 và slide demo.
 
 ## Checklist trước khi bấm nộp
 
