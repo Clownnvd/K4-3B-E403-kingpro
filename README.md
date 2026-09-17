@@ -4,13 +4,13 @@
 
 ## 👥 Thành viên nhóm & Phân công vai trò
 
-**Lớp:** 3B · **Phòng:** E403 · **Cụm:** Chờ BTC phân cụm · **Track:** E — Làn mở · **Đề tài:** GrantFinder AI
+**Lớp:** 3B · **Phòng:** E403 · **Cụm:** Chờ BTC phân cụm · **Track:** Chưa chốt · **Đề:** Chưa chốt
 
 | Họ và Tên | Mã Học Viên | Vai trò chính | Phần việc đảm nhiệm trong dự án |
 |---|---|---|---|
-| NGUYỄN VĂN DUY | 2A202602729 | Đội trưởng · kiến trúc & tích hợp | Màn chính, LangGraph, pgvector, tích hợp và nộp checkpoint |
-| DƯƠNG THỊ NGÂN | 2A202602808 | Authentication UX | Màn đăng nhập, đăng ký, verify email và role states |
-| VŨ HUY ĐÔ | 2A202602555 | Proposal & Monitoring UX | Màn soạn hồ sơ, vòng duyệt/sửa và giám sát hiệu lực/deadline |
+| NGUYỄN VĂN DUY | 2A202602729 | Đội trưởng · spec & integration | Điều phối nhóm, Canvas/spec, tích hợp prototype và nộp CP1–CP5 |
+| DƯƠNG THỊ NGÂN | 2A202602808 | UX & validation | Luồng trải nghiệm, working mock, usability test và evidence người dùng |
+| VŨ HUY ĐÔ | 2A202602555 | Evidence & evaluation | Khai thác bằng chứng, golden set, đo kết quả và chuẩn bị demo |
 |  |  |  |  |
 
 > Nhóm copy nguyên file README này về repo của mình, rồi điền bảng trên. Cột **Phần việc đảm nhiệm** ghi càng cụ thể càng tốt.
