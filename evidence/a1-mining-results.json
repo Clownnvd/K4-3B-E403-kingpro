@@ -7,7 +7,8 @@
   "method": {
     "free_text_filter": "is_preset=False",
     "missing_citation_filter": "has_citation=False",
-    "probing_filter": "move_used=ask_probing_question"
+    "probing_filter": "move_used=ask_probing_question",
+    "ambiguous_candidate_heuristic": "is_preset=False AND q_len<=55 AND move_used!=ask_probing_question AND reply_len>=250; manual review required"
   },
   "metrics": {
     "k4_turns": 3097,
@@ -16,6 +17,7 @@
     "k4_free_text_without_citation_rate": 0.328,
     "k4_probing_turns": 6,
     "k4_probing_rate": 0.0019,
+    "k4_short_ambiguous_candidates": 12,
     "k4_reply_length_median": 995,
     "k4_rated_turns": 12,
     "k4_up_ratings": 9,

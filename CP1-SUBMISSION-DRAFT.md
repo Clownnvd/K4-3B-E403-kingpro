@@ -11,23 +11,23 @@
 
 ## Canvas 7 dòng
 
-**1 — Track + đề:** Track A · VLearn Tutor — A1 tối ưu Tutor hiện có: Tutor chỉ trả lời khi có đủ căn cứ; câu mơ hồ phải hỏi lại bằng lựa chọn hoặc ô nhập bổ sung.
+**1 — Track + đề:** Track A · VLearn Tutor — A1 tối ưu Tutor hiện có: Tutor phải hỏi lại trước khi trả lời câu hỏi chưa đủ rõ.
 
-**2 — Job executor:** Một học viên K4 đang đọc slide/transcript trong VLearn, vừa chọn một đoạn hoặc gõ câu hỏi để làm rõ kiến thức trước khi tiếp tục bài hoặc làm quiz.
+**2 — Job executor:** Một học viên K4 đang đọc bài trên VLearn và gõ một câu ngắn để hỏi về nội dung mình chưa hiểu.
 
-**3 — Pain:** Khi hỏi về phần đang học, học viên có thể nhận câu trả lời không nguồn, quá dài hoặc Tutor tự đoán ý khi câu hỏi mơ hồ; học viên không biết dựa vào đâu, phải dò lại và có nguy cơ học sai hoặc bị làm hộ bài tập.
+**3 — Pain:** Khi câu hỏi thiếu đối tượng hoặc ý định, Tutor vẫn chọn một cách hiểu và trả lời ngay, khiến học viên nhận hướng dẫn sai ngữ cảnh rồi phải hỏi lại hoặc tự kiểm tra.
 
-**4 — Bằng chứng đầu:** Lọc `cohort_hint=K4`, `is_preset=False` trong `tutor_turns.csv`: 838/2.555 = 32,8% câu trả lời không citation; ví dụ `T10506`, `T10345`, `T11499`. Trên 3.097 lượt K4, `ask_probing_question` chỉ xuất hiện 6 lần = 0,19%; `T11228` và `T11653` cho thấy Tutor tự đoán ý khi input mơ hồ.
+**4 — Bằng chứng đầu:** Trong 3.097 lượt K4, Tutor chỉ dùng `ask_probing_question` 6 lần = 0,19%. Kiểm thử trực tiếp ngày 17/09 trên Bài 16 lớp 3B cho thấy 4/4 câu mơ hồ bị trả lời theo giả định trước khi xác nhận ý định; câu `cho tôi link` trả nhầm repo lớp 3A. Script và biên bản nằm trong thư mục `evidence/`.
 
-**5 — Lát cắt:** Một học viên đang đọc một bài cụ thể trên VLearn và đặt câu hỏi · AI quyết định context hiện có đã đủ căn cứ, còn mơ hồ hay ngoài phạm vi · nếu đủ thì trả lời ngắn kèm mã trang/đoạn, nếu mơ hồ thì cho chọn cách hiểu hoặc nhập bổ sung, nếu thiếu nguồn thì báo chưa đủ căn cứ · học viên nhận câu trả lời kiểm chứng được hoặc biết cần bổ sung gì.
+**5 — Lát cắt:** Một học viên đang đọc một bài trên VLearn và gửi câu hỏi mơ hồ · AI quyết định câu hỏi chưa đủ thông tin · giao diện đưa tối đa ba cách hiểu theo ngữ cảnh cùng ô nhập bổ sung · học viên chọn hoặc sửa ý rồi nhận câu trả lời đúng ý định ngay lượt kế tiếp.
 
-**6 — AI tự làm đến đâu:** AI tự kiểm tra input, retrieve trong bài đang mở, quyết định `ANSWER / CLARIFY / REFUSE`, tạo tối đa ba lựa chọn làm rõ và chỉ sinh câu trả lời từ source span. AI không trả lời khi citation validator fail, không đoán dữ liệu cá nhân/deadline/XP, không làm hộ quiz và không làm theo prompt injection. Lý do: sai kiến thức có cost-of-error cao. **Willing users:** `[Tên 1]`, `[Tên 2]`, `[Tên 3]`.
+**6 — AI tự làm đến đâu:** AI phát hiện tín hiệu mơ hồ và đề xuất tối đa ba cách hiểu. LangGraph bắt buộc dừng ở node `clarify` bằng `interrupt`; chỉ tiếp tục sau lựa chọn hoặc nội dung bổ sung của người dùng. Người dùng có thể chọn, sửa hoặc hủy. **Willing users (tối thiểu 2):** `[Tên 1]`, `[Tên 2]`.
 
-**7 — Phân công:** Nguyễn Văn Duy — Canvas/spec, LangGraph, retrieval, guard, integration và checkpoint; Dương Thị Ngân — UX clarification, bốn đường trải nghiệm, validation; Vũ Huy Đô — evidence, golden set 20 case, eval và video CP3.
+**7 — Phân công:** Nguyễn Văn Duy — Canvas/spec, LangGraph router + interrupt, integration và checkpoint; Dương Thị Ngân — UX clarification, correction và validation; Vũ Huy Đô — evidence, golden set, eval và video CP3.
 
 ## Checklist trước khi bấm nộp
 
-- [ ] Thay `[Tên 1]`, `[Tên 2]`, `[Tên 3]` bằng người thật ngoài nhóm đã đồng ý thử.
+- [ ] Thay `[Tên 1]`, `[Tên 2]` bằng người thật ngoài nhóm đã đồng ý thử.
 - [ ] Cả Duy, Ngân và Đô đã dán cùng link repo vào VLearn.
 - [ ] Mở repo bằng cửa sổ ẩn danh và thấy README/spec/canvas.
 - [ ] Form CP1 dùng đúng tên và MSSV đội trưởng: Nguyễn Văn Duy — 2A202602729.
@@ -35,4 +35,4 @@
 
 ## Tin nhắn xin willing user
 
-> Bọn mình đang làm prototype Tutor VLearn biết hỏi lại khi câu hỏi mơ hồ và chỉ trả lời khi có nguồn. Bạn có đồng ý dành khoảng 10 phút dùng thử trước tối 18/9 và cho bọn mình ghi lại nhận xét nguyên văn không? Không dùng dữ liệu cá nhân và kết quả không ảnh hưởng điểm học tập.
+> Bọn mình đang làm prototype Tutor VLearn biết hỏi lại trước khi trả lời câu hỏi mơ hồ. Bạn có đồng ý dành khoảng 10 phút dùng thử trước tối 18/9 và cho bọn mình ghi lại nhận xét nguyên văn không? Không dùng dữ liệu cá nhân và kết quả không ảnh hưởng điểm học tập.
