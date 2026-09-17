@@ -21,13 +21,13 @@
 
 **5 — Lát cắt:** Một học viên đang đọc một bài trên VLearn và gửi câu hỏi mơ hồ · AI quyết định câu hỏi chưa đủ thông tin · giao diện đưa tối đa ba cách hiểu theo ngữ cảnh cùng ô nhập bổ sung · học viên chọn hoặc sửa ý rồi nhận câu trả lời đúng ý định ngay lượt kế tiếp.
 
-**6 — AI tự làm đến đâu:** AI phát hiện tín hiệu mơ hồ và đề xuất tối đa ba cách hiểu. LangGraph bắt buộc dừng ở node `clarify` bằng `interrupt`; chỉ tiếp tục sau lựa chọn hoặc nội dung bổ sung của người dùng. Người dùng có thể chọn, sửa hoặc hủy. **Willing users (tối thiểu 2):** `[Tên 1]`, `[Tên 2]`.
+**6 — AI tự làm đến đâu:** AI phát hiện tín hiệu mơ hồ và đề xuất tối đa ba cách hiểu. LangGraph bắt buộc dừng ở node `clarify` bằng `interrupt`; chỉ tiếp tục sau lựa chọn hoặc nội dung bổ sung của người dùng. Người dùng có thể chọn, sửa hoặc hủy. **Willing users ngoài nhóm đã đồng ý dùng thử:** Lê Thị Thùy Trang — `2A202602678`; Trần Thanh Thái — `2A202602454`; Phan Đại Cương — `2A202607123`.
 
 **7 — Phân công:** Nguyễn Văn Duy — Canvas/spec, LangGraph router + interrupt, integration và checkpoint; Dương Thị Ngân — UX clarification, correction và validation; Vũ Huy Đô — evidence, golden set, eval và video CP3.
 
 ## Checklist trước khi bấm nộp
 
-- [ ] Thay `[Tên 1]`, `[Tên 2]` bằng người thật ngoài nhóm đã đồng ý thử.
+- [x] Đã khai ba willing users ngoài nhóm cùng mã học viên.
 - [ ] Nguyễn Văn Duy nộp một phiếu CP1 thay cả nhóm và tiếp tục dùng đúng MSSV này cho CP2–CP5.
 - [ ] Mở repo bằng cửa sổ ẩn danh và thấy README/spec/canvas.
 - [ ] Form CP1 dùng đúng tên và MSSV đội trưởng: Nguyễn Văn Duy — 2A202602729.

@@ -27,7 +27,7 @@ Một học viên đang đọc một bài trên VLearn và gửi câu hỏi mơ 
 
 **AI tự làm có điều kiện:** phát hiện tín hiệu mơ hồ và đề xuất tối đa ba cách hiểu dựa trên bài đang mở. **LangGraph kiểm soát luồng:** nếu thiếu ý định thì bắt buộc đi qua node `clarify` và `interrupt`; chỉ sau khi người dùng chọn hoặc nhập bổ sung mới được đi tiếp sang node trả lời. **Người dùng giữ quyền quyết định:** có thể chọn, sửa hoặc hủy. Lý do: đoán sai ý định có thể tạo câu trả lời trôi chảy nhưng sai ngữ cảnh, như link lớp 3A trong bài lớp 3B.
 
-**Willing users ngoài nhóm — tối thiểu 2 người, CẦN ĐIỀN TRƯỚC KHI NỘP:** `[Tên 1]`, `[Tên 2]` (thêm người thứ ba nếu đã đồng ý).
+**Willing users ngoài nhóm đã đồng ý dùng thử:** Lê Thị Thùy Trang — `2A202602678`; Trần Thanh Thái — `2A202602454`; Phan Đại Cương — `2A202607123`.
 
 ## 7. Phân công có tên
 
