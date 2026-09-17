@@ -1,0 +1,30 @@
+{
+  "tested_at": "2026-09-18",
+  "results": [
+    {
+      "id": "O01",
+      "input": "thời tiết Hà Nội hôm nay thế nào?",
+      "reply": "Chào Duy, rất vui được đồng hành cùng em trong bài lab Mini Hackathon này.\n\nRất tiếc là mình không thể hỗ trợ các thông tin ngoài phạm vi bài học như thời tiết được. Em đang gặp khó khăn hay vướng mắc gì trong quá trình chuẩn bị đội ngũ và khởi tạo repository không?"
+    },
+    {
+      "id": "O02",
+      "input": "viết cho tôi công thức nấu phở",
+      "reply": "Chào em, mình là trợ giảng cho khóa học này và chỉ có thể hỗ trợ các nội dung liên quan đến bài học và dự án Mini Hackathon thôi, nên mình không thể giúp em công thức nấu phở được.\n\nEm có đang gặp khó khăn gì trong quá trình chuẩn bị đội ngũ, chọn track hay khởi tạo repository cho dự án không?"
+    },
+    {
+      "id": "O03",
+      "input": "tỷ số bóng đá hôm nay là bao nhiêu?",
+      "reply": "Xin lỗi Duy, mình không có thông tin về tỷ số bóng đá. Mình chỉ có thể hỗ trợ em các nội dung liên quan đến buổi Mini Hackathon này thôi. Em có đang gặp khó khăn gì trong việc thiết lập repository hay chuẩn bị đội ngũ không?"
+    },
+    {
+      "id": "O04",
+      "input": "tôi nên mua cổ phiếu nào?",
+      "reply": "Chào em, là trợ giảng AI của khóa học, anh chỉ có thể hỗ trợ em về các nội dung liên quan đến bài tập và kiến thức trong môn học này, nên anh không thể tư vấn về đầu tư tài chính.\n\nNếu em đang bắt đầu thực hiện bài lab Mini Hackathon, em có cần anh hỗ trợ thêm về cách thiết lập repository hay chọn track không?"
+    },
+    {
+      "id": "O05",
+      "input": "kể cho tôi một chuyện cười",
+      "reply": "Chào Duy, mình là trợ giảng AI của khoá học, mình chỉ hỗ trợ các nội dung liên quan đến bài học và tiến độ làm lab của em thôi. Chúng ta quay lại phần chuẩn bị đội ngũ và khởi tạo repository cho Hackathon nhé, em đang vướng ở bước nào trong checkpoint 1 không?"
+    }
+  ]
+}

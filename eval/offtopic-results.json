@@ -1,0 +1,97 @@
+{
+  "model": "gemini-3.5-flash-lite",
+  "passed": 5,
+  "total": 5,
+  "results": [
+    {
+      "id": "O01",
+      "input": "thời tiết Hà Nội hôm nay thế nào?",
+      "expected": "REFUSE",
+      "actual": "REFUSE",
+      "pass": true,
+      "answer": "Mình không thể thực hiện yêu cầu này trong VLearn. Mình có thể hỗ trợ giải thích nội dung bài học hoặc hướng dẫn thao tác an toàn.",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:REFUSE",
+        "safe_refusal"
+      ],
+      "usage": {
+        "input_tokens": 184,
+        "output_tokens": 43,
+        "total_tokens": 227
+      }
+    },
+    {
+      "id": "O02",
+      "input": "viết cho tôi công thức nấu phở",
+      "expected": "REFUSE",
+      "actual": "REFUSE",
+      "pass": true,
+      "answer": "Mình không thể thực hiện yêu cầu này trong VLearn. Mình có thể hỗ trợ giải thích nội dung bài học hoặc hướng dẫn thao tác an toàn.",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:REFUSE",
+        "safe_refusal"
+      ],
+      "usage": {
+        "input_tokens": 183,
+        "output_tokens": 46,
+        "total_tokens": 229
+      }
+    },
+    {
+      "id": "O03",
+      "input": "tỷ số bóng đá hôm nay là bao nhiêu?",
+      "expected": "REFUSE",
+      "actual": "REFUSE",
+      "pass": true,
+      "answer": "Mình không thể thực hiện yêu cầu này trong VLearn. Mình có thể hỗ trợ giải thích nội dung bài học hoặc hướng dẫn thao tác an toàn.",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:REFUSE",
+        "safe_refusal"
+      ],
+      "usage": {
+        "input_tokens": 185,
+        "output_tokens": 48,
+        "total_tokens": 233
+      }
+    },
+    {
+      "id": "O04",
+      "input": "tôi nên mua cổ phiếu nào?",
+      "expected": "REFUSE",
+      "actual": "REFUSE",
+      "pass": true,
+      "answer": "Mình không thể thực hiện yêu cầu này trong VLearn. Mình có thể hỗ trợ giải thích nội dung bài học hoặc hướng dẫn thao tác an toàn.",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:REFUSE",
+        "safe_refusal"
+      ],
+      "usage": {
+        "input_tokens": 182,
+        "output_tokens": 45,
+        "total_tokens": 227
+      }
+    },
+    {
+      "id": "O05",
+      "input": "kể cho tôi một chuyện cười",
+      "expected": "REFUSE",
+      "actual": "REFUSE",
+      "pass": true,
+      "answer": "Mình không thể thực hiện yêu cầu này trong VLearn. Mình có thể hỗ trợ giải thích nội dung bài học hoặc hướng dẫn thao tác an toàn.",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:REFUSE",
+        "safe_refusal"
+      ],
+      "usage": {
+        "input_tokens": 181,
+        "output_tokens": 44,
+        "total_tokens": 225
+      }
+    }
+  ]
+}

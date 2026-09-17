@@ -31,7 +31,8 @@ button:focus-visible, textarea:focus-visible, summary:focus-visible { outline: 3
 .courseProgress b { display: block; width: 10%; height: 100%; border-radius: inherit; background: var(--blue); }
 .topActions { justify-content: flex-end; gap: 8px; }
 .askAi, .requestButton { height: 38px; display: flex; align-items: center; gap: 7px; padding: 0 12px; border-radius: 8px; cursor: pointer; }
-.askAi { border: 1px solid #bed7f0; color: #154b80; background: #f1f7ff; font-weight: 650; }
+.askAi { border: 1px solid var(--blue); color: white; background: var(--blue); box-shadow: 0 4px 12px rgba(13,92,166,.2); font-weight: 750; }
+.askAi:hover { background: #084b89; }
 .requestButton { border: 0; background: transparent; }
 .requestButton:hover { background: #f4f6f8; }
 .accountAvatar { width: 36px; height: 36px; display: grid; place-items: center; border-radius: 50%; color: #154b80; background: #e3f0fa; font-weight: 800; }
@@ -103,7 +104,8 @@ blockquote { margin: 16px 0 0; padding: 15px 17px; border-left: 4px solid var(--
 .mockPill { flex: none; padding: 4px 7px; border: 1px solid #e8cf89; border-radius: 99px; color: #775000; background: #fff8df; font-size: 8px; font-weight: 800; }
 .runtimeControls { display: flex; flex: none; align-items: center; gap: 5px; }
 .realPill { padding: 4px 7px; border: 1px solid #89d4bc; border-radius: 99px; color: #096346; background: #eaf9f3; font-size: 8px; font-weight: 850; }
-.runRealButton { height: 25px; padding: 0 7px; border: 1px solid #98bad8; border-radius: 6px; color: #15568c; background: #edf6ff; cursor: pointer; font-size: 8px; font-weight: 750; }
+.runRealButton { min-width: 104px; height: 30px; display: flex; align-items: center; justify-content: center; gap: 5px; padding: 0 10px; border: 1px solid var(--blue); border-radius: 7px; color: white; background: var(--blue); box-shadow: 0 4px 12px rgba(13,92,166,.2); cursor: pointer; font-size: 9px; font-weight: 800; }
+.runRealButton:hover:not(:disabled) { background: #084b89; transform: translateY(-1px); }
 .runRealButton:disabled { cursor: wait; opacity: .5; }
 .scenarioPicker { position: relative; margin: 8px 10px 0; }
 .scenarioTrigger { width: 100%; height: 42px; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 0 10px; border: 1px solid var(--line); border-radius: 8px; background: white; cursor: pointer; }
@@ -131,9 +133,9 @@ blockquote { margin: 16px 0 0; padding: 15px 17px; border-left: 4px solid var(--
 .clarifyCard h3, .customCard h3 { margin: 3px 0 4px; font-size: 13px; line-height: 1.4; }
 .clarifyCard header p, .customCard > p { margin: 0; color: #586779; font-size: 9px; line-height: 1.55; }
 .clarifyOptions { display: grid; gap: 6px; padding: 8px; }
-.clarifyOptions > button { min-height: 50px; display: grid; grid-template-columns: 25px 1fr 16px; align-items: center; gap: 8px; padding: 7px 8px; border: 1px solid var(--line); border-radius: 8px; background: white; cursor: pointer; text-align: left; }
-.clarifyOptions > button:hover { border-color: #8db5d8; background: #f8fbfe; }
-.clarifyOptions b { width: 23px; height: 23px; display: grid; place-items: center; border-radius: 6px; background: #f0f2f4; font-size: 9px; }
+.clarifyOptions > button { min-height: 54px; display: grid; grid-template-columns: 27px 1fr 18px; align-items: center; gap: 9px; padding: 8px 10px; border: 1px solid #c9d8e5; border-radius: 9px; background: white; box-shadow: 0 1px 2px rgba(21,49,79,.04); cursor: pointer; text-align: left; transition: transform .15s, border-color .15s, box-shadow .15s, background .15s; }
+.clarifyOptions > button:hover { border-color: var(--blue); background: #f3f8fd; box-shadow: 0 5px 14px rgba(13,92,166,.1); transform: translateY(-1px); }
+.clarifyOptions b { width: 25px; height: 25px; display: grid; place-items: center; border-radius: 7px; color: #15568c; background: #e8f2fb; font-size: 9px; }
 .clarifyOptions strong, .clarifyOptions small { display: block; }
 .clarifyOptions strong { font-size: 10px; }
 .clarifyOptions small { margin-top: 2px; color: var(--muted); font-size: 8px; }
@@ -170,7 +172,8 @@ code { padding: 1px 4px; border-radius: 4px; color: #08745b; background: #edf8f5
 .answerCard > header { display: grid; grid-template-columns: 29px 1fr; gap: 8px; padding: 11px; }
 .answerCard header small { font-size: 8px; font-weight: 750; }
 .answerCard header p { margin: 3px 0 0; font-size: 10px; line-height: 1.6; }
-.sourceToggle { width: calc(100% - 20px); min-height: 30px; display: flex; align-items: center; justify-content: space-between; margin: 0 10px 9px; padding: 0 8px; border: 1px solid #c9d8e5; border-radius: 6px; color: #315b7e; background: #f7fafc; cursor: pointer; font-size: 8px; font-weight: 750; }
+.sourceToggle { width: calc(100% - 20px); min-height: 36px; display: flex; align-items: center; justify-content: space-between; margin: 0 10px 9px; padding: 0 10px; border: 1px solid #e4b83f; border-radius: 7px; color: #694f00; background: #fff8d9; cursor: pointer; font-size: 9px; font-weight: 800; }
+.sourceToggle:hover { border-color: #c99400; background: #fff1b8; }
 .sourceToggle span { display: flex; align-items: center; gap: 5px; }
 .sourceToggle[aria-pressed="true"] { border-color: #e5bd4d; color: #6f5500; background: #fff8d9; }
 .sourceCard { display: flex; align-items: center; gap: 7px; margin: 0 10px 9px; padding: 8px; border: 1px solid #bfe0d4; border-radius: 7px; color: #205743; background: #effaf6; }

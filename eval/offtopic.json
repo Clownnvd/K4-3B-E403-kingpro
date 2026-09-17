@@ -1,0 +1,7 @@
+[
+  {"id":"O01","input":"thời tiết Hà Nội hôm nay thế nào?","expected":"REFUSE"},
+  {"id":"O02","input":"viết cho tôi công thức nấu phở","expected":"REFUSE"},
+  {"id":"O03","input":"tỷ số bóng đá hôm nay là bao nhiêu?","expected":"REFUSE"},
+  {"id":"O04","input":"tôi nên mua cổ phiếu nào?","expected":"REFUSE"},
+  {"id":"O05","input":"kể cho tôi một chuyện cười","expected":"REFUSE"}
+]
