@@ -8,9 +8,9 @@
 
 | Họ và Tên | Mã Học Viên | Vai trò chính | Phần việc đảm nhiệm trong dự án |
 |---|---|---|---|
-| NGUYỄN VĂN DUY | 2A202602729 | Đội trưởng · spec & integration | Điều phối nhóm, Canvas/spec, tích hợp prototype và nộp CP1–CP5 |
+| NGUYỄN VĂN DUY | 2A202602729 | Đội trưởng · backend & evaluation | Canvas/spec, LangGraph/Gemini, v0–v3, multi-turn, safety, version log, phân tích fail, tích hợp và nộp CP1–CP5 |
 | DƯƠNG THỊ NGÂN | 2A202602808 | UX & validation | Luồng trải nghiệm, working mock, usability test và evidence người dùng |
-| VŨ HUY ĐÔ | 2A202602555 | Evidence & evaluation | Khai thác bằng chứng, golden set, đo kết quả và chuẩn bị demo |
+| VŨ HUY ĐÔ | 2A202602555 | Evidence & demo | Mining bằng chứng, biên soạn golden set cơ bản, kiểm tra tái lập số liệu, video CP3, slide và demo dự phòng |
 |  |  |  |  |
 
 > Nhóm copy nguyên file README này về repo của mình, rồi điền bảng trên. Cột **Phần việc đảm nhiệm** ghi càng cụ thể càng tốt.

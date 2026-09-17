@@ -79,9 +79,9 @@ Impact đo bằng: tỷ lệ câu mơ hồ được hỏi lại **trước** khi
 
 ## §8. Phân công & kế hoạch
 
-- **Nguyễn Văn Duy:** product lead; spec; LangGraph/backend; tích hợp; nộp checkpoint.
+- **Nguyễn Văn Duy:** product lead; spec; LangGraph/Gemini; v0–v3; multi-turn và safety eval; `version_log.csv`; phân tích case fail; tích hợp; nộp checkpoint.
 - **Dương Thị Ngân:** UX VLearn; clarification card; responsive; user test và changelog.
-- **Vũ Huy Đô:** evidence; golden set; eval; video CP3 và demo dự phòng.
+- **Vũ Huy Đô:** evidence mining; biên soạn golden set cơ bản; kiểm tra tái lập số liệu; video CP3, slide và demo dự phòng.
 - **Willing users:** Lê Thị Thùy Trang — 2A202602678; Trần Thanh Thái — 2A202602454; Phan Đại Cương — 2A202607123.
 - **Validation task:** hỏi `cho tôi link`, chọn repo nhóm, mở nguồn, thử correction; ghi thời gian hoàn thành, điểm kẹt và quote nguyên văn.
 - **Multi-prototype:** loại phương án chỉ dùng ô hỏi tự do; chọn ba option + custom vì nhanh hơn và vẫn giữ quyền kiểm soát.
