@@ -1,0 +1,99 @@
+{
+  "tested_at": "2026-09-18",
+  "page": "https://vlearn.dev/course/k4p1/reader?day=D20&part=codelab-481a5b3d750f4515b86056ff6fa3ecf8-s01-doc",
+  "results": [
+    {
+      "id": "A01",
+      "input": "cho tôi link",
+      "category": "missing_target",
+      "reply": "Chào Duy, em có thể truy cập repository đề bài chính thức tại địa chỉ sau: https://github.com/VinUni-AI20k/K4-3A-Day05-06-AI-Product-Hackathon",
+      "completed": true,
+      "strict_pass": false,
+      "assessment": "Answered from an assumed interpretation before clarifying."
+    },
+    {
+      "id": "A02",
+      "input": "form đâu",
+      "category": "missing_target",
+      "reply": "Chào Duy, về việc nộp form, em hãy lưu ý rằng không có một form riêng cho từng bước nhỏ. Quy trình là nhóm sẽ dùng duy nhất mã học viên của đội trưởng để nộp cho tất cả 5 mốc checkpoint của bài lab này theo hướng dẫn chung của khóa học.\n\nNếu em đang cần tìm liên kết nộp bài hoặc các hướng dẫn cụ thể về việc đăng ký thông tin nhóm, hãy kiểm tra lại thông báo từ giảng viên trên hệ thống quản lý học tập (LMS) hoặc tệp hướng dẫn tổng quát của bài hackathon nhé.",
+      "completed": true,
+      "strict_pass": false,
+      "assessment": "Answered from an assumed interpretation before clarifying."
+    },
+    {
+      "id": "A03",
+      "input": "repo nào",
+      "category": "missing_target",
+      "reply": "Chào Duy, để thực hiện bài lab này, em cần tạo một repository mới hoàn toàn trên GitHub cá nhân của nhóm.\n\nEm tuyệt đối không được dùng tính năng Fork hoặc sao chép toàn bộ thư mục từ repository nguồn của ban tổ chức để tránh lộ dữ liệu nội bộ.\n\nThay vào đó, em hãy tạo một repository mới ở chế độ công khai (Public) với tên theo đúng định dạng: K4-3A-<phòng>-<tên nhóm>. Sau đó, em chỉ sao chép các tệp cần thiết như spec.md và README.md từ repository nguồn về repo mới này của nhóm em.",
+      "completed": true,
+      "strict_pass": false,
+      "assessment": "Answered from an assumed interpretation before clarifying."
+    },
+    {
+      "id": "A04",
+      "input": "đáp án gì",
+      "category": "missing_object",
+      "reply": "Chào Duy, bài lab này tập trung vào việc thiết kế và xây dựng sản phẩm AI theo nhóm, nên không có \"đáp án\" duy nhất cho các câu hỏi hay vấn đề. Nhiệm vụ của em ở giai đoạn này là cùng các bạn trong nhóm thống nhất track đề bài, khởi tạo repository công khai với tên gọi đúng cú pháp K4-3A-<phòng>-<tên nhóm>, và chuẩn bị các tệp tài liệu cần thiết như spec.md, README.md và TEAMMATES.md như đã hướng dẫn trong phần chuẩn bị của checkpoint 1.\n\nEm và nhóm đã gặp khó khăn ở bước nào trong việc thiết lập dự án trên GitHub chưa?",
+      "completed": true,
+      "strict_pass": false,
+      "assessment": "Answered from an assumed interpretation before clarifying."
+    },
+    {
+      "id": "A05",
+      "input": "cái này là gì",
+      "category": "vague_reference",
+      "reply": "Chào Duy, đây là phần mở đầu cho bài lab Mini Hackathon, nơi em và các bạn trong nhóm sẽ cùng nhau xây dựng một sản phẩm AI từ khâu lên ý tưởng (AI Spec) đến khi có bản mẫu (prototype) hoạt động thực tế.\n\nCụ thể, nội dung em đang xem là Checkpoint 1, tập trung vào các bước chuẩn bị ban đầu: thống nhất nhân sự, chọn track (hướng đi của dự án) và khởi tạo repository trên GitHub để làm việc nhóm.\n\nĐể bắt đầu, em và nhóm cần đọc kỹ các yêu cầu về cách đặt tên repository, các tệp cần khởi tạo (như spec.md, TEAMMATES.md) và đặc biệt lưu ý về quy định bảo mật dữ liệu khóa học trong tệp data/ ở repo nguồn nhé. Em đang gặp khó khăn ở bước nào trong các yêu cầu này?",
+      "completed": true,
+      "strict_pass": false,
+      "assessment": "Answered from an assumed interpretation before clarifying."
+    },
+    {
+      "id": "A06",
+      "input": "giải thích đoạn trên",
+      "category": "vague_reference",
+      "reply": "Chào Duy, phần em đang xem là hướng dẫn chuẩn bị ban đầu cho kỳ Mini Hackathon. Mục tiêu của giai đoạn này là thiết lập môi trường làm việc chung và đảm bảo sự thống nhất trong nhóm.\n\nDưới đây là tóm tắt các công việc em cần thực hiện:\n\nChọn bài toán (Track): Nhóm cần tham khảo thư mục tracks/ trong repository gốc để chọn 1 trong 5 track đề bài, sau đó thống nhất hướng đi cụ thể.\nKhởi tạo dự án: Tạo mới một repository công khai (Public) trên GitHub với tên theo đúng định dạng K4-3A-<phòng>-<tên nhóm>. Lưu ý không dùng tính năng Fork từ repo đề bài.\nThiết lập cấu trúc: Đẩy commit đầu tiên lên repo, sao chép file template spec.md và README.md (đã điền thông tin thành viên) vào repo của nhóm, đồng thời tạo thêm file TEAMMATES.md để ghi thông tin liên hệ.\nBảo mật dữ liệu: Đây là yêu cầu quan trọng nhất. Tuyệt đối không commit các file trong thư mục data/ từ repo gốc vào repo nộp bài của nhóm để tránh lộ dữ liệu thực tế đã ẩn danh của khóa học.\n\nEm hãy kiểm tra kỹ mục \"Tự kiểm tra điều kiện sẵn sàng\" ở cuối phần đề bài để đảm bảo nhóm đã hoàn thành đầy đủ các yêu cầu trước khi chuyển sang checkpoint tiếp theo nhé.",
+      "completed": true,
+      "strict_pass": false,
+      "assessment": "Answered from an assumed interpretation before clarifying."
+    },
+    {
+      "id": "A07",
+      "input": "nó sai ở đâu",
+      "category": "vague_reference",
+      "reply": "Chào Duy, để anh hỗ trợ em tìm lỗi nhé. Vì em chưa nói rõ em đang gặp vấn đề ở bước nào hay thông báo lỗi cụ thể ra sao, em có thể cung cấp thêm thông tin không?\n\nVí dụ, em đang gặp khó khăn ở lệnh git nào, hay tên repository của em có đang tuân thủ đúng cú pháp K4-3A-<phòng>-<tên nhóm> không? Nếu em đang nhận được thông báo lỗi từ terminal hoặc GitHub, em hãy chép nội dung đó qua đây nhé.",
+      "completed": true,
+      "strict_pass": true,
+      "assessment": "Asked for the missing referent/task before answering."
+    },
+    {
+      "id": "A08",
+      "input": "cgi",
+      "category": "acronym_or_typo",
+      "reply": "Chào Duy, để bắt đầu Mini Hackathon này, em và nhóm cần thực hiện các công việc chuẩn bị ban đầu để thiết lập môi trường làm việc.\n\nCông việc chính trong giai đoạn này bao gồm:\n\nThống nhất nhóm và chọn track: Các em cần đọc 01-challenge-brief.md và tracks/README.md trong repo đề bài để chọn 1 trong 5 track khả thi.\nKhởi tạo Repository: Tạo repo mới trên GitHub (không dùng Fork) với định dạng tên K4-3A-<phòng>-<tên nhóm>.\nThiết lập tệp cấu trúc: Sao chép 03-ai-spec-template.md (đổi tên thành spec.md) và file README.md từ repo đề bài vào repo của nhóm, đồng thời tạo tệp TEAMMATES.md để ghi thông tin thành viên.\nLưu ý bảo mật: Tuyệt đối không commit các tệp trong thư mục data/ của đề bài lên repo công khai của nhóm.\n\nEm đã thống nhất được track muốn làm với các bạn trong nhóm chưa?",
+      "completed": true,
+      "strict_pass": false,
+      "assessment": "Answered from an assumed interpretation before clarifying."
+    },
+    {
+      "id": "A09",
+      "input": "giúp tôi với",
+      "category": "missing_task",
+      "reply": "Chào Duy, mình là trợ giảng AI của buổi học này. Rất vui được đồng hành cùng em trong Mini Hackathon.\n\nEm đang ở giai đoạn đầu tiên: Chuẩn bị đội ngũ, chọn track và khởi tạo repository. Để bắt đầu, em hãy đọc kỹ các yêu cầu trong mục \"Cần chuẩn bị\" và thực hiện theo danh sách các bước từ 1 đến 4 trong phần hướng dẫn của checkpoint 1 nhé.\n\nHiện tại, nhóm của em đã thống nhất được track muốn làm và đã tạo được repository trên GitHub chưa? Em đang gặp khó khăn cụ thể ở bước nào trong quy trình này?",
+      "completed": true,
+      "strict_pass": false,
+      "assessment": "Answered from an assumed interpretation before clarifying."
+    },
+    {
+      "id": "A10",
+      "input": "câu này đúng không",
+      "category": "missing_reference",
+      "reply": "Chào Duy, em hãy gửi nội dung câu lệnh hoặc bước em đang thực hiện để mình cùng xem xét và kiểm tra nhé!",
+      "completed": true,
+      "strict_pass": true,
+      "assessment": "Asked for the missing referent/task before answering."
+    }
+  ],
+  "strict_passed": 2,
+  "strict_total": 10,
+  "strict_accuracy": 0.2
+}

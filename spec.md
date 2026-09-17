@@ -9,8 +9,8 @@
 - **Core JTBD:** Khi chưa biết phải diễn đạt câu hỏi thế nào, học viên muốn hệ thống giúp xác định đúng ý định để không nhận câu trả lời sai ngữ cảnh.
 - **Problem statement:** Tutor hiện có thể chọn một cách hiểu và trả lời trước khi biết học viên đang hỏi đối tượng nào.
 - **Evidence B — mining tái lập:** `tutor_turns.csv` có 3.097 lượt K4 nhưng chỉ 6 lượt dùng `ask_probing_question` = **0,19%**. Script: `evidence/count_tutor_failures.py`.
-- **Evidence trực tiếp:** 4/4 câu thử trên VLearn (`đáp án gì`, `cgi`, `cái này là gì`, `cho tôi link`) bị trả lời theo giả định trước khi xác nhận; `cho tôi link` trả repo 3A trong trang lớp 3B.
-- **Ví dụ kiểm chứng:** live 4 case nêu trên; chatlog `T11228` và `T11653`; biên bản `evidence/a1-live-check-2026-09-17.md`.
+- **Evidence trực tiếp:** suite live mới trên VLearn có **2/10 pass** theo tiêu chí “hỏi lại trước mọi nội dung suy đoán”; 8/10 câu bị trả lời từ một giả định. `cho tôi link` trả repo 3A trong trang lớp 3B.
+- **Ví dụ kiểm chứng:** transcript 10 case tại `evidence/vlearn-ambiguity-live-suite.json`; báo cáo `evidence/VLEARN-LIVE-AMBIGUITY-REPORT.md`; chatlog `T11228` và `T11653`.
 
 ## §2. Impact & quyết định chọn
 

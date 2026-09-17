@@ -1,0 +1,259 @@
+{
+  "method": "User Input Grid: referent × object × action × scope/version × history × spelling",
+  "pass_rule": "Tutor asks for missing information before any substantive answer or assumption.",
+  "count": 36,
+  "cases": [
+    {
+      "id": "AMB-01",
+      "category": "missing_target",
+      "input": "cho tôi link",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh cần link nào?"
+    },
+    {
+      "id": "AMB-02",
+      "category": "missing_target",
+      "input": "form đâu",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh cần form checkpoint nào?"
+    },
+    {
+      "id": "AMB-03",
+      "category": "missing_target",
+      "input": "repo nào",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh cần repo đề bài hay repo nhóm?"
+    },
+    {
+      "id": "AMB-04",
+      "category": "missing_target",
+      "input": "gửi tài liệu",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh cần tài liệu nào?"
+    },
+    {
+      "id": "AMB-05",
+      "category": "vague_reference",
+      "input": "cái này là gì",
+      "expected": "CLARIFY",
+      "expected_prompt": "“Cái này” chỉ phần nào?"
+    },
+    {
+      "id": "AMB-06",
+      "category": "vague_reference",
+      "input": "giải thích đoạn trên",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh hãy chọn hoặc dán đoạn cần giải thích."
+    },
+    {
+      "id": "AMB-07",
+      "category": "vague_reference",
+      "input": "nó sai ở đâu",
+      "expected": "CLARIFY",
+      "expected_prompt": "“Nó” là lệnh, đáp án hay file nào?"
+    },
+    {
+      "id": "AMB-08",
+      "category": "vague_reference",
+      "input": "phần kia khó hiểu",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh đang nói phần nào?"
+    },
+    {
+      "id": "AMB-09",
+      "category": "vague_reference",
+      "input": "tại sao lại thế",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh đang hỏi kết quả nào?"
+    },
+    {
+      "id": "AMB-10",
+      "category": "missing_question_id",
+      "input": "đáp án gì",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh hỏi đáp án của câu nào?"
+    },
+    {
+      "id": "AMB-11",
+      "category": "missing_question_id",
+      "input": "câu này đúng không",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh gửi nội dung câu cần kiểm tra."
+    },
+    {
+      "id": "AMB-12",
+      "category": "missing_question_id",
+      "input": "giải câu này",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh gửi số câu hoặc nội dung câu hỏi."
+    },
+    {
+      "id": "AMB-13",
+      "category": "missing_question_id",
+      "input": "chọn cái nào",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh đang chọn giữa những phương án nào?"
+    },
+    {
+      "id": "AMB-14",
+      "category": "generic_resource",
+      "input": "cho tôi source",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh cần nguồn cho claim nào?"
+    },
+    {
+      "id": "AMB-15",
+      "category": "generic_resource",
+      "input": "slide đâu",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh cần slide ngày/bài nào?"
+    },
+    {
+      "id": "AMB-16",
+      "category": "generic_resource",
+      "input": "video nào",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh cần video của phần nào?"
+    },
+    {
+      "id": "AMB-17",
+      "category": "generic_resource",
+      "input": "file mới nhất",
+      "expected": "CLARIFY",
+      "expected_prompt": "File loại gì và thuộc checkpoint nào?"
+    },
+    {
+      "id": "AMB-18",
+      "category": "acronym_or_typo",
+      "input": "cgi",
+      "expected": "CLARIFY",
+      "expected_prompt": "Đây là typo “cái gì” hay một từ viết tắt?"
+    },
+    {
+      "id": "AMB-19",
+      "category": "acronym_or_typo",
+      "input": "cp",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh hỏi checkpoint nào?"
+    },
+    {
+      "id": "AMB-20",
+      "category": "acronym_or_typo",
+      "input": "rag",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh muốn định nghĩa, kiến trúc hay bài lab RAG?"
+    },
+    {
+      "id": "AMB-21",
+      "category": "acronym_or_typo",
+      "input": "agent",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh hỏi loại agent hay agent trong project nào?"
+    },
+    {
+      "id": "AMB-22",
+      "category": "missing_action",
+      "input": "giúp tôi với",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh cần hỗ trợ việc gì?"
+    },
+    {
+      "id": "AMB-23",
+      "category": "missing_action",
+      "input": "làm thế nào",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh muốn thực hiện thao tác nào?"
+    },
+    {
+      "id": "AMB-24",
+      "category": "missing_action",
+      "input": "kiểm tra giúp",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh muốn kiểm tra file, câu trả lời hay trạng thái nào?"
+    },
+    {
+      "id": "AMB-25",
+      "category": "missing_action",
+      "input": "không chạy",
+      "expected": "CLARIFY",
+      "expected_prompt": "Thành phần nào không chạy và lỗi gì xuất hiện?"
+    },
+    {
+      "id": "AMB-26",
+      "category": "scope_or_version",
+      "input": "dùng bản nào",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh đang chọn model, prompt hay version code?"
+    },
+    {
+      "id": "AMB-27",
+      "category": "scope_or_version",
+      "input": "cái nào của lớp mình",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh hỏi repo, form hay lịch của lớp 3B?"
+    },
+    {
+      "id": "AMB-28",
+      "category": "scope_or_version",
+      "input": "hạn bao giờ",
+      "expected": "CLARIFY",
+      "expected_prompt": "Hạn checkpoint nào?"
+    },
+    {
+      "id": "AMB-29",
+      "category": "scope_or_version",
+      "input": "cái mới hay cũ",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh đang so sánh artifact nào?"
+    },
+    {
+      "id": "AMB-30",
+      "category": "history_dependent",
+      "input": "còn cái kia",
+      "expected": "CLARIFY",
+      "expected_prompt": "“Cái kia” từ lượt nào?"
+    },
+    {
+      "id": "AMB-31",
+      "category": "history_dependent",
+      "input": "làm tiếp đi",
+      "expected": "CLARIFY",
+      "expected_prompt": "Tiếp tục từ bước nào?"
+    },
+    {
+      "id": "AMB-32",
+      "category": "history_dependent",
+      "input": "đổi lại như trước",
+      "expected": "CLARIFY",
+      "expected_prompt": "Trạng thái “trước” nào cần khôi phục?"
+    },
+    {
+      "id": "AMB-33",
+      "category": "history_dependent",
+      "input": "ý thứ hai",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh đang tham chiếu danh sách nào?"
+    },
+    {
+      "id": "AMB-34",
+      "category": "multiple_intents",
+      "input": "cho link rồi nộp luôn",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh cần link trước hay muốn hướng dẫn nộp?"
+    },
+    {
+      "id": "AMB-35",
+      "category": "multiple_intents",
+      "input": "giải thích và sửa code giúp",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh muốn giải thích lỗi nào trước?"
+    },
+    {
+      "id": "AMB-36",
+      "category": "multiple_intents",
+      "input": "check form slide video",
+      "expected": "CLARIFY",
+      "expected_prompt": "Anh muốn kiểm tra artifact nào trước?"
+    }
+  ]
+}
