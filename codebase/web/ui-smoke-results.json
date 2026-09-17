@@ -1,0 +1,152 @@
+{
+  "timestamp": "2026-09-17",
+  "viewport_matrix": [
+    "1440x900",
+    "1024x768",
+    "390x844"
+  ],
+  "passed": 28,
+  "total": 28,
+  "results": [
+    {
+      "name": "case_1_opens",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "case_1_question",
+      "pass": true,
+      "detail": "cho tôi link"
+    },
+    {
+      "name": "case_1_prompt",
+      "pass": true,
+      "detail": "Anh cần link nào trong phần Mini Hackathon?"
+    },
+    {
+      "name": "case_1_resume",
+      "pass": true,
+      "detail": "thub.com/VinUni-AI20k/K4-3B-Day05-06-AI-Product-Hackathon\nKhông phải ý này\nĐã xác nhận ý định\nXem luồng LangGraph\nANSWER"
+    },
+    {
+      "name": "case_1_correction",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "case_2_opens",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "case_2_question",
+      "pass": true,
+      "detail": "đáp án gì"
+    },
+    {
+      "name": "case_2_prompt",
+      "pass": true,
+      "detail": "Anh muốn hỏi đáp án của câu nào?"
+    },
+    {
+      "name": "case_2_resume",
+      "pass": true,
+      "detail": "ng lựa chọn mà không làm hộ.\n\nCăn cứ\nNội dung bài đang mở\nKhông phải ý này\nĐã xác nhận ý định\nXem luồng LangGraph\nANSWER"
+    },
+    {
+      "name": "case_2_correction",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "case_3_opens",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "case_3_question",
+      "pass": true,
+      "detail": "cgi"
+    },
+    {
+      "name": "case_3_prompt",
+      "pass": true,
+      "detail": "“cgi” đang được dùng theo nghĩa nào?"
+    },
+    {
+      "name": "case_3_resume",
+      "pass": true,
+      "detail": " mà anh muốn hỏi nhé.\n\nCăn cứ\nNgữ cảnh bài VLearn đang mở\nKhông phải ý này\nĐã xác nhận ý định\nXem luồng LangGraph\nANSWER"
+    },
+    {
+      "name": "case_3_correction",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "case_4_opens",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "case_4_question",
+      "pass": true,
+      "detail": "cái này là gì"
+    },
+    {
+      "name": "case_4_prompt",
+      "pass": true,
+      "detail": "“Cái này” đang chỉ nội dung nào trên trang?"
+    },
+    {
+      "name": "case_4_resume",
+      "pass": true,
+      "detail": "h đúng đoạn anh vừa chọn.\n\nCăn cứ\nSelection trong bài học\nKhông phải ý này\nĐã xác nhận ý định\nXem luồng LangGraph\nANSWER"
+    },
+    {
+      "name": "case_4_correction",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "custom_visible",
+      "pass": true,
+      "detail": ""
+    },
+    {
+      "name": "custom_resume",
+      "pass": true,
+      "detail": "Trợ giảng AI\n\nĐã hiểu ý anh: Cho tôi link repo nhóm kingpro\n\nCăn cứ\nÝ định do học viên xác nhận\nKhông phải ý này\nĐã xác nhận ý định\nXem luồng LangGraph\nANSWER"
+    },
+    {
+      "name": "two_round_failure",
+      "pass": true,
+      "detail": "Mình vẫn chưa xác định được ý anh.\n\nHãy chọn một đoạn trong bài hoặc nhập tên đối tượng cụ thể.\n\nBắt đầu lại"
+    },
+    {
+      "name": "tablet_outline_hidden",
+      "pass": true,
+      "detail": "{'x': -336, 'w': 320}"
+    },
+    {
+      "name": "tablet_outline_opens",
+      "pass": true,
+      "detail": 0
+    },
+    {
+      "name": "mobile_tutor_hidden",
+      "pass": true,
+      "detail": "{'x': 409.9200134277344, 'open': False}"
+    },
+    {
+      "name": "mobile_tutor_full_height",
+      "pass": true,
+      "detail": "{'x': 0, 'y': 52, 'w': 390.3999938964844, 'h': 792, 'b': 844, 'innerH': 844, 'open': True}"
+    },
+    {
+      "name": "mobile_tutor_closes",
+      "pass": true,
+      "detail": ""
+    }
+  ]
+}

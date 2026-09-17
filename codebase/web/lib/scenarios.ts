@@ -67,9 +67,9 @@ export const scenarios: Scenario[] = [
     prompt: "“cgi” đang được dùng theo nghĩa nào?",
     reason: "Từ viết tắt có nhiều cách hiểu; Tutor không nên tự gán nghĩa theo ngữ cảnh gần nhất.",
     options: [
-      { id: "term", label: "Thuật ngữ lập trình CGI", detail: "Common Gateway Interface", answer: "CGI là chuẩn để web server chạy chương trình ngoài và trả kết quả HTTP.", source: "Khái niệm web cơ bản" },
-      { id: "typo", label: "Em gõ nhầm", detail: "Nhập lại câu muốn hỏi", answer: "Không sao, anh nhập lại câu đầy đủ giúp em nhé.", source: "Thông tin do người dùng xác nhận" },
-      { id: "course", label: "Một từ viết tắt trong bài", detail: "Chọn đoạn đang nói tới", answer: "Anh chọn đoạn trong bài để em xác định đúng từ viết tắt.", source: "Bài học đang mở" },
+      { id: "typo", label: "Em muốn hỏi “cái gì?”", detail: "Đây là lỗi gõ tắt", answer: "Anh chọn hoặc bôi đen phần trên VLearn mà anh muốn hỏi nhé.", source: "Ngữ cảnh bài VLearn đang mở" },
+      { id: "course", label: "Một từ viết tắt trong bài", detail: "Chọn đoạn đang nói tới", answer: "Anh chọn đoạn trong bài để em xác định đúng từ viết tắt.", source: "Nội dung bài VLearn đang mở" },
+      { id: "history", label: "Nội dung trong lượt chat trước", detail: "Dùng lịch sử hội thoại gần nhất", answer: "Em sẽ đối chiếu “cgi” với lượt chat trước trong cùng phiên VLearn.", source: "Lịch sử phiên Tutor hiện tại" },
     ],
   },
   {

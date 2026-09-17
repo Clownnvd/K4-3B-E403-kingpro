@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Clarify First — VLearn Tutor",
-  description: "Tutor hỏi lại trước khi trả lời câu hỏi mơ hồ.",
+  title: "VLearn Tutor — Hỏi lại khi mơ hồ",
+  description: "Bản mô phỏng cải tiến quy trình hỏi lại của Trợ giảng AI trên VLearn.",
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

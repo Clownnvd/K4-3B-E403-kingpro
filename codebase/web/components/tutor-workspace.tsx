@@ -1,67 +1,97 @@
 "use client";
 
 import {
+  ArrowLeft,
   ArrowUp,
   BookOpen,
   Check,
   ChevronDown,
+  ChevronRight,
   CircleHelp,
   FileText,
+  FlaskConical,
   GitBranch,
+  Hand,
   History,
   Link2,
   Menu,
   MessageSquareText,
-  MoreHorizontal,
   Plus,
   RotateCcw,
   ShieldCheck,
   Sparkles,
   X,
 } from "lucide-react";
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useState } from "react";
 import { scenarios, type ClarificationOption, type Scenario, type ScenarioId } from "@/lib/scenarios";
 
 type Stage = "clarify" | "loading" | "answered" | "custom" | "failed";
 
-const graphSteps = [
-  ["receive_input", "Nhận câu hỏi"],
-  ["classify_ambiguity", "Kiểm tra độ rõ"],
-  ["build_options", "Tạo cách hiểu"],
-  ["interrupt", "Chờ xác nhận"],
-  ["resume", "Tiếp tục luồng"],
-  ["answer", "Trả lời đúng ý"],
-] as const;
+const lessons = [
+  "Chuẩn bị đội ngũ, chọn track và khởi tạo repository",
+  "Khám phá bài toán, thu thập bằng chứng và chốt Canvas",
+  "Thiết kế luồng trải nghiệm và dựng bản mẫu tương tác",
+  "Xây dựng prototype AI thật và đo lường kiểm thử sơ bộ",
+  "Hoàn thiện tài liệu AI Spec và khóa ngưỡng chất lượng",
+  "Xác thực người dùng ngoài nhóm, xuất bản slide",
+];
 
-function Brand() {
+const graphSteps = ["receive_input", "classify_ambiguity", "build_options", "interrupt", "resume", "answer"];
+
+function Topbar({ openOutline, openTutor }: { openOutline: () => void; openTutor: () => void }) {
   return (
-    <div className="brand">
-      <span className="brandMark"><Sparkles size={18} /></span>
-      <span><strong>Clarify First</strong><small>VLearn Tutor</small></span>
-    </div>
+    <header className="vlearnTopbar">
+      <div className="courseIdentity">
+        <button type="button" className="topIcon" aria-label="Quay lại"><ArrowLeft size={19} /></button>
+        <button type="button" className="mobileOnly topIcon" onClick={openOutline} aria-label="Mở nội dung bài học"><Menu size={19} /></button>
+        <strong>Bài 16 · MINI HACKATHON</strong>
+      </div>
+      <div className="courseProgress"><span>2/21 bài</span><i><b /></i></div>
+      <div className="topActions">
+        <button type="button" className="askAi" onClick={openTutor}><Sparkles size={17} /> Đặt câu hỏi với AI</button>
+        <button type="button" className="requestButton"><Hand size={16} /> Gửi yêu cầu</button>
+        <span className="accountAvatar">N</span>
+      </div>
+    </header>
   );
 }
 
-function Sidebar({ open, close }: { open: boolean; close: () => void }) {
+function CourseOutline({ open, close }: { open: boolean; close: () => void }) {
   return (
-    <aside className={`sidebar ${open ? "open" : ""}`} aria-label="Điều hướng chính">
-      <div className="mobileSidebarHead"><Brand /><button className="iconBtn" onClick={close} aria-label="Đóng menu"><X size={19} /></button></div>
-      <div className="desktopBrand"><Brand /></div>
-      <button className="newChat"><Plus size={17} /> Đoạn chat mới</button>
-      <nav>
-        <button className="navItem active"><MessageSquareText size={18} /> Hội thoại</button>
-        <button className="navItem"><BookOpen size={18} /> Bài đang học</button>
-        <button className="navItem"><FileText size={18} /> Nguồn đã dùng</button>
-        <button className="navItem"><History size={18} /> Lịch sử</button>
-      </nav>
-      <section className="recent">
-        <p>GẦN ĐÂY</p>
-        <button className="recentItem selected"><strong>Mini Hackathon</strong><span>Cho tôi link · vừa xong</span></button>
-        <button className="recentItem"><strong>Prompt Engineering</strong><span>“cgi” có nghĩa gì?</span></button>
-        <button className="recentItem"><strong>RAG căn bản</strong><span>BM25 và vector search</span></button>
-      </section>
-      <div className="sidebarFoot"><ShieldCheck size={16} /><span><strong>CP2 Working Mock</strong><small>Không gọi API</small></span></div>
+    <aside className={`courseOutline ${open ? "drawerOpen" : ""}`} aria-label="Nội dung bài học">
+      <header><strong>NỘI DUNG BÀI HỌC</strong><button type="button" onClick={close} aria-label="Đóng nội dung bài học"><X size={18} /></button></header>
+      <button type="button" className="outlineGroup"><span>Slides</span><ChevronRight size={16} /></button>
+      <div className="lessonDeck">
+        <div className="deckTitle"><FlaskConical size={16} /><strong>K4-3B-D05-06-AI-PRODUCT</strong><ChevronDown size={15} /></div>
+        {lessons.map((lesson, index) => (
+          <button type="button" key={lesson} className={`lessonItem ${index === 1 ? "active" : ""}`}>
+            <span>{index + 1}</span><p>{lesson}</p>{index === 1 && <small>Đang học</small>}
+          </button>
+        ))}
+      </div>
+      <h3>Nộp bài tổng kết và quy trình thuyết trình</h3>
+      <button type="button" className="lessonItem"><span>7</span><p>Bài đọc</p></button>
+      <button type="button" className="submitItem"><FileText size={16} /><span>Nộp bài và đánh giá Lab</span></button>
+      <button type="button" className="outlineGroup videoGroup"><span>Video</span><ChevronRight size={16} /></button>
     </aside>
+  );
+}
+
+function LessonContent() {
+  return (
+    <main className="lessonContent">
+      <div className="lessonInner">
+        <div className="lessonEyebrow">CHECKPOINT 1 · KHÁM PHÁ</div>
+        <h1>Khám phá bài toán, thu thập bằng chứng và chốt Canvas</h1>
+        <p className="lessonLead">Trước khi bắt tay vào build, nhóm cần chứng minh mình đang giải quyết một vấn đề thật của người học và thu hẹp nó thành một lát cắt đủ nhỏ.</p>
+        <section className="lessonCallout"><ShieldCheck size={21} /><div><strong>Một bài toán đạt tiêu chuẩn</strong><p>Đúng một người dùng cụ thể, thực hiện một công việc cụ thể, thông qua một quyết định AI cụ thể, để tạo ra một kết quả đo đếm được.</p></div></section>
+        <section className="lessonSection"><h2>1. Tìm pain có bằng chứng</h2><p>Đọc chatlog Tutor, quan sát hành vi thật và ghi lại những lượt hệ thống trả lời sai ngữ cảnh. Không chọn vấn đề chỉ vì nghe có vẻ hay.</p><div className="evidenceRow"><span>3.097</span><p>lượt Tutor K4 đã được rà soát</p><span>0,19%</span><p>lượt dùng hành vi hỏi lại</p></div></section>
+        <section className="lessonSection"><h2>2. Chốt lát cắt một câu</h2><p>Nhóm kingpro chọn đúng một lỗi: Tutor trả lời theo suy đoán khi câu hỏi chưa đủ rõ. Tính năng mới sẽ dừng và hỏi lại trước khi tạo câu trả lời.</p><blockquote>Học viên gửi câu hỏi mơ hồ → AI nhận diện thiếu ý định → học viên chọn cách hiểu → Tutor mới tiếp tục trả lời.</blockquote></section>
+        <section className="lessonSection"><h2>3. Kiểm tra ngay trong bài học</h2><p>Mở Trợ giảng AI và thử câu “cho tôi link”. Bản cải tiến phải hỏi cần loại link nào thay vì tự chọn repo lớp 3A hoặc 3B.</p></section>
+        <div className="lessonFeedback"><button type="button" aria-label="Bài học hữu ích">👍</button><button type="button" aria-label="Bài học chưa hữu ích">👎</button><button type="button" aria-label="Báo lỗi nội dung">⚑</button></div>
+        <nav className="lessonNav"><button type="button">← Bài trước</button><button type="button" className="nextLesson">Đi tới bài tiếp theo <ChevronRight size={17} /></button></nav>
+      </div>
+    </main>
   );
 }
 
@@ -70,147 +100,79 @@ function ScenarioPicker({ value, change }: { value: ScenarioId; change: (id: Sce
   const current = scenarios.find((item) => item.id === value) ?? scenarios[0];
   return (
     <div className="scenarioPicker">
-      <button className="scenarioTrigger" onClick={() => setOpen((state) => !state)} aria-expanded={open}>
-        <span><small>CASE DEMO</small><strong>{current.label}</strong></span><ChevronDown size={17} />
+      <button type="button" className="scenarioTrigger" onClick={() => setOpen((state) => !state)} aria-expanded={open}>
+        <span><small>CASE KIỂM THỬ</small><strong>{current.label}</strong></span><ChevronDown size={15} />
       </button>
-      {open && (
-        <div className="scenarioMenu">
-          {scenarios.map((item) => (
-            <button key={item.id} className={item.id === value ? "selected" : ""} onClick={() => { change(item.id); setOpen(false); }}>
-              <strong>{item.label}</strong><small>{item.question}</small>
-            </button>
-          ))}
-        </div>
-      )}
+      {open && <div className="scenarioMenu">{scenarios.map((item) => <button type="button" key={item.id} className={item.id === value ? "selected" : ""} onClick={() => { change(item.id); setOpen(false); }}><strong>{item.label}</strong><small>{item.question}</small></button>)}</div>}
     </div>
   );
 }
 
-function ClarificationCard({ scenario, stage, choose, openCustom }: { scenario: Scenario; stage: Stage; choose: (option: ClarificationOption) => void; openCustom: () => void }) {
+function GraphTrace({ stage, rounds }: { stage: Stage; rounds: number }) {
+  const active = stage === "clarify" || stage === "custom" ? 3 : stage === "loading" ? 4 : 5;
+  return (
+    <details className="graphTrace">
+      <summary><GitBranch size={14} /> Xem luồng LangGraph <span>{stage === "answered" ? "ANSWER" : "CLARIFY"}</span></summary>
+      <div className="traceState"><span>thread_id</span><code>vl-k4-016</code><span>vòng hỏi lại</span><code>{rounds}/2</code></div>
+      <ol>{graphSteps.map((step, index) => <li key={step} className={index < active ? "done" : index === active ? "current" : ""}><i>{index < active ? <Check size={10} /> : index + 1}</i><code>{step}</code></li>)}</ol>
+    </details>
+  );
+}
+
+function ClarificationCard({ scenario, choose, openCustom, stage, rounds }: { scenario: Scenario; choose: (option: ClarificationOption) => void; openCustom: () => void; stage: Stage; rounds: number }) {
   if (stage !== "clarify") return null;
   return (
     <article className="clarifyCard">
-      <header><span className="decisionIcon"><CircleHelp size={19} /></span><div><span className="overline">CẦN LÀM RÕ · CHƯA TRẢ LỜI</span><h2>{scenario.prompt}</h2><p>{scenario.reason}</p></div></header>
-      <div className="optionList">
-        {scenario.options.map((option, index) => (
-          <button key={option.id} className="option" onClick={() => choose(option)}>
-            <span className="optionIndex">{index + 1}</span><span><strong>{option.label}</strong><small>{option.detail}</small></span><span className="optionArrow">→</span>
-          </button>
-        ))}
-        <button className="option" onClick={openCustom}><span className="optionIndex">+</span><span><strong>Khác — tự nhập</strong><small>Mô tả chính xác điều anh muốn hỏi</small></span><span className="optionArrow">→</span></button>
-      </div>
-      <footer><GitBranch size={14} /><span>Graph đang dừng tại <code>interrupt</code> và chờ xác nhận.</span></footer>
+      <header><span><CircleHelp size={18} /></span><div><small>CẦN LÀM RÕ · CHƯA TRẢ LỜI</small><h3>{scenario.prompt}</h3><p>{scenario.reason}</p></div></header>
+      <div className="clarifyOptions">{scenario.options.map((option, index) => <button type="button" key={option.id} onClick={() => choose(option)}><b>{index + 1}</b><span><strong>{option.label}</strong><small>{option.detail}</small></span><ChevronRight size={16} /></button>)}<button type="button" onClick={openCustom}><b>+</b><span><strong>Khác — tự nhập</strong><small>Mô tả chính xác điều anh muốn hỏi</small></span><ChevronRight size={16} /></button></div>
+      <GraphTrace stage={stage} rounds={rounds} />
     </article>
   );
 }
 
-function RightPanel({ stage, rounds }: { stage: Stage; rounds: number }) {
-  const activeIndex = stage === "clarify" || stage === "custom" ? 3 : stage === "loading" ? 4 : stage === "answered" ? 5 : 3;
-  const trace = useMemo(() => {
-    if (stage === "answered") return ["classify_ambiguity → CLEAR", "Command(resume) → accepted", "answer → completed"];
-    if (stage === "loading") return ["Command(resume) → received", "intent_guard → running"];
-    if (stage === "failed") return ["clarification_round → 2", "graceful_failure → stopped"];
-    return ["classify_ambiguity → AMBIGUOUS", "interrupt → waiting"];
-  }, [stage]);
-  return (
-    <aside className="rightPanel">
-      <section>
-        <div className="panelTitle"><span><GitBranch size={17} /> LangGraph state</span><span className="live"><i /> LIVE</span></div>
-        <div className="stateCard">
-          <div><span>Thread</span><strong>vl-k4-016</strong></div>
-          <div><span>Route</span><strong>{stage === "answered" ? "ANSWER" : stage === "failed" ? "STOP" : "CLARIFY"}</strong></div>
-          <div><span>Vòng hỏi lại</span><strong>{rounds}/2</strong></div>
-          <div><span>Checkpoint</span><strong>{stage === "clarify" || stage === "custom" ? "PAUSED" : "RUNNING"}</strong></div>
-        </div>
-      </section>
-      <section>
-        <h3>Luồng đang chạy</h3>
-        <ol className="graphSteps">
-          {graphSteps.map(([key, label], index) => (
-            <li key={key} className={index < activeIndex ? "done" : index === activeIndex ? "current" : ""}>
-              <span className="stepDot">{index < activeIndex ? <Check size={12} /> : index + 1}</span>
-              <span><code>{key}</code><small>{label}</small></span>
-            </li>
-          ))}
-        </ol>
-      </section>
-      <details className="trace" open>
-        <summary>Trace lượt hiện tại</summary>
-        {trace.map((item) => <div key={item}><i /> <code>{item}</code></div>)}
-      </details>
-      <section className="guardCard"><ShieldCheck size={18} /><div><strong>Guard đang bật</strong><p>Không sinh câu trả lời trước khi người dùng xác nhận ý định.</p></div></section>
-    </aside>
-  );
-}
-
-export function TutorWorkspace() {
+function TutorPanel({ open, close }: { open: boolean; close: () => void }) {
   const [scenarioId, setScenarioId] = useState<ScenarioId>("link");
   const [stage, setStage] = useState<Stage>("clarify");
   const [selected, setSelected] = useState<ClarificationOption | null>(null);
   const [customText, setCustomText] = useState("");
   const [composerText, setComposerText] = useState("");
   const [rounds, setRounds] = useState(1);
-  const [sidebarOpen, setSidebarOpen] = useState(false);
   const scenario = scenarios.find((item) => item.id === scenarioId) ?? scenarios[0];
 
-  const reset = (nextId = scenarioId) => {
-    setScenarioId(nextId); setStage("clarify"); setSelected(null); setCustomText(""); setComposerText(""); setRounds(1);
-  };
-
-  const choose = (option: ClarificationOption) => {
-    setSelected(option); setStage("loading");
-    window.setTimeout(() => setStage("answered"), 650);
-  };
-
-  const submitCustom = (event: FormEvent) => {
-    event.preventDefault();
-    if (customText.trim().length < 4) return;
-    const option: ClarificationOption = { id: "custom", label: customText.trim(), detail: "Do người dùng bổ sung", answer: `Đã hiểu: ${customText.trim()}`, source: "Ý định do người dùng xác nhận" };
-    choose(option);
-  };
-
-  const send = (event: FormEvent) => {
-    event.preventDefault();
-    if (!composerText.trim()) return;
-    setScenarioId("reference"); setStage("clarify"); setSelected(null); setRounds(1); setComposerText("");
-  };
-
-  const correct = () => {
-    setSelected(null);
-    if (rounds >= 2) setStage("failed"); else { setRounds((value) => value + 1); setStage("clarify"); }
-  };
+  const reset = (id = scenarioId) => { setScenarioId(id); setStage("clarify"); setSelected(null); setCustomText(""); setRounds(1); };
+  const choose = (option: ClarificationOption) => { setSelected(option); setStage("loading"); window.setTimeout(() => setStage("answered"), 500); };
+  const submitCustom = (event: FormEvent) => { event.preventDefault(); if (customText.trim().length < 4) return; choose({ id: "custom", label: customText.trim(), detail: "Do học viên bổ sung", answer: `Đã hiểu ý anh: ${customText.trim()}`, source: "Ý định do học viên xác nhận" }); };
+  const correct = () => { setSelected(null); if (rounds >= 2) setStage("failed"); else { setRounds((value) => value + 1); setStage("clarify"); } };
+  const send = (event: FormEvent) => { event.preventDefault(); const text = composerText.trim(); if (!text) return; const match = scenarios.find((item) => text.toLowerCase().includes(item.question)); reset(match?.id ?? "reference"); setComposerText(""); };
 
   return (
-    <div className="appShell">
-      <Sidebar open={sidebarOpen} close={() => setSidebarOpen(false)} />
-      {sidebarOpen && <button className="scrim" onClick={() => setSidebarOpen(false)} aria-label="Đóng menu" />}
-      <main className="mainArea">
-        <header className="topbar">
-          <button className="menuBtn" onClick={() => setSidebarOpen(true)} aria-label="Mở menu"><Menu size={20} /></button>
-          <div className="pageTitle"><strong>Bài 16 · Mini Hackathon</strong><span>VLearn Tutor / Hội thoại</span></div>
-          <div className="topActions"><span className="mockBadge">CP2 MOCK · NO API</span><ScenarioPicker value={scenarioId} change={reset} /><button className="iconBtn" aria-label="Tùy chọn"><MoreHorizontal size={20} /></button></div>
-        </header>
-        <div className="workspace">
-          <section className="chatColumn">
-            <div className="scopeBanner"><ShieldCheck size={17} /><p><strong>Phạm vi:</strong> Tutor hỏi lại trước khi trả lời câu chưa đủ rõ. Mọi lựa chọn hiện tại là dữ liệu mock phục vụ CP2.</p></div>
-            <div className="dateDivider"><span>Hôm nay</span></div>
-            <div className="message userMessage"><div><span>Bạn</span><p>{scenario.question}</p></div><span className="userAvatar">D</span></div>
+    <aside className={`tutorPanel ${open ? "tutorOpen" : ""}`} aria-label="Trợ giảng AI">
+      <header className="tutorHeader"><span className="aiMark"><Sparkles size={18} /></span><strong>Trợ giảng AI</strong><button type="button" className="chatNew"><Plus size={15} /> Chat mới</button><button type="button" className="panelIcon" aria-label="Lịch sử chat"><History size={17} /></button><button type="button" className="panelIcon" aria-label="Tài liệu"><BookOpen size={17} /></button><button type="button" className="panelIcon" onClick={close} aria-label="Đóng Trợ giảng AI"><X size={18} /></button></header>
+      <div className="tutorContext"><div><span>ĐANG MỞ TRÊN VLEARN</span><strong>Bài 16 · Khám phá bài toán</strong></div><span className="mockPill">MOCK CP2</span></div>
+      <ScenarioPicker value={scenarioId} change={reset} />
+      <div className="chatScroll">
+        <div className="studentBubble"><small>Bạn</small><p>{scenario.question}</p></div>
+        <ClarificationCard scenario={scenario} choose={choose} openCustom={() => setStage("custom")} stage={stage} rounds={rounds} />
+        {stage === "custom" && <article className="customCard"><button type="button" onClick={() => setStage("clarify")}>← Quay lại lựa chọn</button><h3>Anh muốn hỏi cụ thể điều gì?</h3><p>Thêm tên đối tượng hoặc loại tài liệu.</p><form onSubmit={submitCustom}><textarea aria-label="Nội dung làm rõ" autoFocus value={customText} onChange={(event) => setCustomText(event.target.value)} placeholder="Ví dụ: Link repo nhóm kingpro…" /><div><span>{customText.trim().length < 4 ? "Nhập ít nhất 4 ký tự" : "Đã đủ thông tin"}</span><button type="submit" disabled={customText.trim().length < 4}>Tiếp tục</button></div></form><GraphTrace stage={stage} rounds={rounds} /></article>}
+        {stage === "loading" && <div className="loadingCard"><i /><span><strong>Đang tiếp tục luồng…</strong><small>Kiểm tra lại ý định trước khi trả lời</small></span></div>}
+        {stage === "answered" && selected && <article className="answerCard"><header><span className="aiMark small"><Sparkles size={14} /></span><div><small>Trợ giảng AI</small><p>{selected.answer}</p></div></header><div className="sourceCard"><Link2 size={15} /><span><small>Căn cứ</small><strong>{selected.source}</strong></span></div><footer><button type="button" onClick={correct}><RotateCcw size={14} /> Không phải ý này</button><span><Check size={13} /> Đã xác nhận ý định</span></footer><GraphTrace stage={stage} rounds={rounds} /></article>}
+        {stage === "failed" && <article className="failureCard"><CircleHelp size={19} /><div><strong>Mình vẫn chưa xác định được ý anh.</strong><p>Hãy chọn một đoạn trong bài hoặc nhập tên đối tượng cụ thể.</p><button type="button" onClick={() => reset()}>Bắt đầu lại</button></div></article>}
+      </div>
+      <form className="tutorComposer" onSubmit={send}><textarea aria-label="Câu hỏi cho Trợ giảng AI" value={composerText} onChange={(event) => setComposerText(event.target.value)} placeholder="Hỏi bất cứ điều gì…" rows={1} /><button type="submit" disabled={!composerText.trim()} aria-label="Gửi"><ArrowUp size={18} /></button><span>Trợ giảng AI có thể sai — hãy đối chiếu với bài giảng.</span></form>
+    </aside>
+  );
+}
 
-            {stage === "custom" && (
-              <article className="customCard"><button type="button" className="backLink" onClick={() => setStage("clarify")}>← Quay lại các lựa chọn</button><h2>Anh muốn hỏi cụ thể điều gì?</h2><p>Thêm đối tượng, câu hỏi hoặc loại tài liệu để Tutor không phải đoán.</p><form onSubmit={submitCustom}><textarea aria-label="Nội dung làm rõ" autoFocus value={customText} onChange={(event) => setCustomText(event.target.value)} placeholder="Ví dụ: Cho tôi link repo của nhóm kingpro…" /><div><span>{customText.trim().length < 4 ? "Nhập ít nhất 4 ký tự" : "Đã đủ để tiếp tục"}</span><button type="submit" disabled={customText.trim().length < 4}>Tiếp tục</button></div></form></article>
-            )}
-            <ClarificationCard scenario={scenario} stage={stage} choose={choose} openCustom={() => setStage("custom")} />
-            {stage === "loading" && <div className="thinking"><span className="spinner" /><div><strong>Đang tiếp tục từ lựa chọn của anh…</strong><small>Kiểm tra lại ý định trước khi tạo câu trả lời</small></div></div>}
-            {stage === "answered" && selected && (
-              <article className="answerCard"><header><span className="assistantAvatar">C</span><div><span>Clarify Tutor</span><p>{selected.answer}</p></div></header><a className="sourceLink" href={`https://${selected.source}`} target="_blank" rel="noreferrer"><Link2 size={16} /><span><small>Nguồn dùng cho câu trả lời</small><strong>{selected.source}</strong></span></a><footer><button onClick={correct}><RotateCcw size={15} /> Không phải ý này</button><span><Check size={14} /> Ý định đã được xác nhận</span></footer></article>
-            )}
-            {stage === "failed" && <article className="failureCard"><CircleHelp size={20} /><div><strong>Mình vẫn chưa xác định được ý anh sau hai lần hỏi.</strong><p>Hãy chọn một đoạn trong bài hoặc nhập câu hỏi có tên đối tượng cụ thể.</p><button onClick={() => reset()}>Bắt đầu lại</button></div></article>}
-
-            <form className="composer" onSubmit={send}><textarea aria-label="Câu hỏi cho Clarify Tutor" value={composerText} onChange={(event) => setComposerText(event.target.value)} placeholder="Hỏi về bài đang mở…" rows={1} /><button type="submit" disabled={!composerText.trim()} aria-label="Gửi"><ArrowUp size={19} /></button><span>Clarify Tutor có thể sai. Hãy kiểm tra nguồn trước khi sử dụng.</span></form>
-          </section>
-          <RightPanel stage={stage} rounds={rounds} />
-        </div>
-      </main>
+export function TutorWorkspace() {
+  const [outlineOpen, setOutlineOpen] = useState(false);
+  const [tutorOpen, setTutorOpen] = useState(false);
+  const closeDrawers = () => { setOutlineOpen(false); setTutorOpen(false); };
+  return (
+    <div className="vlearnApp">
+      <Topbar openOutline={() => setOutlineOpen(true)} openTutor={() => setTutorOpen(true)} />
+      <div className="vlearnLayout"><CourseOutline open={outlineOpen} close={() => setOutlineOpen(false)} /><LessonContent /><TutorPanel open={tutorOpen} close={() => setTutorOpen(false)} /></div>
+      {(outlineOpen || tutorOpen) && <button type="button" className="drawerScrim" onClick={closeDrawers} aria-label="Đóng lớp phủ" />}
+      <button type="button" className="floatingTutor" onClick={() => setTutorOpen(true)}><MessageSquareText size={18} /> Hỏi AI</button>
     </div>
   );
 }
