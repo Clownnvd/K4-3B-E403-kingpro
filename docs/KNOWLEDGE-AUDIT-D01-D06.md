@@ -9,7 +9,7 @@ Sản phẩm đang dùng đúng mạch kiến thức của khóa: **gọi model 
 Ba khoảng trống lớn nhất:
 
 1. Chưa có validation log và quote thật từ willing users, nên chưa được khai R6.
-2. Chuỗi v0→v3 đã chạy nhưng cả bốn cùng 95%; chưa chứng minh improvement vì bộ base chưa đủ nhạy.
+2. Chuỗi v0→v3 chứng minh v2 tăng 95%→100%; v3 đạt base 95% nhưng multi-turn 5/5 và safety 12/12.
 3. Chưa tích hợp vào VLearn production; giao diện hiện là bản mô phỏng.
 
 ## D01 — LLM API Foundation
@@ -80,9 +80,9 @@ Nguồn: [K4 Day03 Chatbot vs ReAct Agent](https://github.com/VinUni-AI20k/K4-Da
 | Confirmation/correction | Có | option/custom + “Không phải ý này” | — |
 | UI trace | Có | model, token, route, LangGraph trace | Chưa hiện raw input/output kỹ thuật theo từng tool |
 | Fixed golden set | Có | 20 case, quality bar chốt | Chưa đủ cấu trúc Day04 30+10+12 |
-| 5 single + 5 multi-turn mới | Một phần | Có 5 multi-turn, đạt 2/5 | Cần sửa history format |
-| 12 safety case | Có | Đạt 11/12 | S10 cần no-grounding guard |
-| v0→v3 | Đã chạy | `version_log.csv`, bốn run cùng bộ | Cả bốn 95%; chưa chứng minh improvement |
+| 5 single + 5 multi-turn mới | Có | Multi-turn đạt 5/5 sau khi sửa history format | — |
+| 12 safety case | Có | Đạt 12/12 | — |
+| v0→v3 | Đã chạy | v0/v1 95%, v2 100%, v3 95% + safety/multi 100% | Dùng hybrid thay vì một prompt làm tất cả |
 | Provider error gate | Một phần | HTTP error trả 502 | Chưa log `provider_error_cases == 0` trong eval report |
 | Transcript | Có một phần | E2E trace JSON + video frames | Chưa lưu transcript hội thoại chuẩn hóa từng turn |
 

@@ -5,13 +5,13 @@
   "total": 20,
   "accuracy": 0.95,
   "usage": {
-    "promptTokenCount": 392,
-    "candidatesTokenCount": 669,
-    "totalTokenCount": 1061,
+    "promptTokenCount": 520,
+    "candidatesTokenCount": 647,
+    "totalTokenCount": 1167,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
-        "tokenCount": 392
+        "tokenCount": 520
       }
     ],
     "serviceTier": "standard"
@@ -25,7 +25,7 @@
       "origin": "live VLearn 17/09",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu thong tin ngu cảnh cho yêu cầu lấy link"
+      "reason": "Thieu doi tuong cu the."
     },
     {
       "id": "G02",
@@ -35,7 +35,7 @@
       "origin": "biến thể G01",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu thong tin ngu cảnh cho yêu cầu gửi link"
+      "reason": "Thieu doi tuong cu the."
     },
     {
       "id": "G03",
@@ -45,7 +45,7 @@
       "origin": "biến thể G01",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu thong tin ngu cảnh cho câu hỏi link đâu"
+      "reason": "Thieu doi tuong cu the."
     },
     {
       "id": "G04",
@@ -55,7 +55,7 @@
       "origin": "chatlog pattern",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu thong tin ngu cảnh về repo nào"
+      "reason": "Thieu doi tuong cu the."
     },
     {
       "id": "G05",
@@ -65,7 +65,7 @@
       "origin": "T11228 + live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu thong tin ngu cảnh về đáp án của câu hỏi nào"
+      "reason": "Thieu doi tuong cu the."
     },
     {
       "id": "G06",
@@ -75,7 +75,7 @@
       "origin": "biến thể G05",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu thong tin ngu cảnh về đáp án"
+      "reason": "Thieu doi tuong cu the."
     },
     {
       "id": "G07",
@@ -85,7 +85,7 @@
       "origin": "T11653 + live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Từ khóa quá ngắn, thiếu ngữ cảnh"
+      "reason": "Thieu doi tuong cu the."
     },
     {
       "id": "G08",
@@ -95,7 +95,7 @@
       "origin": "live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thiếu đại từ chỉ định hoặc ngữ cảnh đối tượng"
+      "reason": "Thieu doi tuong cu the."
     },
     {
       "id": "G09",
@@ -105,7 +105,7 @@
       "origin": "đại từ không tham chiếu",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thiếu đại từ chỉ định hoặc ngữ cảnh đối tượng"
+      "reason": "Thieu doi tuong cu the."
     },
     {
       "id": "G10",
@@ -115,7 +115,7 @@
       "origin": "đại từ không tham chiếu",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thiếu thông tin câu hỏi nào"
+      "reason": "Thieu doi tuong cu the."
     },
     {
       "id": "G11",
@@ -125,7 +125,7 @@
       "origin": "nhiều form checkpoint",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thiếu thông tin form nào"
+      "reason": "Thieu doi tuong cu the."
     },
     {
       "id": "G12",
@@ -135,7 +135,7 @@
       "origin": "thiếu tên data",
       "actual": "CLEAR",
       "pass": false,
-      "reason": "Yêu cầu rõ ràng tìm link tải dữ liệu"
+      "reason": "Yeu cau link tai du lieu la ro rang va an toan."
     },
     {
       "id": "G13",
@@ -145,7 +145,7 @@
       "origin": "đối chứng G01",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Yêu cầu rõ ràng lấy link repo nhóm kingpro"
+      "reason": "Yeu cau link repo nhom cu the va an toan."
     },
     {
       "id": "G14",
@@ -155,7 +155,7 @@
       "origin": "đối chứng G01",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Yêu cầu rõ ràng link repo đề bài lớp 3B"
+      "reason": "Yeu cau link repo de bai cu the va an toan."
     },
     {
       "id": "G15",
@@ -165,7 +165,7 @@
       "origin": "đối chứng G11",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Câu hỏi rõ ràng về vị trí form CP2"
+      "reason": "Hoi form CP2 la ro rang va an toan."
     },
     {
       "id": "G16",
@@ -175,7 +175,7 @@
       "origin": "câu thật trong sự kiện",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Câu hỏi rõ ràng về yêu cầu nộp bài cho CP3"
+      "reason": "Hoi yeu cau CP3 la ro rang va an toan."
     },
     {
       "id": "G17",
@@ -185,7 +185,7 @@
       "origin": "câu học tập rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Yêu cầu rõ ràng giải thích khái niệm LangGraph interrupt"
+      "reason": "Yeu cau giai thich ky thuat la ro rang va an toan."
     },
     {
       "id": "G18",
@@ -195,7 +195,7 @@
       "origin": "câu deadline rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Câu hỏi rõ ràng về thời gian chốt spec của CP4"
+      "reason": "Hoi deadline hoac spec CP4 la ro rang va an toan."
     },
     {
       "id": "G19",
@@ -205,7 +205,7 @@
       "origin": "câu repo rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Câu hỏi rõ ràng về sự tồn tại của file canvas.md trong repo nhóm"
+      "reason": "Kiem tra file trong repo la ro rang va an toan."
     },
     {
       "id": "G20",
@@ -215,7 +215,7 @@
       "origin": "câu deliverable rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Câu hỏi rõ ràng về định dạng nộp slide trong CP5"
+      "reason": "Hoi format nop bai CP5 la ro rang va an toan."
     }
   ]
 }

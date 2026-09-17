@@ -1,13 +1,13 @@
 {
   "version": "v2",
   "model": "gemini-3.5-flash-lite",
-  "passed": 19,
+  "passed": 20,
   "total": 20,
-  "accuracy": 0.95,
+  "accuracy": 1.0,
   "usage": {
     "promptTokenCount": 389,
-    "candidatesTokenCount": 737,
-    "totalTokenCount": 1126,
+    "candidatesTokenCount": 955,
+    "totalTokenCount": 1344,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -25,7 +25,7 @@
       "origin": "live VLearn 17/09",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu thong tin chi tiet ve lien ket duoc yeu cau."
+      "reason": "Yêu cầu 'cho tôi link' quá chung chung, thiếu ngữ cảnh."
     },
     {
       "id": "G02",
@@ -35,7 +35,7 @@
       "origin": "biến thể G01",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu thong tin cu the ve loai link can gui."
+      "reason": "Yêu cầu 'gửi link' thiếu thông tin về link nào."
     },
     {
       "id": "G03",
@@ -45,7 +45,7 @@
       "origin": "biến thể G01",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Khong ro nguoi dung dang hoi link cua tai lieu hoac nguon nao."
+      "reason": "Câu hỏi 'link đâu' không rõ đang hỏi link của tài nguyên gì."
     },
     {
       "id": "G04",
@@ -55,7 +55,7 @@
       "origin": "chatlog pattern",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu ten repository hoac ngu canh cu the."
+      "reason": "Câu hỏi 'repo nào' thiếu ngữ cảnh để biết đang nói về repo nào."
     },
     {
       "id": "G05",
@@ -65,7 +65,7 @@
       "origin": "T11228 + live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Khong ro dang hoi dap an cho bai tap hoac cau hoi nao."
+      "reason": "Câu hỏi 'đáp án gì' mơ hồ, không rõ đáp án của bài/câu hỏi nào."
     },
     {
       "id": "G06",
@@ -75,7 +75,7 @@
       "origin": "biến thể G05",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Tu khoa qua ngan va thieu ngu canh xac dinh."
+      "reason": "Từ khóa 'đáp án' đơn lẻ, không đủ thông tin."
     },
     {
       "id": "G07",
@@ -85,7 +85,7 @@
       "origin": "T11653 + live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Tu viet tat khong ro nghia trong ngu cảnh."
+      "reason": "Từ 'cgi' quá ngắn và không rõ nghĩa trong ngữ cảnh hiện tại."
     },
     {
       "id": "G08",
@@ -95,7 +95,7 @@
       "origin": "live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu dai tu chi dinh 'cái này' de biet doi tuong dang duoc nhac den."
+      "reason": "Câu hỏi 'cái này là gì' thiếu đại từ chỉ định rõ ràng hoặc ngữ cảnh bài đang mở."
     },
     {
       "id": "G09",
@@ -105,7 +105,7 @@
       "origin": "đại từ không tham chiếu",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu thong tin xac dinh 'nó' la gi."
+      "reason": "Câu hỏi 'nó là gì' thiếu chủ thể cần giải thích."
     },
     {
       "id": "G10",
@@ -115,7 +115,7 @@
       "origin": "đại từ không tham chiếu",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Khong ro 'câu này' la cau nao."
+      "reason": "Câu hỏi 'câu này sao' không rõ 'câu này' ám chỉ phần nào."
     },
     {
       "id": "G11",
@@ -125,7 +125,7 @@
       "origin": "nhiều form checkpoint",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu thong tin ve ten form hoac muc dich cua form."
+      "reason": "Yêu cầu 'form đâu' thiếu tên cụ thể của form."
     },
     {
       "id": "G12",
@@ -133,9 +133,9 @@
       "expected": "AMBIGUOUS",
       "layer": "③ ngoài phạm vi xác định",
       "origin": "thiếu tên data",
-      "actual": "CLEAR",
-      "pass": false,
-      "reason": "Yeu cau link tai du lieu du la tong quat nhung ro rang ve muc dich."
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "reason": "Yêu cầu 'cho tôi link tải dữ liệu' chưa chỉ rõ dữ liệu của bài hoặc phần nào."
     },
     {
       "id": "G13",
@@ -145,7 +145,7 @@
       "origin": "đối chứng G01",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Chi dinh ro la link repo cua nhom kingpro."
+      "reason": "Yêu cầu chỉ định rõ link repo nhóm kingpro."
     },
     {
       "id": "G14",
@@ -155,7 +155,7 @@
       "origin": "đối chứng G01",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Xac dinh ro link repo de bai lop 3B."
+      "reason": "Yêu cầu chỉ định rõ link repo đề bài lớp 3B."
     },
     {
       "id": "G15",
@@ -165,7 +165,7 @@
       "origin": "đối chứng G11",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Hoi cu the ve vi tri cua form CP2."
+      "reason": "Yêu cầu chỉ định rõ vị trí form CP2."
     },
     {
       "id": "G16",
@@ -175,7 +175,7 @@
       "origin": "câu thật trong sự kiện",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Hoi ro rang ve cac hang muc can nop trong CP3."
+      "reason": "Câu hỏi cụ thể về yêu cầu nộp bài của CP3."
     },
     {
       "id": "G17",
@@ -185,7 +185,7 @@
       "origin": "câu học tập rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Yeu cau giai thich mot chu de cu the la LangGraph interrupt."
+      "reason": "Yêu cầu giải thích rõ ràng khái niệm LangGraph interrupt."
     },
     {
       "id": "G18",
@@ -195,7 +195,7 @@
       "origin": "câu deadline rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Hoi ro thoi gian chốt spec cua CP4."
+      "reason": "Câu hỏi cụ thể về thời gian chốt spec của CP4."
     },
     {
       "id": "G19",
@@ -205,7 +205,7 @@
       "origin": "câu repo rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Cau hoi co the tra loi co hoac khong ve su ton tai cua file canvas.md trong repo nhom."
+      "reason": "Câu hỏi cụ thể về sự tồn tại của file canvas.md trong repo nhóm."
     },
     {
       "id": "G20",
@@ -215,7 +215,7 @@
       "origin": "câu deliverable rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Hoi cu the ve dinh dang yeu cau trong CP5 la slide PDF hay link Canva."
+      "reason": "Câu hỏi cụ thể về định dạng nộp trong CP5 (slide PDF hay link Canva)."
     }
   ]
 }

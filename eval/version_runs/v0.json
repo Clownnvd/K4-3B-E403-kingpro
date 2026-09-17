@@ -6,8 +6,8 @@
   "accuracy": 0.95,
   "usage": {
     "promptTokenCount": 370,
-    "candidatesTokenCount": 701,
-    "totalTokenCount": 1071,
+    "candidatesTokenCount": 884,
+    "totalTokenCount": 1254,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -25,7 +25,7 @@
       "origin": "live VLearn 17/09",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu thong tin lien quan den link gi"
+      "reason": "Thieu thong tin link ve cai gi"
     },
     {
       "id": "G02",
@@ -35,7 +35,7 @@
       "origin": "biến thể G01",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu thong tin lien quan den link gi"
+      "reason": "Thieu ngu canh link gi"
     },
     {
       "id": "G03",
@@ -45,7 +45,7 @@
       "origin": "biến thể G01",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu thong tin lien quan den link gi"
+      "reason": "Cau hoi qua mo ho, thieu doi tu"
     },
     {
       "id": "G04",
@@ -55,7 +55,7 @@
       "origin": "chatlog pattern",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu thong tin repo cua ai hoac du an nao"
+      "reason": "Khong xac dinh duoc repo cua ai hoac de nao"
     },
     {
       "id": "G05",
@@ -65,7 +65,7 @@
       "origin": "T11228 + live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu thong tin dap an cua cau hoi hoac bai tap nao"
+      "reason": "Khong ro dap an cua bai tap hoac cau hoi nao"
     },
     {
       "id": "G06",
@@ -75,7 +75,7 @@
       "origin": "biến thể G05",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu thong tin dap an cua bai nao"
+      "reason": "Tu khoa qua ngan va thieu ngu canh"
     },
     {
       "id": "G07",
@@ -85,7 +85,7 @@
       "origin": "T11653 + live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Cau hoi qua ngan va mo ho, thieu ngu canh"
+      "reason": "Tu viet tat khong ro nghia trong ngu canh"
     },
     {
       "id": "G08",
@@ -95,7 +95,7 @@
       "origin": "live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu dai tu chi dinh 'cái này' la cai gi"
+      "reason": "Thieu dai từ chi dinh 'cái này' la gi"
     },
     {
       "id": "G09",
@@ -105,7 +105,7 @@
       "origin": "đại từ không tham chiếu",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu dai tu chi dinh 'nó' la cai gi"
+      "reason": "Thieu doi tu 'nó'"
     },
     {
       "id": "G10",
@@ -115,7 +115,7 @@
       "origin": "đại từ không tham chiếu",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu thong tin 'câu này' la cau nao"
+      "reason": "Khong xac dinh duoc 'câu này' la cau nao"
     },
     {
       "id": "G11",
@@ -125,7 +125,7 @@
       "origin": "nhiều form checkpoint",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu thong tin form gi va cua muc nao"
+      "reason": "Khong biet form gi va cua muc nao"
     },
     {
       "id": "G12",
@@ -135,7 +135,7 @@
       "origin": "thiếu tên data",
       "actual": "CLEAR",
       "pass": false,
-      "reason": "Yeu cau ro rang ve viec xin link tai du lieu"
+      "reason": "Yeu cau ro rang la xin link tai du lieu"
     },
     {
       "id": "G13",
@@ -155,7 +155,7 @@
       "origin": "đối chứng G01",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Yeu cau cu the ve link repo de bai lop 3B"
+      "reason": "Yeu cau xac dinh link repo de bai lop 3B"
     },
     {
       "id": "G15",
@@ -165,7 +165,7 @@
       "origin": "đối chứng G11",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Cau hoi cu the ve vi tri form CP2"
+      "reason": "Cau hoi ro rang ve vi tri form CP2"
     },
     {
       "id": "G16",
@@ -175,7 +175,7 @@
       "origin": "câu thật trong sự kiện",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Cau hoi cu the ve yeu cau nop bai cua CP3"
+      "reason": "Cau hoi cu the ve yeu cau nop cua CP3"
     },
     {
       "id": "G17",
@@ -185,7 +185,7 @@
       "origin": "câu học tập rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Yeu cau giai thich ro rang ve tinh nang LangGraph interrupt"
+      "reason": "Yeu cau giai thich mot khai niem ky thuat cu the la LangGraph interrupt"
     },
     {
       "id": "G18",
@@ -215,7 +215,7 @@
       "origin": "câu deliverable rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Cau hoi cu the ve dinh dang nop bai slide PDF hay link Canva trong CP5"
+      "reason": "Cau hoi ro rang ve dinh dang yeu cau trong CP5"
     }
   ]
 }

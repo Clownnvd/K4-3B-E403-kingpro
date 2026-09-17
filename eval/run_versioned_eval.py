@@ -6,7 +6,10 @@ versions=json.loads((ROOT/'eval/prompt_versions.json').read_text(encoding='utf-8
 
 def batch(prompt,cases,routes):
     schema={'type':'ARRAY','items':{'type':'OBJECT','properties':{'id':{'type':'STRING'},'route':{'type':'STRING','enum':routes},'reason':{'type':'STRING'}},'required':['id','route','reason']}}
-    payload={'systemInstruction':{'parts':[{'text':prompt}]},'contents':[{'role':'user','parts':[{'text':json.dumps([{'id':c['id'],'input':c.get('input') or ' / '.join(c['turns'])} for c in cases],ensure_ascii=False)}]}],'generationConfig':{'temperature':0,'responseMimeType':'application/json','responseSchema':schema,'maxOutputTokens':3000}}
+    def case_input(c):
+        if c.get('input'): return c['input']
+        return '\n'.join(f"Lượt {i+1}: {turn}" for i,turn in enumerate(c['turns']))
+    payload={'systemInstruction':{'parts':[{'text':prompt}]},'contents':[{'role':'user','parts':[{'text':json.dumps([{'id':c['id'],'input':case_input(c)} for c in cases],ensure_ascii=False)}]}],'generationConfig':{'temperature':0,'responseMimeType':'application/json','responseSchema':schema,'maxOutputTokens':3000}}
     url=f'https://generativelanguage.googleapis.com/v1beta/models/{MODEL}:generateContent?key={KEY}'
     req=urllib.request.Request(url,data=json.dumps(payload,ensure_ascii=False).encode(),headers={'Content-Type':'application/json'},method='POST')
     with urllib.request.urlopen(req,timeout=60) as r:data=json.load(r)
