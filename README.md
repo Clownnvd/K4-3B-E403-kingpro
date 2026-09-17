@@ -4,7 +4,7 @@
 
 ## 👥 Thành viên nhóm & Phân công vai trò
 
-**Lớp:** 3B · **Phòng:** E403 · **Cụm:** Chờ BTC phân cụm · **Track:** Chưa chốt · **Đề:** Chưa chốt
+**Lớp:** 3B · **Phòng:** E403 · **Cụm:** Chờ BTC phân cụm · **Track:** A · **Đề:** A1 — Tối ưu VLearn Tutor có căn cứ
 
 | Họ và Tên | Mã Học Viên | Vai trò chính | Phần việc đảm nhiệm trong dự án |
 |---|---|---|---|
