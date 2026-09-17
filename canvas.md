@@ -17,7 +17,7 @@ Khi hỏi về phần đang học, học viên có thể nhận câu trả lời
 ## 4. Một đến hai bằng chứng đầu
 
 1. Trong `tutor_turns.csv`, lọc `cohort_hint = K4`, `is_preset = False`: có **838/2.555 = 32,8%** lượt Tutor trả lời không citation. Cách đếm: đếm dòng có `has_citation = False`. Ví dụ: `T10506` tóm tắt lab không nguồn và bị downvote; `T10345` khẳng định nội dung `REPORT_TEMPLATE.md` khi context không có file; `T11499` tóm tắt hàng loạt slide nhưng `has_citation=False`.
-2. Trên toàn bộ 3.097 lượt K4, Tutor chỉ dùng `ask_probing_question` **6 lần = 0,19%**. Ví dụ: `T11228`, người dùng chỉ hỏi “đáp án gì” nhưng Tutor tự suy ra câu top-p và trả lời; `T11653`, input chỉ có “cgi” nhưng Tutor tự gán thành ODD rồi giải thích dài.
+2. Trên toàn bộ 3.097 lượt K4, Tutor chỉ dùng `ask_probing_question` **6 lần = 0,19%**. Ví dụ: `T11228`, người dùng chỉ hỏi “đáp án gì” nhưng Tutor tự suy ra câu top-p và trả lời; `T11653`, input chỉ có “cgi” nhưng Tutor tự gán thành ODD rồi giải thích dài. Phương pháp và kết quả tái lập nằm trong `evidence/count_tutor_failures.py` và `evidence/a1-mining-results.json`.
 
 ## 5. Lát cắt MỘT CÂU
 

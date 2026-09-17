@@ -1,0 +1,117 @@
+{
+  "source": {
+    "file": "tutor_turns.csv",
+    "snapshot_from_data_dictionary": "2026-09-15",
+    "scope": "cohort_hint=K4"
+  },
+  "method": {
+    "free_text_filter": "is_preset=False",
+    "missing_citation_filter": "has_citation=False",
+    "probing_filter": "move_used=ask_probing_question"
+  },
+  "metrics": {
+    "k4_turns": 3097,
+    "k4_free_text_turns": 2555,
+    "k4_free_text_without_citation": 838,
+    "k4_free_text_without_citation_rate": 0.328,
+    "k4_probing_turns": 6,
+    "k4_probing_rate": 0.0019,
+    "k4_reply_length_median": 995,
+    "k4_rated_turns": 12,
+    "k4_up_ratings": 9,
+    "k4_down_ratings": 3
+  },
+  "example_turns": [
+    {
+      "turn_id": "T10506",
+      "lecture_code": "D01",
+      "has_citation": false,
+      "move_used": "review_concept",
+      "rating": "down"
+    },
+    {
+      "turn_id": "T12701",
+      "lecture_code": "D08",
+      "has_citation": true,
+      "move_used": "review_concept",
+      "rating": "down"
+    },
+    {
+      "turn_id": "T13263",
+      "lecture_code": "D09",
+      "has_citation": true,
+      "move_used": "give_direct_answer",
+      "rating": "down"
+    },
+    {
+      "turn_id": "T10345",
+      "lecture_code": "D01",
+      "has_citation": false,
+      "move_used": "",
+      "rating": null
+    },
+    {
+      "turn_id": "T10604",
+      "lecture_code": "D01",
+      "has_citation": false,
+      "move_used": "",
+      "rating": null
+    },
+    {
+      "turn_id": "T10639",
+      "lecture_code": "D01",
+      "has_citation": false,
+      "move_used": "",
+      "rating": null
+    },
+    {
+      "turn_id": "T11100",
+      "lecture_code": "D01",
+      "has_citation": false,
+      "move_used": "",
+      "rating": null
+    },
+    {
+      "turn_id": "T11228",
+      "lecture_code": "D01",
+      "has_citation": false,
+      "move_used": "give_direct_answer",
+      "rating": null
+    },
+    {
+      "turn_id": "T11574",
+      "lecture_code": "D01",
+      "has_citation": false,
+      "move_used": "",
+      "rating": null
+    },
+    {
+      "turn_id": "T11578",
+      "lecture_code": "D01",
+      "has_citation": false,
+      "move_used": "",
+      "rating": null
+    },
+    {
+      "turn_id": "T11582",
+      "lecture_code": "D01",
+      "has_citation": false,
+      "move_used": "",
+      "rating": null
+    },
+    {
+      "turn_id": "T11653",
+      "lecture_code": "D03",
+      "has_citation": false,
+      "move_used": "review_concept",
+      "rating": null
+    },
+    {
+      "turn_id": "T11499",
+      "lecture_code": "D04",
+      "has_citation": false,
+      "move_used": "review_concept",
+      "rating": null
+    }
+  ]
+}
