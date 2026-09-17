@@ -66,7 +66,7 @@ textbox(s, .6, 5.85, 7.0, .55, "Gemini 3.5 Flash Lite · LangGraph interrupt/res
 
 # 2
 s = base("Pain có bằng chứng, không phải cảm giác", "Evidence", 2)
-stats = [("3.097", "lượt Tutor K4"), ("6", "lượt hỏi probing"), ("0,19%", "tỷ lệ hỏi lại"), ("4/4", "case live trả lời theo giả định")]
+stats = [("3.097", "lượt Tutor K4"), ("6", "lượt hỏi probing"), ("2/10", "case live hỏi lại đúng"), ("8/10", "case live trả lời theo giả định")]
 for i, (value, label) in enumerate(stats):
     x = .6 + i * 3.15
     rect(s, x, 1.55, 2.75, 1.55, PALE, RGBColor(195, 218, 235), True)
@@ -74,7 +74,7 @@ for i, (value, label) in enumerate(stats):
     textbox(s, x+.18, 2.45, 2.4, .35, label, 11, MUTED, False, PP_ALIGN.CENTER)
 textbox(s, .65, 3.55, 12.0, .45, "Lỗi live có thể kiểm chứng", 18, BLUE, True)
 rect(s, .65, 4.1, 12.0, 1.45, RGBColor(255, 248, 229), RGBColor(238, 196, 84), True)
-textbox(s, .95, 4.38, 11.4, .85, "Trên trang lớp 3B, câu “cho tôi link” được Tutor hiểu theo một giả định và trả link repo lớp 3A. Học viên phải tự phát hiện và hỏi lại.", 18, INK)
+textbox(s, .95, 4.30, 11.4, 1.0, "Fail: “cho tôi link” · “form đâu” · “repo nào” · “đáp án gì” · “cái này là gì” · “giải thích đoạn trên” · “cgi” · “giúp tôi với”. Riêng “cho tôi link” trả nhầm repo lớp 3A trên trang 3B.", 16, INK)
 textbox(s, .65, 5.9, 12, .5, "Nguồn: tutor_turns.csv + kiểm thử VLearn 17/09 · phương pháp tái lập nằm trong evidence/", 12, MUTED)
 
 # 3
