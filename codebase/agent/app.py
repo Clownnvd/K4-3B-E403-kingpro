@@ -18,7 +18,7 @@ from langgraph.checkpoint.sqlite import SqliteSaver
 from langgraph.graph import END, START, StateGraph
 from langgraph.types import Command, interrupt
 from pydantic import BaseModel, Field
-from retrieval import retrieve_options
+from retrieval import retrieve_chunks, retrieve_options
 
 MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
 ARTIFACTS = Path(__file__).resolve().parents[2] / "artifacts"
@@ -105,6 +105,17 @@ Không trả lời nội dung, chỉ phân loại."""
     usage = data.get("usageMetadata", {})
     return decision, {"input_tokens": int(usage.get("promptTokenCount", 0)), "output_tokens": int(usage.get("candidatesTokenCount", 0)), "total_tokens": int(usage.get("totalTokenCount", 0))}
 
+def answer_with_gemini(question: str, chunks: list[dict[str, str]]) -> tuple[str, dict[str, int]]:
+    api_key = os.getenv("GEMINI_API_KEY")
+    if not api_key: raise RuntimeError("GEMINI_API_KEY is not configured")
+    context = "\n\n".join(f"[{c['source_id']}] {c['title']}: {c['text']}" for c in chunks)
+    payload = {"systemInstruction":{"parts":[{"text":"Bạn là Trợ giảng AI VLearn. Chỉ trả lời từ SOURCES. Nếu nguồn chưa đủ, nói chưa đủ căn cứ. Trả lời tiếng Việt ngắn gọn, hữu ích; cuối câu ghi source_id trong ngoặc vuông."}]},"contents":[{"role":"user","parts":[{"text":f"SOURCES:\n{context}\n\nQUESTION: {question}"}]}],"generationConfig":{"temperature":0.1,"maxOutputTokens":350}}
+    url=f"https://generativelanguage.googleapis.com/v1beta/models/{urllib.parse.quote(MODEL,safe='')}:generateContent?key={urllib.parse.quote(api_key,safe='')}"
+    req=urllib.request.Request(url,data=json.dumps(payload,ensure_ascii=False).encode(),headers={"Content-Type":"application/json"},method="POST")
+    with urllib.request.urlopen(req,timeout=30) as response:data=json.load(response)
+    text=data["candidates"][0]["content"]["parts"][0]["text"];usage=data.get("usageMetadata",{})
+    return text,{"input_tokens":int(usage.get("promptTokenCount",0)),"output_tokens":int(usage.get("candidatesTokenCount",0)),"total_tokens":int(usage.get("totalTokenCount",0))}
+
 
 def classify_ambiguity(state: TutorState) -> TutorState:
     decision, usage = classify_with_gemini(state["question"], state["lesson_title"])
@@ -158,10 +169,13 @@ def answer_confirmed_intent(state: TutorState) -> TutorState:
 
 
 def answer_clear(state: TutorState) -> TutorState:
+    chunks = retrieve_chunks(state["question"])
+    answer, usage = answer_with_gemini(state["question"], chunks)
     return {
-        "answer": "Câu hỏi đã đủ rõ để chuyển sang bước truy xuất nội dung VLearn.",
-        "source": state["lesson_title"],
-        "trace": [*state.get("trace", []), "answer_clear"],
+        "answer": answer,
+        "source": chunks[0].get("url") or chunks[0]["source_id"],
+        "usage": usage,
+        "trace": [*state.get("trace", []), "retrieve_vlearn_sources", "generate_grounded_answer"],
     }
 
 

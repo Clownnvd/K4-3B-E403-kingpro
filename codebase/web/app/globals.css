@@ -104,6 +104,8 @@ blockquote { margin: 16px 0 0; padding: 15px 17px; border-left: 4px solid var(--
 .mockPill { flex: none; padding: 4px 7px; border: 1px solid #e8cf89; border-radius: 99px; color: #775000; background: #fff8df; font-size: 8px; font-weight: 800; }
 .runtimeControls { display: flex; flex: none; align-items: center; gap: 5px; }
 .realPill { padding: 4px 7px; border: 1px solid #89d4bc; border-radius: 99px; color: #096346; background: #eaf9f3; font-size: 8px; font-weight: 850; }
+.readyPill { display: flex !important; align-items: center; gap: 5px; flex: none; padding: 5px 8px; border: 1px solid #a8d9ca; border-radius: 99px; color: #096346; background: #effaf6; font-size: 8px; font-weight: 800; }
+.readyPill i { width: 6px; height: 6px; border-radius: 50%; background: #11a579; box-shadow: 0 0 0 3px rgba(17,165,121,.12); }
 .runRealButton { min-width: 104px; height: 30px; display: flex; align-items: center; justify-content: center; gap: 5px; padding: 0 10px; border: 1px solid var(--blue); border-radius: 7px; color: white; background: var(--blue); box-shadow: 0 4px 12px rgba(13,92,166,.2); cursor: pointer; font-size: 9px; font-weight: 800; }
 .runRealButton:hover:not(:disabled) { background: #084b89; transform: translateY(-1px); }
 .runRealButton:disabled { cursor: wait; opacity: .5; }
@@ -120,6 +122,18 @@ blockquote { margin: 16px 0 0; padding: 15px 17px; border-left: 4px solid var(--
 .scenarioMenu strong { font-size: 10px; }
 .scenarioMenu small { margin-top: 2px; color: var(--muted); font-size: 9px; }
 .chatScroll { flex: 1; min-height: 0; overflow: auto; padding: 12px 10px 116px; }
+.chatWelcome { display: grid; justify-items: center; max-width: 310px; margin: 70px auto 0; text-align: center; }
+.chatWelcome h3 { margin: 12px 0 5px; font-size: 16px; }
+.chatWelcome > p { margin: 0; color: var(--muted); font-size: 10px; line-height: 1.6; }
+.quickPrompts { width: 100%; display: grid; gap: 7px; margin-top: 16px; }
+.quickPrompts button { min-height: 38px; padding: 0 11px; border: 1px solid #c9d8e5; border-radius: 8px; color: #315b7e; background: white; cursor: pointer; font-size: 10px; font-weight: 700; text-align: left; }
+.quickPrompts button:hover { border-color: var(--blue); background: #f2f8fd; }
+.historyMessage { max-width: 88%; margin-bottom: 10px; padding: 9px 10px; border-radius: 10px; }
+.historyMessage.user { width: fit-content; margin-left: auto; color: white; background: #203040; }
+.historyMessage.assistant { border: 1px solid var(--line); background: white; }
+.historyMessage small { color: inherit; opacity: .72; font-size: 8px; }
+.historyMessage p { margin: 3px 0 0; font-size: 10px; line-height: 1.55; }
+.historyMessage a { display: block; margin-top: 5px; color: var(--blue); font-size: 9px; overflow-wrap: anywhere; }
 .studentBubble { width: fit-content; max-width: 82%; margin: 0 0 10px auto; padding: 8px 10px; border-radius: 12px 4px 12px 12px; color: white; background: #203040; }
 .studentBubble small { color: #cbd5e1; font-size: 8px; }
 .studentBubble p { margin: 2px 0 0; font-size: 11px; }
