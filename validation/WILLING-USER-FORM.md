@@ -93,5 +93,5 @@
 - [ ] Gửi link form và giao task cho Trần Thanh Thái và Phan Đại Cương.
 - [ ] Trực tiếp quan sát, ghi chép thời gian, chỗ dừng >5 giây và quote nguyên văn vào `validation/DO-RAW-NOTES.md`.
 - [ ] Cập nhật kết quả vào `validation/README.md` sau khi có phản hồi thật (tuyệt đối không điền quote giả trước).
-- [ ] Đối soát số liệu CP3 và thời lượng video vào `validation/DO-MISMATCH-REPORT.md`.
+- [x] Đối soát số liệu CP3 và thời lượng video vào `validation/DO-MISMATCH-REPORT.md`.
 - [ ] Báo cáo kết quả và gửi diff/hash commit cho Duy duyệt.

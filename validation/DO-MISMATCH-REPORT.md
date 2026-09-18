@@ -47,12 +47,12 @@ Kết quả gốc từ file chuẩn: `eval/cp3-results.json` (Lượt chạy ch�
 
 Dưới đây là các điểm không hoàn toàn trùng khớp giữa các tài liệu trong repo cần lưu ý cho nhóm và anh Duy duyệt, không tự ý sửa:
 
-### Mismatch 1: Tên file và kịch bản video CP3 giữa `artifacts/` và `evidence/`
+### Mismatch 1 đã xử lý khi review: Tên file và kịch bản video CP3 giữa `artifacts/` và `evidence/`
 - **Hiện trạng:**
-  - `CP3-SUBMISSION.md` trỏ tới: `artifacts/cp3-demo-30s.mp4`. Video này dựng từ chuỗi slide/ảnh E2E (`artifacts/video_frames/`) với kịch bản test case `cho tôi link`.
-  - `evidence/CP3-VIDEO.md` trỏ tới: `evidence/video/CP3-30s-ambiguity-end-to-end.mp4`. Video này quay thao tác trực tiếp trên màn hình với kịch bản test case `phần kia nghĩa là sao`.
+  - Trước review, `CP3-SUBMISSION.md` còn trỏ tới `artifacts/cp3-demo-30s.mp4`, bản dựng từ chuỗi slide/ảnh với case `cho tôi link`.
+  - Google Form CP3 thực tế đã nộp `evidence/video/CP3-30s-ambiguity-end-to-end.mp4`, bản quay thao tác với case `phần kia nghĩa là sao`.
 - **Đánh giá:** Cả hai video đều có thời lượng 30.0s và đều hợp lệ về mặt kỹ thuật, nhưng minh họa hai câu hỏi mơ hồ khác nhau (`cho tôi link` vs `phần kia nghĩa là sao`).
-- **Khuyến nghị:** Giữ nguyên cả hai file; khi trình bày hoặc nộp bài, nêu rõ `artifacts/cp3-demo-30s.mp4` là bản nộp chính thức của CP3/CP5 theo root, còn `evidence/video/` là bản evidence quay live bổ sung cho case A11.
+- **Xử lý sau review:** `CP3-SUBMISSION.md` đã được sửa để chỉ rõ file trong `evidence/video/` là bản đã nộp; file trong `artifacts/` được giữ làm bản legacy/dự phòng.
 
 ### Mismatch 2: Số liệu mẫu Probing của VLearn Live
 - **Hiện trạng:**
