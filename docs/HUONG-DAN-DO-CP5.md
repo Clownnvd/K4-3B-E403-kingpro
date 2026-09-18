@@ -13,6 +13,8 @@
 
 Repo: <https://github.com/Clownnvd/K4-3B-E403-kingpro>
 
+Prototype để gửi willing users: <https://vlearn-clarify-first-kingpro.vercel.app>
+
 ## Bước 2 — Clone một bản mới để không conflict
 
 Mở terminal tại thư mục làm việc riêng rồi chạy:

@@ -2,6 +2,8 @@
 
 **SPEC → Prototype → Demo.** Đây không phải cuộc thi code — đây là cuộc thi **tư duy sản phẩm AI**.
 
+**Prototype public cho willing users:** <https://vlearn-clarify-first-kingpro.vercel.app>
+
 ## 👥 Thành viên nhóm & Phân công vai trò
 
 **Lớp:** 3B · **Phòng:** E403 · **Cụm:** Chờ BTC phân cụm · **Track:** A · **Đề:** A1 — Tutor hỏi lại trước câu mơ hồ
