@@ -1,0 +1,4 @@
+{
+  "input": "Ngưỡng này là bao nhiêu?",
+  "reply": "Chào Duy,\n\nNgưỡng chất lượng (Quality Bar) không phải là một con số cố định được quy định chung cho mọi dự án, mà là cam kết bằng con số định lượng cụ thể mà chính nhóm em tự thiết lập để xác định điều kiện sản phẩm đạt yêu cầu khi vận hành thực tế.\n\nVí dụ trong đề bài có gợi ý một cách đặt ngưỡng: \"Đạt khi trên 80% trường hợp trả về đúng dữ liệu gốc và 100% trường hợp ngoài phạm vi bị từ chối an toàn\".\n\nNhiệm vụ của nhóm em tại checkpoint này là phải tự định nghĩa công thức này dựa trên tính năng cụ thể mà nhóm đang xây dựng và ghi nhận nó vào mục §7 trong tệp spec.md."
+}
