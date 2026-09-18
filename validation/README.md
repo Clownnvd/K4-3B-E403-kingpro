@@ -8,6 +8,21 @@ Không điền quote giả. Người test tự thao tác; người quan sát ch�
 | Đô | Trần Thanh Thái — 2A202602454 | Hỏi `đáp án gì` → dùng custom input → correction | Chờ test | Chờ test | Chờ test |
 | Đô | Phan Đại Cương — 2A202607123 | Dùng trên mobile → mở Tutor → kiểm tra source highlight | Chờ test | Chờ test | Chờ test |
 
+## Technical UX validation — Ngân — 18/09/2026
+
+Phần này là kiểm tra kỹ thuật, **không thay thế willing-user test và không tạo quote giả**.
+
+| Hạng mục | Trước review | Sau review | Kết quả |
+|---|---|---|---|
+| Mở nguồn trên mobile | Block lesson được highlight nhưng Tutor vẫn che nội dung | Tutor đóng, lesson cuộn tới nguồn và focus vào block | Pass |
+| Drawer bằng bàn phím | Nội dung off-screen còn trong tab order; chưa có focus trap/restore | `inert` khi đóng; focus trap, `Escape`, restore focus khi mở/đóng | Pass |
+| Clarification | Dữ liệu tĩnh có 3 option nhưng runtime chưa bị giới hạn ở UI | Tối đa 3 option + custom được chốt tại render | Pass |
+| Scenario picker | Thiếu semantics listbox và xử lý `Escape` riêng | Có `aria-controls`, `listbox/option`; `Escape` đóng menu trước drawer | Pass |
+| Correction/failure | Có luồng correction | Correction lần hai đi tới safe failure | Pass |
+| Responsive | Không overflow ở bộ ảnh cũ | Đo lại 1536/1024/390, không overflow ngang | Pass |
+
+Kết quả tự động: **15/15** kiểm tra UX đạt. Bước còn phụ thuộc người thật là buổi test với Trang ở bảng trên; chỉ cập nhật quan sát và quote sau khi Trang trực tiếp thao tác.
+
 ## Script 10 phút
 
 1. Không giải thích trước tính năng; chỉ giao task.

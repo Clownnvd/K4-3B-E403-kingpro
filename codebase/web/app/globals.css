@@ -81,6 +81,7 @@ blockquote { margin: 16px 0 0; padding: 15px 17px; border-left: 4px solid var(--
 .groundingSource p { margin: 9px 0 5px; color: #536171; font-size: 11px; }
 .groundingSource a { color: var(--blue); font-size: 11px; font-weight: 700; overflow-wrap: anywhere; }
 .groundingSource.highlighted { border-color: #e9b949; background: #fff8d9; box-shadow: 0 0 0 4px rgba(233,185,73,.18); animation: sourcePulse .7s ease-out; }
+.groundingSource:focus-visible { outline: 3px solid rgba(13,92,166,.28); outline-offset: 4px; }
 @keyframes sourcePulse { 0% { transform: scale(.99); } 100% { transform: scale(1); } }
 .lessonFeedback { display: flex; gap: 8px; margin-top: 30px; padding: 16px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .lessonFeedback button { width: 34px; height: 34px; border: 0; border-radius: 8px; background: transparent; cursor: pointer; }
@@ -207,6 +208,7 @@ code { padding: 1px 4px; border-radius: 4px; color: #08745b; background: #edf8f5
   .mobileOnly { display: grid; }
   .vlearnLayout { grid-template-columns: minmax(0,1fr) 410px; }
   .courseOutline { position: fixed; top: 52px; bottom: 0; left: 0; z-index: 40; width: 320px; height: auto; transform: translateX(-105%); transition: transform .2s ease; box-shadow: 14px 0 40px rgba(21,49,79,.16); }
+  .courseOutline[aria-hidden="true"] { visibility: hidden; }
   .courseOutline.drawerOpen { transform: translateX(0) !important; }
   .drawerScrim { position: fixed; inset: 52px 0 0; z-index: 35; display: block; border: 0; background: rgba(15,23,42,.32); }
 }
@@ -216,6 +218,7 @@ code { padding: 1px 4px; border-radius: 4px; color: #08745b; background: #edf8f5
   .requestButton { display: none; }
   .vlearnLayout { display: block; }
   .tutorPanel { position: fixed; top: 52px; right: 0; bottom: 0; z-index: 40; width: min(430px,100vw); height: auto; margin: 0; border-radius: 0; transform: translateX(105%); transition: transform .2s ease; }
+  .tutorPanel[aria-hidden="true"] { visibility: hidden; }
   .tutorPanel.tutorOpen { transform: translateX(0) !important; }
   .floatingTutor { position: fixed; right: 16px; bottom: 16px; z-index: 30; height: 42px; display: flex; align-items: center; gap: 7px; padding: 0 14px; border: 0; border-radius: 99px; color: white; background: var(--blue); box-shadow: 0 10px 30px rgba(13,92,166,.3); cursor: pointer; font-size: 11px; font-weight: 750; }
 }
@@ -236,7 +239,14 @@ code { padding: 1px 4px; border-radius: 4px; color: #08745b; background: #edf8f5
   .lessonNav button { flex: 1; padding-inline: 9px; font-size: 10px; }
   .courseOutline { width: min(330px,92vw); }
   .tutorPanel { right: 0; left: 0; width: auto; height: calc(100dvh - 52px) !important; }
-  .chatNew { font-size: 0; }
+  .tutorHeader { gap: 4px; padding-inline: 9px; }
+  .chatNew { width: 38px; justify-content: center; padding: 0; font-size: 0; }
+  .chatNew, .panelIcon { min-width: 38px; height: 38px; }
+  .tutorContext { align-items: flex-start; padding-inline: 10px; }
+  .tutorContext > div:first-child { min-width: 0; }
+  .runtimeControls { align-items: flex-end; }
+  .sourceToggle { min-height: 44px; }
+  .customCard form button, .failureCard button { min-height: 40px; }
   .scenarioPicker { margin-top: 6px; }
 }
 
