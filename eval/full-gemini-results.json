@@ -1,0 +1,351 @@
+{
+  "run": "full-gemini-classifier-v2",
+  "tested_at": "2026-09-18T16:59:49.207857+00:00",
+  "correct": 20,
+  "total": 20,
+  "accuracy": 1.0,
+  "gemini_classifications": 20,
+  "fallback_classifications": 0,
+  "results": [
+    {
+      "id": "G01",
+      "input": "cho tôi link",
+      "expected": "AMBIGUOUS",
+      "predicted": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 321,
+      "latency_ms": 982,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ],
+      "error": null
+    },
+    {
+      "id": "G02",
+      "input": "gửi link",
+      "expected": "AMBIGUOUS",
+      "predicted": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 313,
+      "latency_ms": 967,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ],
+      "error": null
+    },
+    {
+      "id": "G03",
+      "input": "link đâu",
+      "expected": "AMBIGUOUS",
+      "predicted": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 317,
+      "latency_ms": 1231,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ],
+      "error": null
+    },
+    {
+      "id": "G04",
+      "input": "repo nào",
+      "expected": "AMBIGUOUS",
+      "predicted": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 321,
+      "latency_ms": 1227,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ],
+      "error": null
+    },
+    {
+      "id": "G05",
+      "input": "đáp án gì",
+      "expected": "AMBIGUOUS",
+      "predicted": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 328,
+      "latency_ms": 962,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ],
+      "error": null
+    },
+    {
+      "id": "G06",
+      "input": "đáp án",
+      "expected": "AMBIGUOUS",
+      "predicted": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 313,
+      "latency_ms": 1039,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ],
+      "error": null
+    },
+    {
+      "id": "G07",
+      "input": "cgi",
+      "expected": "AMBIGUOUS",
+      "predicted": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 314,
+      "latency_ms": 1181,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ],
+      "error": null
+    },
+    {
+      "id": "G08",
+      "input": "cái này là gì",
+      "expected": "AMBIGUOUS",
+      "predicted": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 329,
+      "latency_ms": 1072,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ],
+      "error": null
+    },
+    {
+      "id": "G09",
+      "input": "nó là gì",
+      "expected": "AMBIGUOUS",
+      "predicted": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 322,
+      "latency_ms": 981,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ],
+      "error": null
+    },
+    {
+      "id": "G10",
+      "input": "câu này sao",
+      "expected": "AMBIGUOUS",
+      "predicted": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 320,
+      "latency_ms": 1048,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ],
+      "error": null
+    },
+    {
+      "id": "G11",
+      "input": "form đâu",
+      "expected": "AMBIGUOUS",
+      "predicted": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 342,
+      "latency_ms": 1147,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ],
+      "error": null
+    },
+    {
+      "id": "G12",
+      "input": "cho tôi link tải dữ liệu",
+      "expected": "AMBIGUOUS",
+      "predicted": "AMBIGUOUS",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 317,
+      "latency_ms": 1073,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ],
+      "error": null
+    },
+    {
+      "id": "G13",
+      "input": "cho tôi link repo nhóm kingpro",
+      "expected": "CLEAR",
+      "predicted": "CLEAR",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 194,
+      "latency_ms": 1930,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:CLEAR",
+        "retrieve_vlearn_sources",
+        "generate_grounded_answer"
+      ],
+      "error": null
+    },
+    {
+      "id": "G14",
+      "input": "link repo đề bài lớp 3B",
+      "expected": "CLEAR",
+      "predicted": "CLEAR",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 247,
+      "latency_ms": 1784,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:CLEAR",
+        "retrieve_vlearn_sources",
+        "generate_grounded_answer"
+      ],
+      "error": null
+    },
+    {
+      "id": "G15",
+      "input": "form CP2 ở đâu",
+      "expected": "CLEAR",
+      "predicted": "CLEAR",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 317,
+      "latency_ms": 1142,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:CLEAR",
+        "retrieve_vlearn_sources:NO_MATCH",
+        "stop_without_grounding"
+      ],
+      "error": null
+    },
+    {
+      "id": "G16",
+      "input": "CP3 cần nộp gì",
+      "expected": "CLEAR",
+      "predicted": "CLEAR",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 331,
+      "latency_ms": 1134,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:CLEAR",
+        "retrieve_vlearn_sources:NO_MATCH",
+        "stop_without_grounding"
+      ],
+      "error": null
+    },
+    {
+      "id": "G17",
+      "input": "giải thích LangGraph interrupt",
+      "expected": "CLEAR",
+      "predicted": "CLEAR",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 304,
+      "latency_ms": 949,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:CLEAR",
+        "retrieve_vlearn_sources:NO_MATCH",
+        "stop_without_grounding"
+      ],
+      "error": null
+    },
+    {
+      "id": "G18",
+      "input": "CP4 chốt spec lúc mấy giờ",
+      "expected": "CLEAR",
+      "predicted": "CLEAR",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 122,
+      "latency_ms": 1832,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:CLEAR",
+        "retrieve_vlearn_sources",
+        "generate_grounded_answer"
+      ],
+      "error": null
+    },
+    {
+      "id": "G19",
+      "input": "repo nhóm có file canvas.md không",
+      "expected": "CLEAR",
+      "predicted": "CLEAR",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 164,
+      "latency_ms": 1893,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:CLEAR",
+        "retrieve_vlearn_sources",
+        "generate_grounded_answer"
+      ],
+      "error": null
+    },
+    {
+      "id": "G20",
+      "input": "trong CP5 cần slide PDF hay link Canva",
+      "expected": "CLEAR",
+      "predicted": "CLEAR",
+      "pass": true,
+      "model": "gemini-3.5-flash-lite",
+      "tokens": 202,
+      "latency_ms": 2191,
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:CLEAR",
+        "retrieve_vlearn_sources",
+        "generate_grounded_answer"
+      ],
+      "error": null
+    }
+  ]
+}

@@ -19,19 +19,19 @@
 
 ## 2:30–3:25 · Cách hoạt động
 
-“AI chỉ quyết định CLEAR hay AMBIGUOUS. Ba option đến từ allowlist theo bài đang mở. LangGraph giữ thread bằng checkpointer. Không có answer trước interrupt. Người dùng luôn có custom input và correction.”
+“Gemini phân loại mọi input thành CLEAR, AMBIGUOUS hoặc REFUSE. Khi AMBIGUOUS, ba option được dựng từ nguồn VLearn đang hiển thị. LangGraph giữ thread bằng checkpointer. Không có answer trước interrupt. Người dùng luôn có custom input và correction.”
 
 ## 3:25–4:15 · Số đo
 
-“Quality bar chốt trước: ít nhất 90%, bốn hard case bắt buộc pass. Gemini đạt 18/20 = 90%, hard case pass. Hai fail là `form đâu` và `cho tôi link tải dữ liệu`: model tự tin quá mức. Nhóm giữ nguyên số fail thay vì sửa số.”
+“Quality bar chốt trước: ít nhất 90%, bốn hard case bắt buộc pass. Lượt CP3 đã khóa đạt 18/20 = 90% và giữ nguyên hai fail. Bản full-Gemini hiện tại đạt 20/20, cả 20 lượt đều do Gemini phân loại, không dùng rule đi trước model.”
 
 ## 4:15–5:00 · Giá trị và giới hạn
 
-“Thay vì một câu trả lời trôi chảy nhưng sai ý, học viên mất một lượt xác nhận ngắn và nhận đúng đích. Prototype chỉ tối ưu VLearn, chưa thay toàn bộ retrieval. Bước tiếp theo là test với ba willing users và dùng điểm kẹt quan sát được để sửa UI.”
+“Thay vì một câu trả lời trôi chảy nhưng sai ý, học viên mất một lượt xác nhận ngắn và nhận đúng đích. Prototype chỉ tối ưu VLearn, chưa thay toàn bộ retrieval. Bước tiếp theo là test với năm willing users và dùng điểm kẹt quan sát được để sửa UI.”
 
 ## Câu hỏi dễ bị hỏi
 
 - **Sao không để model tự đoán?** Vì live test đã trả nhầm repo 3A trên trang 3B; cost-of-error cao hơn một click.
-- **Option có bị bịa không?** Không; option case demo là allowlist từ context VLearn.
+- **Option có bị bịa không?** Option được dựng từ các source block đã có trong context VLearn, không để Gemini tự tạo link hoặc checkpoint.
 - **Vì sao Gemini?** Groq key trên máy trả 403; Gemini hoạt động. Nhóm dùng một model xuyên suốt.
-- **18/20 có thấp không?** Đạt bar 90%, đồng thời chỉ ra đúng hai failure để cải thiện.
+- **18/20 có thấp không?** Đó là số CP3 đã khóa và đạt bar 90%. Regression full-Gemini hiện tại đạt 20/20 nhưng không ghi đè lịch sử.

@@ -1,7 +1,7 @@
 # AI SPEC — Tutor hỏi lại trước câu mơ hồ · Nhóm kingpro · Zone C1
 
 **Hướng:** A — VLearn Tutor · **Loại:** Tối ưu tính năng có sẵn
-**Trạng thái kỹ thuật:** UI VLearn responsive + LangGraph `interrupt/resume` chạy thật; router dùng hard guard tất định cho các mẫu mơ hồ chắc chắn và `gemini-3.5-flash-lite` cho các câu còn lại; key chỉ nằm trong environment local.
+**Trạng thái kỹ thuật:** UI VLearn responsive + LangGraph `interrupt/resume` chạy thật; `gemini-3.5-flash-lite` phân loại toàn bộ input thành `CLEAR/AMBIGUOUS/REFUSE`; rule local chỉ fallback khi provider/key lỗi; key chỉ nằm trong environment.
 
 ## §1. User & Job
 
@@ -32,7 +32,7 @@ Impact đo bằng: tỷ lệ câu mơ hồ được hỏi lại **trước** khi
 
 - **Lát cắt một câu:** Một học viên đang đọc bài trên VLearn và gửi câu hỏi mơ hồ · router quyết định ý định chưa đủ rõ · Tutor hiện tối đa ba cách hiểu và ô tự nhập · học viên xác nhận rồi nhận câu trả lời đúng ý ở lượt kế tiếp.
 - **Non-goals:** không trả lời mọi kiến thức ngoài VLearn; không thay retrieval/citation toàn hệ thống; không làm hộ quiz; không quản lý tài khoản/điểm; không tự gửi form.
-- **Mức prototype:** **Working vertical slice**. Thật: UI, state, LangGraph, checkpointer, hard guard + Gemini classifier, `interrupt`, `Command(resume)`, trace. Mock: dữ liệu bài học được trích thành fixture và các option làm rõ dựng từ nguồn đang hiển thị.
+- **Mức prototype:** **Working vertical slice**. Thật: UI, state, LangGraph, checkpointer, Gemini full-input classifier, `interrupt`, `Command(resume)`, trace. Mock: dữ liệu bài học được trích thành fixture và các option làm rõ dựng từ nguồn đang hiển thị.
 - **Automation:** conditional/augment. Hệ thống tự phát hiện và đề xuất cách hiểu; học viên giữ quyền chọn, nhập khác, hủy hoặc correction. Cost-of-error của đoán sai cao hơn một lượt hỏi lại.
 
 ### §4b. HAX/PAIR
@@ -73,7 +73,7 @@ Impact đo bằng: tỷ lệ câu mơ hồ được hỏi lại **trước** khi
 - **Định nghĩa pass:** route khớp nhãn; không xuất answer trước `interrupt`; resume giữ cùng `thread_id`; option `team-repo` trả đúng URL; không có overflow ngang ở 1536/1024/390.
 - **Quality bar đã chốt:** **≥90% routing accuracy**, và hard cases G01/G05/G07/G08 đều pass.
 - **Lượt CP3 đã khóa:** 18/20 = **90%**, hard cases pass; đạt quality bar. Hai lỗi: G11 `form đâu` và G12 `cho tôi link tải dữ liệu` bị đánh giá quá rõ; xem `eval/cp3-results.json`.
-- **Versioned prompt rerun:** v0–v3 đều 19/20 = 95%; một lượt v2 từng đạt 20/20 nhưng không lặp lại nên không dùng làm claim chính. Hệ production hybrid đạt 20/20; multi-turn 5/5; safety 12/12; ambiguity mở rộng 36/36.
+- **Versioned prompt rerun:** v0–v3 đều 19/20 = 95%; một lượt v2 từng đạt 20/20 nhưng không lặp lại nên không dùng làm claim chính. Bản full-Gemini hiện tại đạt 20/20, cả 20 lượt đều do Gemini phân loại, không dùng fallback; multi-turn 5/5; safety 12/12; ambiguity mở rộng 36/36.
 - **Off-topic boundary:** VLearn thật 5/5 từ chối đúng; prototype Gemini 5/5 route `REFUSE`, xem `evidence/VLEARN-OFFTOPIC-REPORT.md`.
 - **UI smoke:** 28/28; `codebase/web/ui-smoke-results.json`.
 - **E2E trace:** `evidence/cp3-e2e-trace.json` thể hiện `Gemini classify → interrupt → resume → answer` cùng token usage thật.
@@ -99,7 +99,7 @@ Impact đo bằng: tỷ lệ câu mơ hồ được hỏi lại **trước** khi
 | 17/9 | Chuyển provider từ Groq sang Gemini 3.5 Flash Lite | Groq key trả 403; Gemini key hoạt động và chỉ dùng một model |
 | 18/9 | Source retrieval + SQLite + retry/log | Option có `source_id`, thread resume qua restart, provider có latency/error evidence |
 | 18/9 | Cải tiến history + checkpoint boundary | v2 đạt base 100%; v3 đạt multi-turn 5/5 và safety 12/12 |
-| 18/9 | Hard guard chạy trước model cho mẫu mơ hồ chắc chắn | Demo không phụ thuộc API và không tốn token ở case `phần kia nghĩa là sao` |
+| 19/9 | Chuyển router sang full Gemini | Mọi input đều đi qua cùng một quyết định AI `CLEAR/AMBIGUOUS/REFUSE`; local rule chỉ còn là fallback vận hành |
 | 18/9 | Thêm bằng chứng live A11 và video CP3 30 giây | Giữ nguyên lỗi Tutor tự đoán và chứng minh luồng hỏi lại end-to-end |
 
 ## Tự khai phần chưa hoàn thành tại CP4
@@ -107,4 +107,4 @@ Impact đo bằng: tỷ lệ câu mơ hồ được hỏi lại **trước** khi
 - Chưa có kết quả quan sát thực tế từ willing users; hoạt động này được thực hiện ở CP5 và lưu trong `validation/`.
 - Retrieval hiện dùng fixture được trích từ bài VLearn đang hiển thị; chưa gọi trực tiếp kho nội dung production của VLearn.
 - Tính năng chưa được tích hợp vào VLearn production; bản hiện tại là working vertical slice chạy trong giao diện VLearn mô phỏng.
-- Hard guard đã bao phủ bộ ambiguity có hệ thống hiện tại, nhưng chưa thể đại diện cho mọi cách diễn đạt tự nhiên ngoài bộ kiểm thử.
+- Full-Gemini đạt bộ kiểm thử hiện tại nhưng chưa thể đại diện cho mọi cách diễn đạt tự nhiên ngoài golden set; fallback local chỉ bảo đảm availability khi provider lỗi.

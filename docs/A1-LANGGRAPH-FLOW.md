@@ -1,72 +1,73 @@
-# Sơ đồ LangGraph — Tutor hỏi lại trước câu mơ hồ
+# Sơ đồ LangGraph — Gemini phân loại toàn bộ input
 
-## Quyết định AI duy nhất
-
-`classify_ambiguity` quyết định câu hỏi hiện tại đã đủ ý định để trả lời hay phải hỏi lại. Hệ thống không sinh câu trả lời khi route là `AMBIGUOUS`.
+Luồng hiện tại dùng Gemini cho quyết định AI duy nhất: phân loại mọi câu hỏi thành `CLEAR`, `AMBIGUOUS` hoặc `REFUSE`. Rule local không chạy trước Gemini; nó chỉ là fallback vận hành khi provider hoặc key lỗi.
 
 ```mermaid
 flowchart TD
-    START([START]) --> RECEIVE[receive_input<br/>Nhận câu hỏi + lesson_id + thread_id]
-    RECEIVE --> CONTEXT[load_lesson_context<br/>Lấy bài đang mở và lịch sử gần]
-    CONTEXT --> CLASSIFY{{classify_ambiguity<br/>AI quyết định: đã đủ ý định?}}
+    START([START]) --> CLASSIFY[Gemini classify_ambiguity<br/>CLEAR · AMBIGUOUS · REFUSE]
+    CLASSIFY -. Gemini hoặc key lỗi .-> FALLBACK[Local fallback<br/>chỉ để hệ thống không chết]
 
-    CLASSIFY -->|CLEAR| ANSWER[answer_with_confirmed_intent<br/>Trả lời theo ý định đã rõ]
-    CLASSIFY -->|AMBIGUOUS| OPTIONS[build_clarification_options<br/>Tối đa 3 lựa chọn + tự nhập]
+    CLASSIFY -->|AMBIGUOUS| OPTIONS[build_options<br/>Tối đa 3 lựa chọn từ nguồn VLearn]
+    FALLBACK -->|AMBIGUOUS| OPTIONS
+    OPTIONS --> INTERRUPT[[interrupt<br/>Checkpoint state + chờ người học]]
+    INTERRUPT -->|option_id hoặc custom_text| RESUME[Command resume<br/>cùng thread_id]
+    RESUME --> CONFIRMED[answer_confirmed_intent]
+    CONFIRMED --> END_AMB([END · Trả lời sau xác nhận])
 
-    OPTIONS --> PAUSE[[interrupt clarification<br/>Lưu state và chờ người dùng]]
-    PAUSE -->|Chọn một phương án| RESUME[Command resume<br/>option_id + thread_id]
-    PAUSE -->|Nhập bổ sung| RESUME_CUSTOM[Command resume<br/>custom_text + thread_id]
-    PAUSE -->|Hủy| CANCEL([END · Không trả lời])
+    CLASSIFY -->|CLEAR| RETRIEVE[retrieve_chunks<br/>Tìm block nguồn đang hiển thị]
+    FALLBACK -->|CLEAR| RETRIEVE
+    RETRIEVE --> GROUNDED{Có nguồn phù hợp?}
+    GROUNDED -->|Không| NO_SOURCE[stop_without_grounding<br/>Báo chưa đủ căn cứ]
+    GROUNDED -->|Có| ANSWER[Gemini grounded answer<br/>hoặc local answer fallback]
+    ANSWER --> SOURCE[Trả answer + source_id<br/>UI cho xem và bôi nguồn]
+    SOURCE --> END_CLEAR([END · Hoàn thành])
+    NO_SOURCE --> END_NO_SOURCE([END · Không bịa])
 
-    RESUME --> MERGE[apply_clarification<br/>Ghép expanded_query]
-    RESUME_CUSTOM --> MERGE
-    MERGE --> RECHECK{{intent_guard<br/>Đã đủ rõ sau bổ sung?}}
+    CLASSIFY -->|REFUSE| REFUSE[safe_refusal]
+    FALLBACK -->|REFUSE| REFUSE
+    REFUSE --> END_REFUSE([END · Từ chối an toàn])
 
-    RECHECK -->|Có| ANSWER
-    RECHECK -->|Chưa · vòng dưới 2| OPTIONS
-    RECHECK -->|Chưa · đủ 2 vòng| HANDOFF[graceful_failure<br/>Nêu giới hạn + gợi ý hỏi cụ thể]
-    HANDOFF --> END_FAIL([END · Chưa tạo câu trả lời])
-
-    ANSWER --> SHOW[Hiển thị câu trả lời<br/>+ nút “Không phải ý này”]
-    SHOW -->|Đúng ý| END_OK([END · Hoàn thành])
-    SHOW -->|Không phải ý này| CORRECT[record_correction<br/>Thu hồi intent cũ]
-    CORRECT --> OPTIONS
+    END_AMB -. “Không phải ý này” .-> CORRECTION[Frontend tăng vòng hỏi lại<br/>và tạo thread mới]
+    CORRECTION -->|Vòng dưới 2| CLASSIFY
+    CORRECTION -->|Đủ 2 vòng| FAIL[graceful failure]
+    FAIL --> END_FAIL([END · Dừng an toàn])
 
     classDef ai fill:#e8f0ff,stroke:#315efb,color:#102a56,stroke-width:2px;
     classDef human fill:#fff4d6,stroke:#d97706,color:#5b3100,stroke-width:2px;
     classDef safe fill:#e9f8ef,stroke:#159455,color:#073b23,stroke-width:2px;
-    class CLASSIFY ai;
-    class PAUSE,RESUME,RESUME_CUSTOM human;
-    class RECHECK,CANCEL,HANDOFF,END_FAIL,CORRECT safe;
+    classDef danger fill:#fff0f0,stroke:#d92d20,color:#5c1111,stroke-width:2px;
+    class CLASSIFY,ANSWER ai;
+    class INTERRUPT,RESUME,CORRECTION human;
+    class RETRIEVE,GROUNDED,SOURCE,NO_SOURCE,FALLBACK safe;
+    class REFUSE,FAIL danger;
 ```
 
-## State tối thiểu
+## Ba route
+
+| Route | Gemini nhận định | Hệ thống làm gì |
+|---|---|---|
+| `AMBIGUOUS` | Thiếu đối tượng, tham chiếu hoặc phạm vi | Build options → `interrupt` → người học xác nhận → `resume` |
+| `CLEAR` | Có một ý định duy nhất | Retrieve nguồn → có nguồn mới trả lời |
+| `REFUSE` | Ngoài VLearn, prompt injection hoặc dữ liệu nhạy cảm | Từ chối an toàn |
+
+## State chính
 
 | Trường | Tác dụng |
 |---|---|
-| `thread_id` | Resume đúng phiên sau `interrupt` |
-| `lesson_id` | Giữ ngữ cảnh bài đang mở |
-| `question` | Câu hỏi ban đầu |
-| `ambiguity_status` | `CLEAR` hoặc `AMBIGUOUS` |
-| `ambiguity_reason` | Lý do cần hỏi lại để UI giải thích |
-| `clarification_options` | Tối đa ba phương án có ngữ cảnh |
-| `clarification_answer` | `option_id` hoặc nội dung tự nhập |
-| `clarification_round` | Chặn vòng lặp sau tối đa hai lần |
-| `confirmed_intent` | Ý định đã được người dùng xác nhận |
-| `final_answer` | Chỉ tồn tại sau khi intent guard đạt |
+| `question`, `lesson_id`, `lesson_title` | Input và ngữ cảnh VLearn |
+| `route`, `reason`, `confidence` | Kết quả Gemini router |
+| `options`, `selected_option` | Các cách hiểu và lựa chọn người học |
+| `answer`, `source` | Câu trả lời và block/URL nguồn |
+| `trace`, `usage`, `model` | Quan sát node, token và model |
+| `thread_id` | Checkpointer dùng để resume đúng phiên |
 
-## Nhánh demo CP2
+## Bốn đường trải nghiệm
 
-1. Gõ `cho tôi link`.
-2. `classify_ambiguity` trả `AMBIGUOUS` vì thiếu loại link.
-3. UI hiện: repo đề bài 3B · repo nhóm · form checkpoint · Khác — tự nhập.
-4. Graph `interrupt`, chưa sinh câu trả lời.
-5. Người dùng chọn **repo nhóm**.
-6. Client resume cùng `thread_id`; graph tạo intent đã xác nhận.
-7. Tutor trả đúng repo nhóm.
-8. Nếu bấm **Không phải ý này**, graph thu hồi intent và quay về lựa chọn.
+1. **Happy path:** `CLEAR → retrieve → answer → source`.
+2. **Low-confidence:** `AMBIGUOUS → options → interrupt → resume → answer`.
+3. **Failure/no-grounding:** không có block phù hợp → dừng, báo chưa đủ căn cứ.
+4. **Correction:** “Không phải ý này” → tạo lượt phân loại mới; đủ hai vòng thì dừng an toàn.
 
-## Phần mock và phần thật
+## Case demo
 
-- **CP2 mock:** kết quả `classify_ambiguity`, các lựa chọn và câu trả lời cuối được fixture hóa để chứng minh flow.
-- **CP3 thật:** LangGraph checkpointer, `interrupt()`/`Command(resume=...)` và ít nhất một AI call tại `classify_ambiguity`.
+`phần kia nghĩa là sao` → Gemini trả `AMBIGUOUS` → hiện ba block đang có trong bài → người học chọn “Tìm pain có bằng chứng” → graph resume → trả lời → bấm nguồn để bôi block `D20-PAIN`.

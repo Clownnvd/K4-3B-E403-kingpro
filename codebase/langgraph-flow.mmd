@@ -1,33 +1,37 @@
 flowchart TD
-    START([START]) --> RECEIVE[receive_input<br/>Nhận câu hỏi + lesson_id + thread_id]
-    RECEIVE --> CONTEXT[load_lesson_context<br/>Lấy bài đang mở và lịch sử gần]
-    CONTEXT --> CLASSIFY{{classify_ambiguity<br/>AI quyết định: đã đủ ý định?}}
+    START([START]) --> CLASSIFY[Gemini classify_ambiguity<br/>CLEAR · AMBIGUOUS · REFUSE]
+    CLASSIFY -. Gemini hoặc key lỗi .-> FALLBACK[Local fallback<br/>chỉ để hệ thống không chết]
 
-    CLASSIFY -->|CLEAR| ANSWER[answer_with_confirmed_intent<br/>Trả lời theo ý định đã rõ]
-    CLASSIFY -->|AMBIGUOUS| OPTIONS[build_clarification_options<br/>Tối đa 3 lựa chọn + tự nhập]
+    CLASSIFY -->|AMBIGUOUS| OPTIONS[build_options<br/>Tối đa 3 lựa chọn từ nguồn VLearn]
+    FALLBACK -->|AMBIGUOUS| OPTIONS
+    OPTIONS --> INTERRUPT[[interrupt<br/>Checkpoint state + chờ người học]]
+    INTERRUPT -->|option_id hoặc custom_text| RESUME[Command resume<br/>cùng thread_id]
+    RESUME --> CONFIRMED[answer_confirmed_intent]
+    CONFIRMED --> END_AMB([END · Trả lời sau xác nhận])
 
-    OPTIONS --> PAUSE[[interrupt clarification<br/>Lưu state và chờ người dùng]]
-    PAUSE -->|Chọn một phương án| RESUME[Command resume<br/>option_id + thread_id]
-    PAUSE -->|Nhập bổ sung| RESUME_CUSTOM[Command resume<br/>custom_text + thread_id]
-    PAUSE -->|Hủy| CANCEL([END · Không trả lời])
+    CLASSIFY -->|CLEAR| RETRIEVE[retrieve_chunks<br/>Tìm block nguồn đang hiển thị]
+    FALLBACK -->|CLEAR| RETRIEVE
+    RETRIEVE --> GROUNDED{Có nguồn phù hợp?}
+    GROUNDED -->|Không| NO_SOURCE[stop_without_grounding<br/>Báo chưa đủ căn cứ]
+    GROUNDED -->|Có| ANSWER[Gemini grounded answer<br/>hoặc local answer fallback]
+    ANSWER --> SOURCE[Trả answer + source_id<br/>UI cho xem và bôi nguồn]
+    SOURCE --> END_CLEAR([END · Hoàn thành])
+    NO_SOURCE --> END_NO_SOURCE([END · Không bịa])
 
-    RESUME --> MERGE[apply_clarification<br/>Ghép expanded_query]
-    RESUME_CUSTOM --> MERGE
-    MERGE --> RECHECK{{intent_guard<br/>Đã đủ rõ sau bổ sung?}}
+    CLASSIFY -->|REFUSE| REFUSE[safe_refusal]
+    FALLBACK -->|REFUSE| REFUSE
+    REFUSE --> END_REFUSE([END · Từ chối an toàn])
 
-    RECHECK -->|Có| ANSWER
-    RECHECK -->|Chưa · vòng dưới 2| OPTIONS
-    RECHECK -->|Chưa · đủ 2 vòng| HANDOFF[graceful_failure<br/>Nêu giới hạn + gợi ý hỏi cụ thể]
-    HANDOFF --> END_FAIL([END · Chưa tạo câu trả lời])
-
-    ANSWER --> SHOW[Hiển thị câu trả lời<br/>+ nút “Không phải ý này”]
-    SHOW -->|Đúng ý| END_OK([END · Hoàn thành])
-    SHOW -->|Không phải ý này| CORRECT[record_correction<br/>Thu hồi intent cũ]
-    CORRECT --> OPTIONS
+    END_AMB -. “Không phải ý này” .-> CORRECTION[Frontend tăng vòng hỏi lại<br/>và tạo thread mới]
+    CORRECTION -->|Vòng dưới 2| CLASSIFY
+    CORRECTION -->|Đủ 2 vòng| FAIL[graceful failure]
+    FAIL --> END_FAIL([END · Dừng an toàn])
 
     classDef ai fill:#e8f0ff,stroke:#315efb,color:#102a56,stroke-width:2px;
     classDef human fill:#fff4d6,stroke:#d97706,color:#5b3100,stroke-width:2px;
     classDef safe fill:#e9f8ef,stroke:#159455,color:#073b23,stroke-width:2px;
-    class CLASSIFY ai;
-    class PAUSE,RESUME,RESUME_CUSTOM human;
-    class RECHECK,CANCEL,HANDOFF,END_FAIL,CORRECT safe;
+    classDef danger fill:#fff0f0,stroke:#d92d20,color:#5c1111,stroke-width:2px;
+    class CLASSIFY,ANSWER ai;
+    class INTERRUPT,RESUME,CORRECTION human;
+    class RETRIEVE,GROUNDED,SOURCE,NO_SOURCE,FALLBACK safe;
+    class REFUSE,FAIL danger;
