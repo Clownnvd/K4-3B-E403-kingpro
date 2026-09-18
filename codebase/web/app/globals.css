@@ -81,6 +81,14 @@ blockquote { margin: 16px 0 0; padding: 15px 17px; border-left: 4px solid var(--
 .groundingSource p { margin: 9px 0 5px; color: #536171; font-size: 11px; }
 .groundingSource a { color: var(--blue); font-size: 11px; font-weight: 700; overflow-wrap: anywhere; }
 .groundingSource.highlighted { border-color: #e9b949; background: #fff8d9; box-shadow: 0 0 0 4px rgba(233,185,73,.18); animation: sourcePulse .7s ease-out; }
+.lessonSources { margin-top: 26px; }
+.lessonSources h2 { margin: 0 0 10px; color: #152238; font-size: 18px; }
+.lessonSourceCard { margin-top: 8px; padding: 13px 14px; border: 1px solid var(--line); border-radius: 9px; background: #fbfcfd; transition: border-color .25s, background .25s, box-shadow .25s; }
+.lessonSourceCard small, .lessonSourceCard strong { display: block; }
+.lessonSourceCard small { color: var(--blue); font-size: 8px; font-weight: 800; letter-spacing: .06em; }
+.lessonSourceCard strong { margin-top: 3px; font-size: 12px; }
+.lessonSourceCard p { margin: 5px 0 0; color: #536171; font-size: 10px; line-height: 1.6; }
+.lessonSourceCard.highlighted { border-color: #e9b949; background: #fff8d9; box-shadow: 0 0 0 4px rgba(233,185,73,.18); animation: sourcePulse .7s ease-out; }
 @keyframes sourcePulse { 0% { transform: scale(.99); } 100% { transform: scale(1); } }
 .lessonFeedback { display: flex; gap: 8px; margin-top: 30px; padding: 16px 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .lessonFeedback button { width: 34px; height: 34px; border: 0; border-radius: 8px; background: transparent; cursor: pointer; }

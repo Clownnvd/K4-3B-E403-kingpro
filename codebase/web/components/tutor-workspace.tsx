@@ -51,6 +51,12 @@ const lessons = [
 ];
 
 const graphSteps = ["receive_input", "classify_ambiguity", "build_options", "interrupt", "resume", "answer"];
+const lessonSources = [
+  { id: "D20-CP3", title: "Bài 16 · CP3 — Video và số đo", text: "Nộp video thao tác 30 giây và số đo: tổng số lần thử, số lần đạt, chuẩn đạt và các case chưa đạt." },
+  { id: "D20-CP4", title: "Bài 16 · CP4 — Chốt spec", text: "Nộp link spec.md đã khóa quality bar và tự khai phần chưa hoàn thành." },
+  { id: "D20-CP5", title: "Bài 16 · CP5 — Gói nộp cuối", text: "Nộp slide đúng 6 trang dạng PDF và video demo dự phòng." },
+  { id: "D20-LangGraph", title: "Bài 16 · LangGraph HITL", text: "Input mơ hồ phải interrupt, chờ người dùng xác nhận rồi resume cùng thread_id." },
+];
 
 function Topbar({ openOutline, openTutor }: { openOutline: () => void; openTutor: () => void }) {
   return (
@@ -91,7 +97,7 @@ function CourseOutline({ open, close }: { open: boolean; close: () => void }) {
   );
 }
 
-function LessonContent({ highlightSource }: { highlightSource: boolean }) {
+function LessonContent({ highlightSource }: { highlightSource: string | null }) {
   return (
     <main className="lessonContent">
       <div className="lessonInner">
@@ -102,7 +108,8 @@ function LessonContent({ highlightSource }: { highlightSource: boolean }) {
         <section className="lessonSection"><h2>1. Tìm pain có bằng chứng</h2><p>Đọc chatlog Tutor, quan sát hành vi thật và ghi lại những lượt hệ thống trả lời sai ngữ cảnh. Không chọn vấn đề chỉ vì nghe có vẻ hay.</p><div className="evidenceRow"><span>3.097</span><p>lượt Tutor K4 đã được rà soát</p><span>0,19%</span><p>lượt dùng hành vi hỏi lại</p></div></section>
         <section className="lessonSection"><h2>2. Chốt lát cắt một câu</h2><p>Nhóm kingpro chọn đúng một lỗi: Tutor trả lời theo suy đoán khi câu hỏi chưa đủ rõ. Tính năng mới sẽ dừng và hỏi lại trước khi tạo câu trả lời.</p><blockquote>Học viên gửi câu hỏi mơ hồ → AI nhận diện thiếu ý định → học viên chọn cách hiểu → Tutor mới tiếp tục trả lời.</blockquote></section>
         <section className="lessonSection"><h2>3. Kiểm tra ngay trong bài học</h2><p>Mở Trợ giảng AI và thử câu “cho tôi link”. Bản cải tiến phải hỏi cần loại link nào thay vì tự chọn repo lớp 3A hoặc 3B.</p></section>
-        <section id="vlearn-grounding-source" className={`groundingSource ${highlightSource ? "highlighted" : ""}`}><div><BookOpen size={19} /><span><small>NGUỒN TRONG BÀI HỌC</small><strong>Repository của nhóm kingpro</strong></span></div><p>Prototype, Canvas và sơ đồ LangGraph của nhóm được lưu tại repository public:</p><a href="https://github.com/Clownnvd/K4-3B-E403-kingpro" target="_blank" rel="noreferrer">github.com/Clownnvd/K4-3B-E403-kingpro</a></section>
+        <section data-source-id="D20-session-team-repo" className={`groundingSource ${highlightSource === "D20-session-team-repo" ? "highlighted" : ""}`}><div><BookOpen size={19} /><span><small>NGUỒN TRONG BÀI HỌC · D20-session-team-repo</small><strong>Repository của nhóm kingpro</strong></span></div><p>Prototype, Canvas và sơ đồ LangGraph của nhóm được lưu tại repository public:</p><a href="https://github.com/Clownnvd/K4-3B-E403-kingpro" target="_blank" rel="noreferrer">github.com/Clownnvd/K4-3B-E403-kingpro</a></section>
+        <section className="lessonSources"><h2>Nguồn tham chiếu trong Bài 16</h2>{lessonSources.map((source) => <article key={source.id} data-source-id={source.id} className={`lessonSourceCard ${highlightSource === source.id ? "highlighted" : ""}`}><small>{source.id}</small><strong>{source.title}</strong><p>{source.text}</p></article>)}</section>
         <div className="lessonFeedback"><button type="button" aria-label="Bài học hữu ích">👍</button><button type="button" aria-label="Bài học chưa hữu ích">👎</button><button type="button" aria-label="Báo lỗi nội dung">⚑</button></div>
         <nav className="lessonNav"><button type="button">← Bài trước</button><button type="button" className="nextLesson">Đi tới bài tiếp theo <ChevronRight size={17} /></button></nav>
       </div>
@@ -145,7 +152,7 @@ function ClarificationCard({ scenario, choose, openCustom, stage, rounds }: { sc
   );
 }
 
-function TutorPanel({ open, close, onSourceHighlight }: { open: boolean; close: () => void; onSourceHighlight: (active: boolean) => void }) {
+function TutorPanel({ open, close, onSourceHighlight }: { open: boolean; close: () => void; onSourceHighlight: (sourceId: string | null) => void }) {
   const [scenarioId, setScenarioId] = useState<ScenarioId>("link");
   const [stage, setStage] = useState<Stage>("idle");
   const [displayQuestion, setDisplayQuestion] = useState("");
@@ -167,14 +174,16 @@ function TutorPanel({ open, close, onSourceHighlight }: { open: boolean; close: 
     : selected?.source?.startsWith("github.com/")
       ? `https://${selected.source}`
       : null;
+  const internalSource = selected?.source?.startsWith("D20-") ? selected.source : null;
+  const sourceLabel = lessonSources.find((source) => source.id === internalSource)?.title ?? internalSource;
 
-  const reset = () => { setStage("idle"); setHistory([]); setDisplayQuestion(""); setSelected(null); setCustomText(""); setComposerText(""); setRounds(1); setThreadId(null); setRuntimeScenario(null); setRuntimeMeta(null); setApiError(""); setSourceOpen(false); onSourceHighlight(false); };
+  const reset = () => { setStage("idle"); setHistory([]); setDisplayQuestion(""); setSelected(null); setCustomText(""); setComposerText(""); setRounds(1); setThreadId(null); setRuntimeScenario(null); setRuntimeMeta(null); setApiError(""); setSourceOpen(false); onSourceHighlight(null); };
   const runRealCase = async (question: string) => {
     if (runningRef.current) return;
     runningRef.current = true;
     if (stage === "answered" && selected && displayQuestion) setHistory((items) => [...items, { role: "user", content: displayQuestion }, { role: "assistant", content: selected.answer, link: directAnswerUrl ?? undefined }]);
     const matched = scenarios.find((item) => question.toLowerCase().includes(item.question)) ?? scenarios[0];
-    setScenarioId(matched.id); setDisplayQuestion(question); setStage("loading"); setSelected(null); setApiError(""); setSourceOpen(false); onSourceHighlight(false);
+    setScenarioId(matched.id); setDisplayQuestion(question); setStage("loading"); setSelected(null); setApiError(""); setSourceOpen(false); onSourceHighlight(null);
     try {
       const response = await fetch("/api/agent", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ action: "start", question, lesson_id: "D20-S02", lesson_title: "Bài 16 · Khám phá bài toán" }) });
       const data = await response.json() as AgentResponse & { detail?: string };
@@ -204,7 +213,7 @@ function TutorPanel({ open, close, onSourceHighlight }: { open: boolean; close: 
     window.setTimeout(() => setStage("answered"), 500);
   };
   const submitCustom = (event: FormEvent) => { event.preventDefault(); if (customText.trim().length < 4) return; choose({ id: "custom", label: customText.trim(), detail: "Do học viên bổ sung", answer: `Đã hiểu ý anh: ${customText.trim()}`, source: "Ý định do học viên xác nhận" }); };
-  const correct = () => { setSelected(null); setSourceOpen(false); onSourceHighlight(false); if (rounds >= 2) setStage("failed"); else { setRounds((value) => value + 1); setStage("clarify"); } };
+  const correct = () => { setSelected(null); setSourceOpen(false); onSourceHighlight(null); if (rounds >= 2) setStage("failed"); else { setRounds((value) => value + 1); setStage("clarify"); } };
   const send = (event: FormEvent) => { event.preventDefault(); const text = composerText.trim(); if (!text) return; setComposerText(""); void runRealCase(text); };
   const sendOnEnter = (event: KeyboardEvent<HTMLTextAreaElement>) => {
     if (event.key !== "Enter" || event.shiftKey || event.nativeEvent.isComposing) return;
@@ -224,7 +233,7 @@ function TutorPanel({ open, close, onSourceHighlight }: { open: boolean; close: 
         <ClarificationCard scenario={activeScenario} choose={choose} openCustom={() => setStage("custom")} stage={stage} rounds={rounds} />
         {stage === "custom" && <article className="customCard"><button type="button" onClick={() => setStage("clarify")}>← Quay lại lựa chọn</button><h3>Anh muốn hỏi cụ thể điều gì?</h3><p>Thêm tên đối tượng hoặc loại tài liệu.</p><form onSubmit={submitCustom}><textarea aria-label="Nội dung làm rõ" autoFocus value={customText} onChange={(event) => setCustomText(event.target.value)} placeholder="Ví dụ: Link repo nhóm kingpro…" /><div><span>{customText.trim().length < 4 ? "Nhập ít nhất 4 ký tự" : "Đã đủ thông tin"}</span><button type="submit" disabled={customText.trim().length < 4}>Tiếp tục</button></div></form><GraphTrace stage={stage} rounds={rounds} /></article>}
         {stage === "loading" && <div className="loadingCard"><i /><span><strong>Đang tiếp tục luồng…</strong><small>Kiểm tra lại ý định trước khi trả lời</small></span></div>}
-        {stage === "answered" && selected && <article className="answerCard"><header><span className="aiMark small"><Sparkles size={14} /></span><div><small>Trợ giảng AI</small><p>{selected.answer}</p></div></header>{directAnswerUrl && <><a className="directAnswer" href={directAnswerUrl} target="_blank" rel="noreferrer"><Link2 size={14} /><span><small>Đáp án trực tiếp</small><strong>{selected.source}</strong></span><ChevronRight size={15} /></a><button type="button" className="sourceToggle" aria-pressed={sourceOpen} onClick={() => { const next = !sourceOpen; setSourceOpen(next); onSourceHighlight(next); }}><span><BookOpen size={14} /> {sourceOpen ? "Nguồn đang được bôi sáng" : "Kiểm tra nguồn trong bài"}</span><ChevronRight size={14} /></button></>}<footer><button type="button" onClick={correct}><RotateCcw size={14} /> Không phải ý này</button><span><Check size={13} /> Đã xử lý xong</span></footer><GraphTrace stage={stage} rounds={rounds} /></article>}
+        {stage === "answered" && selected && <article className="answerCard"><header><span className="aiMark small"><Sparkles size={14} /></span><div><small>Trợ giảng AI</small><p>{selected.answer}</p></div></header>{directAnswerUrl && <a className="directAnswer" href={directAnswerUrl} target="_blank" rel="noreferrer"><Link2 size={14} /><span><small>Đáp án trực tiếp</small><strong>{selected.source}</strong></span><ChevronRight size={15} /></a>}{(directAnswerUrl || internalSource) && <button type="button" className="sourceToggle" aria-pressed={sourceOpen} onClick={() => { const next = !sourceOpen; setSourceOpen(next); onSourceHighlight(next ? (internalSource ?? "D20-session-team-repo") : null); }}><span><BookOpen size={14} /> {sourceOpen ? "Nguồn đang được bôi sáng" : `Nguồn: ${sourceLabel ?? "Bài học đang mở"}`}</span><ChevronRight size={14} /></button>}<footer><button type="button" onClick={correct}><RotateCcw size={14} /> Không phải ý này</button><span><Check size={13} /> Đã xử lý xong</span></footer><GraphTrace stage={stage} rounds={rounds} /></article>}
         {stage === "failed" && <article className="failureCard"><CircleHelp size={19} /><div><strong>{apiError ? "Agent chưa thể hoàn thành lượt chạy." : "Mình vẫn chưa xác định được ý anh."}</strong><p>{apiError || "Hãy chọn một đoạn trong bài hoặc nhập tên đối tượng cụ thể."}</p><button type="button" onClick={apiError ? () => void runRealCase(displayQuestion) : reset}>{apiError ? "Thử lại" : "Bắt đầu chat mới"}</button></div></article>}
       </div>
       <form className="tutorComposer" onSubmit={send}><textarea aria-label="Câu hỏi cho Trợ giảng AI" value={composerText} onChange={(event) => setComposerText(event.target.value)} onKeyDown={sendOnEnter} placeholder="Hỏi bất cứ điều gì…" rows={1} /><button type="submit" disabled={!composerText.trim()} aria-label="Gửi"><ArrowUp size={18} /></button><span>Enter để gửi · Shift+Enter xuống dòng · Hãy kiểm tra lại nguồn.</span></form>
@@ -235,11 +244,11 @@ function TutorPanel({ open, close, onSourceHighlight }: { open: boolean; close: 
 export function TutorWorkspace() {
   const [outlineOpen, setOutlineOpen] = useState(false);
   const [tutorOpen, setTutorOpen] = useState(false);
-  const [highlightSource, setHighlightSource] = useState(false);
+  const [highlightSource, setHighlightSource] = useState<string | null>(null);
   const closeDrawers = () => { setOutlineOpen(false); setTutorOpen(false); };
-  const updateSourceHighlight = (active: boolean) => {
-    setHighlightSource(active);
-    if (active) window.setTimeout(() => document.getElementById("vlearn-grounding-source")?.scrollIntoView({ behavior: "smooth", block: "center" }), 50);
+  const updateSourceHighlight = (sourceId: string | null) => {
+    setHighlightSource(sourceId);
+    if (sourceId) window.setTimeout(() => document.querySelector(`[data-source-id="${sourceId}"]`)?.scrollIntoView({ behavior: "smooth", block: "center" }), 50);
   };
   return (
     <div className="vlearnApp">
