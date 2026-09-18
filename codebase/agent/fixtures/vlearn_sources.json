@@ -6,4 +6,5 @@
   {"source_id":"D20-CP4","title":"Checkpoint 4 — Chốt spec","text":"CP4 yêu cầu link spec.md đã chốt quality bar và tự khai phần chưa hoàn thành. Sau hạn không đổi chuẩn đạt.","url":"","kind":"lesson"},
   {"source_id":"D20-CP5","title":"Checkpoint 5 — Gói nộp cuối","text":"CP5 yêu cầu slide đúng 6 trang xuất PDF và video demo dự phòng. Validation người dùng ngoài nhóm là phần bonus R6.","url":"","kind":"lesson"},
   {"source_id":"D20-LangGraph","title":"LangGraph interrupt và resume","text":"Khi input mơ hồ, graph dừng bằng interrupt để chờ người dùng xác nhận. Client resume cùng thread_id rồi graph mới tiếp tục trả lời.","url":"","kind":"lesson"}
+  ,{"source_id":"D20-PAIN","title":"Bài 16 §1 — Tìm pain có bằng chứng","text":"Tìm pain có bằng chứng nghĩa là đọc chatlog Tutor, quan sát hành vi thật và ghi lại những lượt hệ thống trả lời sai ngữ cảnh. Không chọn vấn đề chỉ vì nghe có vẻ hay.","url":"","kind":"lesson"}
 ]

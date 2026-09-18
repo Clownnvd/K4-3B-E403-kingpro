@@ -105,7 +105,7 @@ function LessonContent({ highlightSource }: { highlightSource: string | null }) 
         <h1>Khám phá bài toán, thu thập bằng chứng và chốt Canvas</h1>
         <p className="lessonLead">Trước khi bắt tay vào build, nhóm cần chứng minh mình đang giải quyết một vấn đề thật của người học và thu hẹp nó thành một lát cắt đủ nhỏ.</p>
         <section className="lessonCallout"><ShieldCheck size={21} /><div><strong>Một bài toán đạt tiêu chuẩn</strong><p>Đúng một người dùng cụ thể, thực hiện một công việc cụ thể, thông qua một quyết định AI cụ thể, để tạo ra một kết quả đo đếm được.</p></div></section>
-        <section className="lessonSection"><h2>1. Tìm pain có bằng chứng</h2><p>Đọc chatlog Tutor, quan sát hành vi thật và ghi lại những lượt hệ thống trả lời sai ngữ cảnh. Không chọn vấn đề chỉ vì nghe có vẻ hay.</p><div className="evidenceRow"><span>3.097</span><p>lượt Tutor K4 đã được rà soát</p><span>0,19%</span><p>lượt dùng hành vi hỏi lại</p></div></section>
+        <section data-source-id="D20-PAIN" className={`lessonSection sourceSection ${highlightSource === "D20-PAIN" ? "highlighted" : ""}`}><h2>1. Tìm pain có bằng chứng</h2><p>Đọc chatlog Tutor, quan sát hành vi thật và ghi lại những lượt hệ thống trả lời sai ngữ cảnh. Không chọn vấn đề chỉ vì nghe có vẻ hay.</p><div className="evidenceRow"><span>3.097</span><p>lượt Tutor K4 đã được rà soát</p><span>0,19%</span><p>lượt dùng hành vi hỏi lại</p></div></section>
         <section className="lessonSection"><h2>2. Chốt lát cắt một câu</h2><p>Nhóm kingpro chọn đúng một lỗi: Tutor trả lời theo suy đoán khi câu hỏi chưa đủ rõ. Tính năng mới sẽ dừng và hỏi lại trước khi tạo câu trả lời.</p><blockquote>Học viên gửi câu hỏi mơ hồ → AI nhận diện thiếu ý định → học viên chọn cách hiểu → Tutor mới tiếp tục trả lời.</blockquote></section>
         <section className="lessonSection"><h2>3. Kiểm tra ngay trong bài học</h2><p>Mở Trợ giảng AI và thử câu “cho tôi link”. Bản cải tiến phải hỏi cần loại link nào thay vì tự chọn repo lớp 3A hoặc 3B.</p></section>
         <section data-source-id="D20-session-team-repo" className={`groundingSource ${highlightSource === "D20-session-team-repo" ? "highlighted" : ""}`}><div><BookOpen size={19} /><span><small>NGUỒN TRONG BÀI HỌC · D20-session-team-repo</small><strong>Repository của nhóm kingpro</strong></span></div><p>Prototype, Canvas và sơ đồ LangGraph của nhóm được lưu tại repository public:</p><a href="https://github.com/Clownnvd/K4-3B-E403-kingpro" target="_blank" rel="noreferrer">github.com/Clownnvd/K4-3B-E403-kingpro</a></section>
@@ -175,7 +175,7 @@ function TutorPanel({ open, close, onSourceHighlight }: { open: boolean; close: 
       ? `https://${selected.source}`
       : null;
   const internalSource = selected?.source?.startsWith("D20-") ? selected.source : null;
-  const sourceLabel = lessonSources.find((source) => source.id === internalSource)?.title ?? internalSource;
+  const sourceLabel = internalSource === "D20-PAIN" ? "Bài 16 · §1 — Tìm pain có bằng chứng" : lessonSources.find((source) => source.id === internalSource)?.title ?? internalSource;
 
   const reset = () => { setStage("idle"); setHistory([]); setDisplayQuestion(""); setSelected(null); setCustomText(""); setComposerText(""); setRounds(1); setThreadId(null); setRuntimeScenario(null); setRuntimeMeta(null); setApiError(""); setSourceOpen(false); onSourceHighlight(null); };
   const runRealCase = async (question: string) => {
