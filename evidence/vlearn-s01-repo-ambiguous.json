@@ -1,0 +1,4 @@
+{
+  "input": "Repo nào?",
+  "reply": "Chào Duy, để thực hiện bài lab này, em cần tạo một repository (repo) mới hoàn toàn trên GitHub cá nhân của nhóm, thay vì sử dụng tính năng \"Fork\" từ repo của ban tổ chức.\n\nRepo này sẽ là nơi nhóm em lưu trữ toàn bộ mã nguồn, tài liệu spec.md và các tệp liên quan trong suốt quá trình làm Mini Hackathon. Em hãy đặt tên repo theo đúng quy tắc định danh: K4-3A-<phòng>-<tên nhóm> (ví dụ: K4-3A-E403-StudyPulse).\n\nSau khi tạo repo công khai (Public) trên GitHub, em khởi tạo cấu trúc ban đầu trên máy cá nhân và đẩy (push) lên repo đó như hướng dẫn trong phần \"Khởi tạo cấu trúc ban đầu cho repository\" tại mục 1 của checkpoint này nhé."
+}
