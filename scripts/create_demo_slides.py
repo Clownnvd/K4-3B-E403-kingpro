@@ -66,7 +66,7 @@ textbox(s, .6, 5.85, 7.0, .55, "Gemini 3.5 Flash Lite · LangGraph interrupt/res
 
 # 2
 s = base("Pain có bằng chứng, không phải cảm giác", "Evidence", 2)
-stats = [("3.097", "lượt Tutor K4"), ("6", "lượt hỏi probing"), ("2/10", "case live hỏi lại đúng"), ("8/10", "case live trả lời theo giả định")]
+stats = [("3.097", "lượt Tutor K4"), ("6", "lượt hỏi probing"), ("2/11", "case live hỏi lại đúng"), ("9/11", "case live trả lời theo giả định")]
 for i, (value, label) in enumerate(stats):
     x = .6 + i * 3.15
     rect(s, x, 1.55, 2.75, 1.55, PALE, RGBColor(195, 218, 235), True)
@@ -75,7 +75,7 @@ for i, (value, label) in enumerate(stats):
 textbox(s, .65, 3.55, 12.0, .45, "Lỗi live có thể kiểm chứng", 18, BLUE, True)
 rect(s, .65, 4.1, 12.0, 1.45, RGBColor(255, 248, 229), RGBColor(238, 196, 84), True)
 textbox(s, .95, 4.30, 11.4, 1.0, "Fail: “cho tôi link” · “form đâu” · “repo nào” · “đáp án gì” · “cái này là gì” · “giải thích đoạn trên” · “cgi” · “giúp tôi với”. Riêng “cho tôi link” trả nhầm repo lớp 3A trên trang 3B.", 16, INK)
-textbox(s, .65, 5.9, 12, .5, "Nguồn: tutor_turns.csv + kiểm thử VLearn 17/09 · phương pháp tái lập nằm trong evidence/", 12, MUTED)
+textbox(s, .65, 5.9, 12, .5, "Nguồn: tutor_turns.csv + kiểm thử VLearn 17–18/09 · phương pháp tái lập nằm trong evidence/", 12, MUTED)
 
 # 3
 s = base("Một quyết định AI, một điểm dừng có kiểm soát", "LangGraph flow", 3)
@@ -129,7 +129,8 @@ for i, (name, role) in enumerate(people):
 rect(s, 7.0, 1.55, 5.65, 3.45, BLUE, BLUE, True)
 textbox(s, 7.45, 1.95, 4.75, .35, "DEMO SCRIPT · 30 GIÂY", 11, CYAN, True)
 textbox(s, 7.45, 2.48, 4.75, 1.8, "1. Hỏi “cho tôi link”\n2. Chọn repo nhóm\n3. Mở nguồn\n4. Bôi block trong lesson\n5. Mở trace LangGraph", 20, WHITE, True)
-textbox(s, .7, 5.55, 12, .65, "Tiếp theo: cho 3 willing users dùng thử, ghi quote nguyên văn và chỉ sửa theo điểm kẹt quan sát được.", 18, INK, True)
+textbox(s, .7, 5.45, 12, .55, "Tiếp theo: cho 5 willing users dùng thử, ghi quote nguyên văn và chỉ sửa theo điểm kẹt quan sát được.", 17, INK, True)
+textbox(s, .7, 6.12, 12, .3, "Prototype public: vlearn-clarify-first-kingpro.vercel.app", 12, MUTED, False, PP_ALIGN.CENTER)
 
 prs.save(OUT)
 print(OUT)
