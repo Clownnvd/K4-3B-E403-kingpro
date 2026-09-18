@@ -1,7 +1,7 @@
 # AI SPEC — Tutor hỏi lại trước câu mơ hồ · Nhóm kingpro · Zone C1
 
 **Hướng:** A — VLearn Tutor · **Loại:** Tối ưu tính năng có sẵn
-**Trạng thái kỹ thuật:** UI VLearn responsive + LangGraph `interrupt/resume` chạy thật; node `classify_ambiguity` dùng duy nhất `gemini-3.5-flash-lite`; key chỉ nằm trong environment local.
+**Trạng thái kỹ thuật:** UI VLearn responsive + LangGraph `interrupt/resume` chạy thật; router dùng hard guard tất định cho các mẫu mơ hồ chắc chắn và `gemini-3.5-flash-lite` cho các câu còn lại; key chỉ nằm trong environment local.
 
 ## §1. User & Job
 
@@ -9,7 +9,7 @@
 - **Core JTBD:** Khi chưa biết phải diễn đạt câu hỏi thế nào, học viên muốn hệ thống giúp xác định đúng ý định để không nhận câu trả lời sai ngữ cảnh.
 - **Problem statement:** Tutor hiện có thể chọn một cách hiểu và trả lời trước khi biết học viên đang hỏi đối tượng nào.
 - **Evidence B — mining tái lập:** `tutor_turns.csv` có 3.097 lượt K4 nhưng chỉ 6 lượt dùng `ask_probing_question` = **0,19%**. Script: `evidence/count_tutor_failures.py`.
-- **Evidence trực tiếp:** suite live mới trên VLearn có **2/10 pass** theo tiêu chí “hỏi lại trước mọi nội dung suy đoán”; 8/10 câu bị trả lời từ một giả định. `cho tôi link` trả repo 3A trong trang lớp 3B.
+- **Evidence trực tiếp:** suite live trên VLearn có **2/11 pass = 18,2%** theo tiêu chí “hỏi lại trước mọi nội dung suy đoán”; 9/11 câu bị trả lời từ một giả định. `cho tôi link` trả repo 3A trong trang lớp 3B; `phần kia nghĩa là sao` bị tự gán thành Quality Bar.
 - **Ví dụ kiểm chứng:** transcript 10 case tại `evidence/vlearn-ambiguity-live-suite.json`; báo cáo `evidence/VLEARN-LIVE-AMBIGUITY-REPORT.md`; chatlog `T11228` và `T11653`.
 
 ## §2. Impact & quyết định chọn
@@ -18,7 +18,7 @@
 |---|---:|---|---|---|
 | Thiếu citation | 838/2.555 free-text | Khó kiểm chứng | Trung bình | Loại để tránh hai vấn đề |
 | Trả lời quá dài | Median 995 ký tự | Tốn thời gian đọc | Cao | Loại |
-| **Đoán ý khi câu mơ hồ** | probing 6/3.097; live fail 4/4 | Sai ngữ cảnh, sai link | **Cao** | **Chọn** |
+| **Đoán ý khi câu mơ hồ** | probing 6/3.097; live fail 9/11 | Sai ngữ cảnh, sai link | **Cao** | **Chọn** |
 
 Impact đo bằng: tỷ lệ câu mơ hồ được hỏi lại **trước** khi có nội dung trả lời; số lượt cần để học viên xác nhận đúng ý.
 
@@ -32,7 +32,7 @@ Impact đo bằng: tỷ lệ câu mơ hồ được hỏi lại **trước** khi
 
 - **Lát cắt một câu:** Một học viên đang đọc bài trên VLearn và gửi câu hỏi mơ hồ · router quyết định ý định chưa đủ rõ · Tutor hiện tối đa ba cách hiểu và ô tự nhập · học viên xác nhận rồi nhận câu trả lời đúng ý ở lượt kế tiếp.
 - **Non-goals:** không trả lời mọi kiến thức ngoài VLearn; không thay retrieval/citation toàn hệ thống; không làm hộ quiz; không quản lý tài khoản/điểm; không tự gửi form.
-- **Mức prototype:** **Working vertical slice**. Thật: UI, state, LangGraph, checkpointer, `interrupt`, `Command(resume)`, Gemini classifier, trace. Mock: dữ liệu bài học và ba option allowlist.
+- **Mức prototype:** **Working vertical slice**. Thật: UI, state, LangGraph, checkpointer, hard guard + Gemini classifier, `interrupt`, `Command(resume)`, trace. Mock: dữ liệu bài học được trích thành fixture và các option làm rõ dựng từ nguồn đang hiển thị.
 - **Automation:** conditional/augment. Hệ thống tự phát hiện và đề xuất cách hiểu; học viên giữ quyền chọn, nhập khác, hủy hoặc correction. Cost-of-error của đoán sai cao hơn một lượt hỏi lại.
 
 ### §4b. HAX/PAIR
@@ -72,7 +72,7 @@ Impact đo bằng: tỷ lệ câu mơ hồ được hỏi lại **trước** khi
 - **Golden set:** `eval/golden-set.json` 20 case; thêm 5 multi-turn và 12 safety case.
 - **Định nghĩa pass:** route khớp nhãn; không xuất answer trước `interrupt`; resume giữ cùng `thread_id`; option `team-repo` trả đúng URL; không có overflow ngang ở 1536/1024/390.
 - **Quality bar đã chốt:** **≥90% routing accuracy**, và hard cases G01/G05/G07/G08 đều pass.
-- **Lượt Gemini hiện tại:** 18/20 = **90%**, hard cases pass; đạt quality bar. Hai lỗi: G11 `form đâu` và G12 `cho tôi link tải dữ liệu` bị đánh giá quá rõ; xem `eval/cp3-results.json`.
+- **Lượt CP3 đã khóa:** 18/20 = **90%**, hard cases pass; đạt quality bar. Hai lỗi: G11 `form đâu` và G12 `cho tôi link tải dữ liệu` bị đánh giá quá rõ; xem `eval/cp3-results.json`.
 - **Versioned prompt rerun:** v0–v3 đều 19/20 = 95%; một lượt v2 từng đạt 20/20 nhưng không lặp lại nên không dùng làm claim chính. Hệ production hybrid đạt 20/20; multi-turn 5/5; safety 12/12; ambiguity mở rộng 36/36.
 - **Off-topic boundary:** VLearn thật 5/5 từ chối đúng; prototype Gemini 5/5 route `REFUSE`, xem `evidence/VLEARN-OFFTOPIC-REPORT.md`.
 - **UI smoke:** 28/28; `codebase/web/ui-smoke-results.json`.
@@ -99,3 +99,12 @@ Impact đo bằng: tỷ lệ câu mơ hồ được hỏi lại **trước** khi
 | 17/9 | Chuyển provider từ Groq sang Gemini 3.5 Flash Lite | Groq key trả 403; Gemini key hoạt động và chỉ dùng một model |
 | 18/9 | Source retrieval + SQLite + retry/log | Option có `source_id`, thread resume qua restart, provider có latency/error evidence |
 | 18/9 | Cải tiến history + checkpoint boundary | v2 đạt base 100%; v3 đạt multi-turn 5/5 và safety 12/12 |
+| 18/9 | Hard guard chạy trước model cho mẫu mơ hồ chắc chắn | Demo không phụ thuộc API và không tốn token ở case `phần kia nghĩa là sao` |
+| 18/9 | Thêm bằng chứng live A11 và video CP3 30 giây | Giữ nguyên lỗi Tutor tự đoán và chứng minh luồng hỏi lại end-to-end |
+
+## Tự khai phần chưa hoàn thành tại CP4
+
+- Chưa có kết quả quan sát thực tế từ willing users; hoạt động này được thực hiện ở CP5 và lưu trong `validation/`.
+- Retrieval hiện dùng fixture được trích từ bài VLearn đang hiển thị; chưa gọi trực tiếp kho nội dung production của VLearn.
+- Tính năng chưa được tích hợp vào VLearn production; bản hiện tại là working vertical slice chạy trong giao diện VLearn mô phỏng.
+- Hard guard đã bao phủ bộ ambiguity có hệ thống hiện tại, nhưng chưa thể đại diện cho mọi cách diễn đạt tự nhiên ngoài bộ kiểm thử.
