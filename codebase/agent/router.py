@@ -51,7 +51,12 @@ def classify_ambiguity(question: str, lesson_title: str) -> dict[str, Any]:
         "repo nào",
         "repo nao",
     }
-    vague_reference = bool(re.search(r"\b(cái này|câu này|đoạn này|nó|ở trên)\b", normalized))
+    vague_reference = bool(
+        re.search(
+            r"\b(cái này|câu này|đoạn này|phần này|phần kia|chỗ này|ý đó|nó|ở trên)\b",
+            normalized,
+        )
+    )
     generic_link = "link" in normalized and not has_explicit_target
     ambiguous = normalized in vague_exact or vague_reference or generic_link
     if ambiguous:

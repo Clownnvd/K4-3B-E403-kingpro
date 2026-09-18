@@ -120,10 +120,12 @@ def answer_with_gemini(question: str, chunks: list[dict[str, str]]) -> tuple[str
 
 
 def classify_ambiguity(state: TutorState) -> TutorState:
-    decision, usage = classify_with_gemini(state["question"], state["lesson_title"])
     guard = local_ambiguity_guard(state["question"], state["lesson_title"])
-    if decision["route"] == "CLEAR" and guard["route"] == "AMBIGUOUS":
+    if guard["route"] == "AMBIGUOUS":
         decision = {**guard, "reason": f"Hard ambiguity guard: {guard['reason']}"}
+        usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
+    else:
+        decision, usage = classify_with_gemini(state["question"], state["lesson_title"])
     return {
         "route": decision["route"],
         "reason": decision["reason"],
@@ -145,10 +147,21 @@ def safe_refusal(state: TutorState) -> TutorState:
 
 
 def wait_for_clarification(state: TutorState) -> TutorState:
+    question = state["question"].casefold()
+    if "link" in question:
+        prompt = "Anh cần link nào trong phần Mini Hackathon?"
+    elif re.search(r"\b(cái này|câu này|đoạn này|phần này|phần kia|chỗ này|ý đó|nó|ở trên)\b", question):
+        prompt = "“Phần kia” đang chỉ nội dung nào trên trang?"
+    elif "đáp án" in question or "giải câu" in question:
+        prompt = "Anh muốn hỏi đáp án của câu nào?"
+    elif question.strip() == "cgi":
+        prompt = "“cgi” đang được dùng theo nghĩa nào?"
+    else:
+        prompt = "Anh muốn hỏi cụ thể nội dung nào?"
     selection = interrupt(
         {
             "type": "clarification",
-            "prompt": "Anh cần link nào trong phần Mini Hackathon?",
+            "prompt": prompt,
             "reason": state["reason"],
             "options": state["options"],
             "allow_custom": True,

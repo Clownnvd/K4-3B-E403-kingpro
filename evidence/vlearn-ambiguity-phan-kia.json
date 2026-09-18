@@ -1,0 +1,15 @@
+{
+  "tested_at": "2026-09-18",
+  "page": "Bài 16 · Mini Hackathon — CP4",
+  "url": "https://vlearn.dev/course/k4p1/reader?day=D20&part=codelab-481a5b3d750f4515b86056ff6fa3ecf8-s05-doc",
+  "case_id": "A11",
+  "category": "vague_reference_history_dependent",
+  "previous_user_turn": "cái này là cái gì",
+  "previous_tutor_topic": "Tutor tự diễn giải trang thành checkpoint 5 và nói về AI Spec/Quality Bar.",
+  "input": "phần kia nghĩa là sao",
+  "reply": "Chào Duy, \"phần kia\" mà em nhắc đến có lẽ là Ngưỡng chất lượng (Quality Bar) trong tệp spec.md.\n\nĐây là một cam kết bằng con số cụ thể, xác định điều kiện để sản phẩm của nhóm em được coi là đạt yêu cầu khi vận hành thực tế.\n\nVí dụ, thay vì nói chung chung là \"AI phải chính xác\", em cần định nghĩa con số cụ thể như: \"Sản phẩm đạt yêu cầu khi trên 80% trường hợp trả về dữ liệu đúng và 100% các trường hợp ngoài phạm vi được từ chối an toàn\".\n\nViệc này giúp nhóm có thước đo chuẩn mực để đánh giá hiệu năng thực tế của mô hình/sản phẩm mà không bị thay đổi tiêu chuẩn khi kết quả kiểm thử không như ý muốn. Em hãy tập trung hoàn thiện phần §7 trong tệp spec.md để ghi nhận công thức này nhé.",
+  "expected": "Tutor hỏi 'phần kia' đang chỉ AI Spec, Quality Bar, §7 hay nội dung khác trước khi giải thích.",
+  "result": "FAIL",
+  "reason": "Tutor dùng cụm 'có lẽ là' để tự chọn Quality Bar rồi trả lời dài, thay vì xác nhận tham chiếu.",
+  "screenshot": "evidence/screenshots/vlearn-ambiguity-phan-kia-auto-guess.png"
+}

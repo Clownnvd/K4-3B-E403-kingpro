@@ -6,7 +6,7 @@
 
 ## Kết quả
 
-**2/10 pass = 20%.** Transcript đầy đủ nằm trong `evidence/vlearn-ambiguity-live-suite.json`.
+**2/11 pass = 18,2%.** Mười case đầu nằm trong `evidence/vlearn-ambiguity-live-suite.json`; case A11 và ảnh chụp được lưu riêng để giữ đủ lịch sử hội thoại.
 
 | ID | Input | Nhóm lỗi | Kết quả | Quan sát |
 |---|---|---|---|---|
@@ -20,12 +20,19 @@
 | A08 | `cgi` | Acronym/typo | Fail | Bỏ qua khả năng typo và trả checklist CP1 |
 | A09 | `giúp tôi với` | Thiếu task | Fail | Đưa hướng dẫn CP1 rồi mới hỏi |
 | A10 | `câu này đúng không` | Thiếu nội dung câu | **Pass** | Yêu cầu gửi câu lệnh/nội dung trước |
+| A11 | `phần kia nghĩa là sao` | Tham chiếu mơ hồ, phụ thuộc lịch sử | Fail | Nói “có lẽ là Quality Bar” rồi giải thích dài, không xác nhận “phần kia” |
 
 ## Phát hiện phụ
 
 - Tutor nhiều lần dùng cú pháp và link **K4-3A** trong trang lớp **3B**.
 - Tutor nhắc `TEAMMATES.md` dù repo đề bài 3B hiện tại không yêu cầu file này.
 - Lỗi ambiguity và lỗi source/context cộng hưởng: một suy đoán sai có thể kéo theo nguồn sai nhưng câu trả lời vẫn rất tự tin.
+- A11 thể hiện đúng cơ chế lỗi cần xử lý: Tutor nhận ra sự bất định qua cụm “có lẽ là” nhưng vẫn tiếp tục trả lời thay vì chuyển sang hỏi lại.
+
+### Bằng chứng A11
+
+- Transcript có ngữ cảnh: `evidence/vlearn-ambiguity-phan-kia.json`.
+- Ảnh chụp trực tiếp: `evidence/screenshots/vlearn-ambiguity-phan-kia-auto-guess.png`.
 
 ## Bộ case đầy đủ
 

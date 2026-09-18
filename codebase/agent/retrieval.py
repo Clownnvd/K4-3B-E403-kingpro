@@ -14,9 +14,24 @@ def _score(source: dict[str, str], terms: set[str]) -> int:
 
 def retrieve_options(question: str, limit: int = 3) -> list[dict[str, str]]:
     terms = set(re.findall(r"\w+", question.casefold()))
+    vague_reference = bool(
+        re.search(r"\b(cái này|câu này|đoạn này|phần này|phần kia|chỗ này|ý đó|nó|ở trên)\b", question.casefold())
+    )
+    if vague_reference:
+        candidates = [source for source in SOURCES if source.get("kind") == "visible_lesson"][:limit]
+        return [
+            {
+                "id": source["source_id"],
+                "label": source["title"],
+                "detail": source["text"],
+                "answer": source["text"],
+                "source": source["source_id"],
+            }
+            for source in candidates
+        ]
     candidates = [source for source in SOURCES if source.get("url")] if "link" in terms else SOURCES
     ranked = sorted(candidates, key=lambda s: _score(s, terms), reverse=True)
-    return [{"id": s["source_id"], "label": s["title"], "detail": s["text"], "answer": f"Đây là {s['title'].casefold()}.", "source": s["url"]} for s in ranked if _score(s, terms) > 0][:limit]
+    return [{"id": s["source_id"], "label": s["title"], "detail": s["text"], "answer": s["text"] if s.get("kind") == "visible_lesson" else f"Đây là {s['title'].casefold()}.", "source": s["url"] or s["source_id"]} for s in ranked if _score(s, terms) > 0][:limit]
 
 def retrieve_chunks(question: str, limit: int = 3) -> list[dict[str, str]]:
     terms = set(re.findall(r"\w+", question.casefold())) - STOPWORDS
