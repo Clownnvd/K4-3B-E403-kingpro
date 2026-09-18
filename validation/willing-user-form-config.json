@@ -1,0 +1,13 @@
+{
+  "title": "Đánh giá Trợ giảng AI VLearn — kingpro",
+  "description": "Hãy mở https://vlearn-clarify-first-kingpro.vercel.app và tự thao tác trước khi trả lời. Thử một câu mơ hồ như ‘cho tôi link’, ‘đáp án gì’ hoặc ‘phần kia nghĩa là sao’; chọn cách hiểu, xem câu trả lời và mở nguồn nếu có. Phản hồi chỉ dùng cho Mini Hackathon, không ảnh hưởng điểm học tập. Không nhập mật khẩu, API key hay dữ liệu nhạy cảm.",
+  "questions": [
+    "Họ tên và MSSV",
+    "Thiết bị bạn đã dùng để thử prototype",
+    "Bạn đã thử task nào và có hoàn thành mà không cần hướng dẫn không?",
+    "Bạn dừng hoặc phân vân lâu nhất ở bước nào? Vì sao?",
+    "Chép nguyên văn một câu bạn đã nói trong lúc dùng thử",
+    "Nếu chỉ được sửa một điểm, bạn muốn sửa gì nhất?",
+    "Bạn có sẵn sàng dùng lại tính năng này trên VLearn không? Vì sao?"
+  ]
+}

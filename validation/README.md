@@ -4,6 +4,8 @@ Không điền quote giả. Người test tự thao tác; người quan sát ch�
 
 **Link prototype:** <https://vlearn-clarify-first-kingpro.vercel.app>
 
+**Form phản hồi public:** <https://docs.google.com/forms/d/e/1FAIpQLSdUZ6c4-76gP_SEET7cuTCOomDO9z903wRRO-OnToekUjqtsg/viewform>
+
 | Người phụ trách | Người dùng | Task | Quan sát | Quote nguyên văn | Quyết định |
 |---|---|---|---|---|---|
 | Ngân | Lê Thị Thùy Trang — 2A202602678 | Hỏi `cho tôi link` → chọn repo nhóm → mở nguồn | Chờ test | Chờ test | Chờ test |

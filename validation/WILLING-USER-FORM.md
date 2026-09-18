@@ -4,6 +4,8 @@
 **Người điền chính:** Trần Thanh Thái, Phan Đại Cương
 **Mục tiêu:** Ghi phản hồi thật sau khi người dùng trực tiếp thao tác prototype; không hỏi dẫn dắt, không bịa quote.
 
+**Form đã xuất bản:** <https://docs.google.com/forms/d/e/1FAIpQLSdUZ6c4-76gP_SEET7cuTCOomDO9z903wRRO-OnToekUjqtsg/viewform>
+
 ---
 
 ## Cấu hình biểu mẫu (Google Form Settings)
