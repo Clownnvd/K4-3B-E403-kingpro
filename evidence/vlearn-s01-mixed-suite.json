@@ -1,0 +1,42 @@
+{
+  "tested_at": "2026-09-18",
+  "page": "https://vlearn.dev/course/k4p1/reader?day=D20&part=codelab-481a5b3d750f4515b86056ff6fa3ecf8-s01-doc",
+  "results": [
+    {
+      "id": "P01",
+      "input": "cho mình xin cái slide",
+      "category": "resource_request",
+      "reply": "Chào Duy, hiện tại nội dung của buổi Mini Hackathon này đang tập trung vào việc thực hiện các checkpoint trong bài lab, vì vậy không có slide bài giảng lý thuyết đi kèm.\n\nEm hãy tập trung vào hướng dẫn trong phần Checkpoint 1 (như đã hiển thị phía trên) để chuẩn bị đội ngũ, chọn track và thiết lập repository cho nhóm nhé. Nếu em cần làm rõ yêu cầu cụ thể nào trong các bước này, hãy cho mình biết nhé!"
+    },
+    {
+      "id": "P02",
+      "input": "cho tôi link slide",
+      "category": "resource_request",
+      "reply": "Chào Duy, rất tiếc hiện tại mình không có tài liệu dạng slide cho buổi Mini Hackathon này. Em có thể tham khảo trực tiếp các yêu cầu và hướng dẫn chi tiết ngay tại repository đề bài chính thức của ban tổ chức tại địa chỉ: https://github.com/VinUni-AI20k/K4-3A-Day05-06-AI-Product-Hackathon"
+    },
+    {
+      "id": "P03",
+      "input": "cần copy những file nào?",
+      "category": "clear_grounded",
+      "reply": "Chào Duy, để bắt đầu dự án tại checkpoint này, em cần sao chép các tệp sau từ repository đề bài về thư mục gốc của repository nhóm:\n\n03-ai-spec-template.md: Em cần sao chép tệp này và đổi tên thành spec.md để dùng làm tài liệu thiết kế sản phẩm AI cho nhóm.\nREADME.md: Em sao chép nguyên văn tệp này từ repo đề bài về, sau đó điền đầy đủ thông tin thành viên, vai trò và phần việc cụ thể của từng người vào bảng ở đầu tệp.\n\nNgoài ra, em cũng cần tự tạo thêm tệp TEAMMATES.md tại thư mục gốc để ghi danh sách thành viên, mã số học viên và thông tin liên hệ của đội trưởng.\n\nLưu ý quan trọng: Tuyệt đối không sao chép hay commit bất kỳ dữ liệu nào từ thư mục data/ trong repo đề bài vào repository của nhóm để tránh vi phạm quy định bảo mật dữ liệu của khóa học."
+    },
+    {
+      "id": "P04",
+      "input": "cái này là gì",
+      "category": "ambiguous_reference",
+      "reply": "Chào Duy, đây là bước đầu tiên trong Mini Hackathon. Mục tiêu của giai đoạn này là giúp nhóm em thống nhất về nhân sự, chọn track bài toán và thiết lập không gian làm việc an toàn trên GitHub để chuẩn bị cho quá trình xây dựng sản phẩm AI.\n\nEm đang xem phần hướng dẫn khởi tạo dự án. Để hoàn thành checkpoint 1 này, nhóm em cần thực hiện các công việc chính như: chốt danh sách thành viên, chọn 1 trong 5 track đề bài, tạo repository mới (công khai) với tên đúng cú pháp K4-3A-<phòng>-<tên nhóm>, và chuẩn bị các tệp cần thiết như spec.md, README.md cùng TEAMMATES.md.\n\nEm có đang gặp khó khăn hay cần làm rõ ở bước cụ thể nào trong danh sách này không?"
+    },
+    {
+      "id": "P05",
+      "input": "tên repository đặt thế nào?",
+      "category": "clear_grounded",
+      "reply": "Chào Duy, tên repository của nhóm em cần được đặt theo đúng quy tắc định danh của ban tổ chức để đảm bảo hợp lệ:\n\nK4-3A-<phòng>-<tên nhóm>\n\nTrong đó:\n\n<phòng>: Là phòng thi trực tiếp của nhóm (ví dụ: E402 hoặc E403).\n<tên nhóm>: Viết liền, không dấu, và không chứa khoảng trắng.\n\nVí dụ hợp lệ: K4-3A-E403-StudyPulse hoặc K4-3A-E402-LearnLoop. Em hãy lưu ý tạo repository mới hoàn toàn ở chế độ công khai (Public) thay vì dùng tính năng Fork nhé."
+    },
+    {
+      "id": "P06",
+      "input": "nộp ở đâu?",
+      "category": "ambiguous_target",
+      "reply": "Chào Duy, trong bài lab này, việc \"nộp bài\" không thực hiện qua một nền tảng duy nhất, mà là quá trình bạn duy trì repository công khai của nhóm trên GitHub theo đúng yêu cầu.\n\nBạn lưu ý các điểm sau để đảm bảo quá trình này đúng quy định:\n\nĐội trưởng sẽ là người đại diện dùng mã học viên của mình để nộp form cho tất cả các mốc checkpoint (bạn lưu ý không đổi người nộp giữa các mốc).\nRepository của nhóm phải luôn ở chế độ Public và chứa đủ các tệp quy định (như spec.md, README.md, TEAMMATES.md) để ban tổ chức kiểm tra.\nHãy kiểm tra kỹ mục \"Tự kiểm tra điều kiện sẵn sàng\" trong đề bài checkpoint hiện tại để đảm bảo nhóm đã hoàn tất các yêu cầu trước khi chuyển sang giai đoạn tiếp theo."
+    }
+  ]
+}
