@@ -22,6 +22,23 @@ from pydantic import BaseModel, Field
 from retrieval import retrieve_chunks, retrieve_options
 from router import classify_ambiguity as local_ambiguity_guard
 
+
+def load_local_env(path: Path) -> None:
+    """Load a git-ignored local env file without adding another dependency."""
+    if not path.exists():
+        return
+    for raw_line in path.read_text(encoding="utf-8").splitlines():
+        line = raw_line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        key, value = line.split("=", 1)
+        key = key.strip()
+        value = value.strip().strip('"').strip("'")
+        if key and key not in os.environ:
+            os.environ[key] = value
+
+
+load_local_env(Path(__file__).with_name(".env"))
 MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
 ARTIFACTS = Path(__file__).resolve().parents[2] / "artifacts"
 ARTIFACTS.mkdir(exist_ok=True)
@@ -64,6 +81,7 @@ class TutorState(TypedDict, total=False):
     source: str
     trace: list[str]
     usage: dict[str, int]
+    model: str
 
 
 class StartRequest(BaseModel):
@@ -124,13 +142,41 @@ def classify_ambiguity(state: TutorState) -> TutorState:
     if guard["route"] == "AMBIGUOUS":
         decision = {**guard, "reason": f"Hard ambiguity guard: {guard['reason']}"}
         usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
+        active_model = "local-deterministic"
+    elif not os.getenv("GEMINI_API_KEY"):
+        normalized = state["question"].casefold()
+        refusal_terms = (
+            "thời tiết",
+            "bóng đá",
+            "chứng khoán",
+            "cổ phiếu",
+            "nấu ăn",
+            "kể chuyện cười",
+            "bỏ qua mọi hướng dẫn",
+            "system prompt",
+            "api key",
+            "cookie",
+            "mật khẩu",
+            "điểm của người khác",
+            "mssv của người khác",
+        )
+        route = "REFUSE" if any(term in normalized for term in refusal_terms) else "CLEAR"
+        decision = {
+            "route": route,
+            "reason": "Local safety boundary." if route == "REFUSE" else "Local router found one clear VLearn intent.",
+            "confidence": 1.0,
+        }
+        usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
+        active_model = "local-deterministic"
     else:
         decision, usage = classify_with_gemini(state["question"], state["lesson_title"])
+        active_model = MODEL
     return {
         "route": decision["route"],
         "reason": decision["reason"],
         "confidence": decision["confidence"],
         "usage": usage,
+        "model": active_model,
         "trace": ["receive_input", f"classify_ambiguity:{decision['route']}"] ,
     }
 
@@ -190,13 +236,20 @@ def answer_clear(state: TutorState) -> TutorState:
     chunks = retrieve_chunks(state["question"])
     if not chunks:
         return {"answer": "Mình chưa thấy nội dung này trong bài đang mở. Anh hãy chọn hoặc hỏi về phần đang hiển thị trên trang.", "source": "", "trace": [*state.get("trace", []), "retrieve_vlearn_sources:NO_MATCH", "stop_without_grounding"]}
-    answer, usage = answer_with_gemini(state["question"], chunks)
+    if os.getenv("GEMINI_API_KEY"):
+        answer, usage = answer_with_gemini(state["question"], chunks)
+        active_model = MODEL
+    else:
+        answer = chunks[0]["text"]
+        usage = {"input_tokens": 0, "output_tokens": 0, "total_tokens": 0}
+        active_model = "local-grounded-fixture"
     cited_ids = re.findall(r"\[([^\]]+)\]", answer)
     cited = next((chunk for chunk in chunks if chunk["source_id"] in cited_ids), chunks[0])
     return {
         "answer": answer,
         "source": cited.get("url") or cited["source_id"],
         "usage": usage,
+        "model": active_model,
         "trace": [*state.get("trace", []), "retrieve_vlearn_sources", "generate_grounded_answer"],
     }
 
@@ -230,7 +283,7 @@ def serialize_result(result: dict[str, Any], thread_id: str) -> dict[str, Any]:
         return {
             "status": "needs_clarification",
             "thread_id": thread_id,
-            "model": MODEL,
+            "model": result.get("model", MODEL),
             "route": result.get("route"),
             "confidence": result.get("confidence"),
             "usage": result.get("usage", {}),
@@ -240,7 +293,7 @@ def serialize_result(result: dict[str, Any], thread_id: str) -> dict[str, Any]:
     return {
         "status": "completed",
         "thread_id": thread_id,
-        "model": MODEL,
+        "model": result.get("model", MODEL),
         "route": result.get("route"),
         "answer": result.get("answer"),
         "source": result.get("source"),
@@ -261,7 +314,13 @@ app.add_middleware(
 
 @app.get("/health")
 def health() -> dict[str, Any]:
-    return {"status": "ok", "provider": "gemini", "model": MODEL, "api_key_configured": bool(os.getenv("GEMINI_API_KEY"))}
+    has_key = bool(os.getenv("GEMINI_API_KEY"))
+    return {
+        "status": "ok",
+        "provider": "gemini" if has_key else "local-fallback",
+        "model": MODEL if has_key else "local-deterministic + grounded-fixture",
+        "api_key_configured": has_key,
+    }
 
 
 @app.post("/api/sessions")
