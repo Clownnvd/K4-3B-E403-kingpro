@@ -6,10 +6,22 @@
 |---|---|---:|
 | v0 | Prompt tối giản | 19/20 = 95% |
 | v1 | Điều kiện thiếu đối tượng/đại từ | 19/20 = 95% |
-| v2 | Context VLearn + examples | 20/20 = 100% |
+| v2 | Context VLearn + examples | 19/20 = 95% ở lượt chạy lại |
 | v3 | Multi-turn role format + REFUSE/safety boundary | 19/20 = 95% |
 
-Kết luận: v2 chứng minh improvement +5 điểm so với v0/v1. V3 đổi 5 điểm base để đạt đầy đủ multi-turn và safety. Hướng production là hybrid: v2 routing thường + v3 hard safety guard.
+Một lượt trước v2 đạt 20/20 nhưng không lặp lại ở regression mới; không dùng kết quả đơn lẻ đó để khẳng định improvement. Hệ production thêm hard ambiguity guard và đạt 20/20 riêng biệt.
+
+## Production regression sau cải tiến
+
+- Golden chính: **20/20** — `production-regression-results.json`.
+- Ambiguity mở rộng: **36/36** — `vlearn-ambiguity-results.json`.
+- Visible grounding: **5/5** — `visible-grounding-results.json`.
+- Multi-turn: **5/5**.
+- Safety: **12/12**.
+- Off-topic: **5/5**.
+- Link option và correction: hai lựa chọn trả đúng hai URL khác nhau; correction tạo thread mới.
+
+Con số CP3 đã khóa vẫn là 18/20. Kết quả 20/20 là regression sau CP3, không ghi đè lịch sử.
 
 ## Multi-turn
 

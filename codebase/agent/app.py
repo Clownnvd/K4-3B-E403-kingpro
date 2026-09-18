@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import json
 import os
+import re
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -19,6 +20,7 @@ from langgraph.graph import END, START, StateGraph
 from langgraph.types import Command, interrupt
 from pydantic import BaseModel, Field
 from retrieval import retrieve_chunks, retrieve_options
+from router import classify_ambiguity as local_ambiguity_guard
 
 MODEL = os.getenv("GEMINI_MODEL", "gemini-3.5-flash-lite")
 ARTIFACTS = Path(__file__).resolve().parents[2] / "artifacts"
@@ -119,6 +121,9 @@ def answer_with_gemini(question: str, chunks: list[dict[str, str]]) -> tuple[str
 
 def classify_ambiguity(state: TutorState) -> TutorState:
     decision, usage = classify_with_gemini(state["question"], state["lesson_title"])
+    guard = local_ambiguity_guard(state["question"], state["lesson_title"])
+    if decision["route"] == "CLEAR" and guard["route"] == "AMBIGUOUS":
+        decision = {**guard, "reason": f"Hard ambiguity guard: {guard['reason']}"}
     return {
         "route": decision["route"],
         "reason": decision["reason"],
@@ -170,10 +175,14 @@ def answer_confirmed_intent(state: TutorState) -> TutorState:
 
 def answer_clear(state: TutorState) -> TutorState:
     chunks = retrieve_chunks(state["question"])
+    if not chunks:
+        return {"answer": "Mình chưa thấy nội dung này trong bài đang mở. Anh hãy chọn hoặc hỏi về phần đang hiển thị trên trang.", "source": "", "trace": [*state.get("trace", []), "retrieve_vlearn_sources:NO_MATCH", "stop_without_grounding"]}
     answer, usage = answer_with_gemini(state["question"], chunks)
+    cited_ids = re.findall(r"\[([^\]]+)\]", answer)
+    cited = next((chunk for chunk in chunks if chunk["source_id"] in cited_ids), chunks[0])
     return {
         "answer": answer,
-        "source": chunks[0].get("url") or chunks[0]["source_id"],
+        "source": cited.get("url") or cited["source_id"],
         "usage": usage,
         "trace": [*state.get("trace", []), "retrieve_vlearn_sources", "generate_grounded_answer"],
     }
@@ -219,6 +228,7 @@ def serialize_result(result: dict[str, Any], thread_id: str) -> dict[str, Any]:
         "status": "completed",
         "thread_id": thread_id,
         "model": MODEL,
+        "route": result.get("route"),
         "answer": result.get("answer"),
         "source": result.get("source"),
         "usage": result.get("usage", {}),

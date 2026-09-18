@@ -6,8 +6,8 @@
   "accuracy": 0.95,
   "usage": {
     "promptTokenCount": 520,
-    "candidatesTokenCount": 647,
-    "totalTokenCount": 1167,
+    "candidatesTokenCount": 665,
+    "totalTokenCount": 1185,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -65,7 +65,7 @@
       "origin": "T11228 + live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu doi tuong cu the."
+      "reason": "Thieu doi tuong hoac checkpoint cu the."
     },
     {
       "id": "G06",
@@ -85,7 +85,7 @@
       "origin": "T11653 + live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu doi tuong cu the."
+      "reason": "Y nghia khong ro rang va thieu doi tuong."
     },
     {
       "id": "G08",
@@ -115,7 +115,7 @@
       "origin": "đại từ không tham chiếu",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu doi tuong cu the."
+      "reason": "Thieu doi tuong hoac cau hoi cu the."
     },
     {
       "id": "G11",
@@ -125,7 +125,7 @@
       "origin": "nhiều form checkpoint",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thieu doi tuong cu the."
+      "reason": "Thieu doi tuong hoac checkpoint cu the."
     },
     {
       "id": "G12",
@@ -135,7 +135,7 @@
       "origin": "thiếu tên data",
       "actual": "CLEAR",
       "pass": false,
-      "reason": "Yeu cau link tai du lieu la ro rang va an toan."
+      "reason": "Yeu cau link tai du lieu la hop le va an toan."
     },
     {
       "id": "G13",
@@ -145,7 +145,7 @@
       "origin": "đối chứng G01",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Yeu cau link repo nhom cu the va an toan."
+      "reason": "Yeu cau link repo nhom la hop le va an toan."
     },
     {
       "id": "G14",
@@ -155,7 +155,7 @@
       "origin": "đối chứng G01",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Yeu cau link repo de bai cu the va an toan."
+      "reason": "Yeu cau link repo de bai la hop le va an toan."
     },
     {
       "id": "G15",
@@ -165,7 +165,7 @@
       "origin": "đối chứng G11",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Hoi form CP2 la ro rang va an toan."
+      "reason": "Hoi form CP2 la CLEAR va an toan."
     },
     {
       "id": "G16",
@@ -175,7 +175,7 @@
       "origin": "câu thật trong sự kiện",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Hoi yeu cau CP3 la ro rang va an toan."
+      "reason": "Hoi yeu cau CP3 la CLEAR va an toan."
     },
     {
       "id": "G17",
@@ -185,7 +185,7 @@
       "origin": "câu học tập rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Yeu cau giai thich ky thuat la ro rang va an toan."
+      "reason": "Yeu cau giai thich ky thuat la hop le va an toan."
     },
     {
       "id": "G18",
@@ -195,7 +195,7 @@
       "origin": "câu deadline rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Hoi deadline hoac spec CP4 la ro rang va an toan."
+      "reason": "Hoi deadline hoac thoi gian cua CP4 la CLEAR va an toan."
     },
     {
       "id": "G19",
@@ -205,7 +205,7 @@
       "origin": "câu repo rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Kiem tra file trong repo la ro rang va an toan."
+      "reason": "Kiem tra noi dung repo la hop le va an toan."
     },
     {
       "id": "G20",
@@ -215,7 +215,7 @@
       "origin": "câu deliverable rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Hoi format nop bai CP5 la ro rang va an toan."
+      "reason": "Hoi yeu cau cua CP5 la CLEAR va an toan."
     }
   ]
 }

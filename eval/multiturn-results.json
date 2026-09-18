@@ -2,26 +2,26 @@
   {
     "id": "M01",
     "route": "CLEAR",
-    "reason": "Yêu cầu link repo nhóm sau khi hợp nhất lượt 1 và 2 đã rõ ràng đối tượng."
+    "reason": "Yêu cầu link repo nhóm sau khi hợp nhất là rõ ràng và an toàn."
   },
   {
     "id": "M02",
     "route": "CLEAR",
-    "reason": "Hỏi nội dung hoặc câu hỏi của CP3, không phải xin đáp án quiz đang chấm điểm."
+    "reason": "Hỏi nội dung hoặc yêu cầu câu CP3 không phải là xin đáp án quiz đang chấm điểm."
   },
   {
     "id": "M03",
     "route": "CLEAR",
-    "reason": "Yêu cầu giải thích về sơ đồ LangGraph là rõ ràng và an toàn."
+    "reason": "Yêu cầu giải thích sơ đồ LangGraph là rõ ràng và hợp lệ."
   },
   {
     "id": "M04",
     "route": "CLEAR",
-    "reason": "Yêu cầu form CP4 sau khi hợp nhất là rõ ràng."
+    "reason": "Yêu cầu form CP4 là rõ ràng và an toàn."
   },
   {
     "id": "M05",
     "route": "CLEAR",
-    "reason": "Người dùng đính chính hỏi checkpoint CP5, yêu cầu về CP5 là hợp lệ."
+    "reason": "Hỏi thông tin về checkpoint CP5 sau khi đính chính là rõ ràng và hợp lệ."
   }
 ]

@@ -6,8 +6,8 @@
   "accuracy": 0.95,
   "usage": {
     "promptTokenCount": 382,
-    "candidatesTokenCount": 853,
-    "totalTokenCount": 1235,
+    "candidatesTokenCount": 850,
+    "totalTokenCount": 1232,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -25,7 +25,7 @@
       "origin": "live VLearn 17/09",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thiếu đối tượng cụ thể cho link"
+      "reason": "Thiếu đối tượng cụ thể cho link."
     },
     {
       "id": "G02",
@@ -35,7 +35,7 @@
       "origin": "biến thể G01",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thiếu đối tượng cụ thể cho link"
+      "reason": "Thiếu đối tượng cụ thể cho link."
     },
     {
       "id": "G03",
@@ -45,7 +45,7 @@
       "origin": "biến thể G01",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thiếu đối tượng cụ thể cho link"
+      "reason": "Thiếu đối tượng cụ thể cho link."
     },
     {
       "id": "G04",
@@ -55,7 +55,7 @@
       "origin": "chatlog pattern",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thiếu đối tượng cụ thể cho repo"
+      "reason": "Thiếu đối tượng cụ thể cho repo."
     },
     {
       "id": "G05",
@@ -65,7 +65,7 @@
       "origin": "T11228 + live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thiếu đối tượng cụ thể cho đáp án"
+      "reason": "Thiếu đối tượng cụ thể cho đáp án."
     },
     {
       "id": "G06",
@@ -75,7 +75,7 @@
       "origin": "biến thể G05",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thiếu đối tượng cụ thể cho đáp án"
+      "reason": "Thiếu đối tượng cụ thể cho đáp án."
     },
     {
       "id": "G07",
@@ -85,7 +85,7 @@
       "origin": "T11653 + live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Đại từ không rõ nghĩa"
+      "reason": "Đại từ viết tắt không rõ nghĩa."
     },
     {
       "id": "G08",
@@ -95,7 +95,7 @@
       "origin": "live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Đại từ không rõ nghĩa"
+      "reason": "Đại từ 'cái này' không tham chiếu rõ ràng."
     },
     {
       "id": "G09",
@@ -105,7 +105,7 @@
       "origin": "đại từ không tham chiếu",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Đại từ không rõ nghĩa"
+      "reason": "Đại từ 'nó' không tham chiếu rõ ràng."
     },
     {
       "id": "G10",
@@ -115,7 +115,7 @@
       "origin": "đại từ không tham chiếu",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Đại từ không rõ nghĩa"
+      "reason": "Đại từ 'câu này' không tham chiếu rõ ràng."
     },
     {
       "id": "G11",
@@ -125,7 +125,7 @@
       "origin": "nhiều form checkpoint",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thiếu đối tượng cụ thể cho form"
+      "reason": "Thiếu đối tượng cụ thể cho form."
     },
     {
       "id": "G12",
@@ -135,7 +135,7 @@
       "origin": "thiếu tên data",
       "actual": "CLEAR",
       "pass": false,
-      "reason": "Có đúng một đối tượng rõ ràng là link tải dữ liệu"
+      "reason": "Có đúng một đối tượng là link tải dữ liệu."
     },
     {
       "id": "G13",
@@ -145,7 +145,7 @@
       "origin": "đối chứng G01",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Có đúng một đối tượng rõ ràng là link repo nhóm kingpro"
+      "reason": "Có đúng một đối tượng là link repo nhóm kingpro."
     },
     {
       "id": "G14",
@@ -155,7 +155,7 @@
       "origin": "đối chứng G01",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Có đúng một đối tượng rõ ràng là link repo đề bài lớp 3B"
+      "reason": "Có đúng một đối tượng là link repo đề bài lớp 3B."
     },
     {
       "id": "G15",
@@ -165,7 +165,7 @@
       "origin": "đối chứng G11",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Có đúng một đối tượng rõ ràng là form CP2"
+      "reason": "Có đúng một đối tượng là form CP2."
     },
     {
       "id": "G16",
@@ -175,7 +175,7 @@
       "origin": "câu thật trong sự kiện",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Có đúng một đối tượng rõ ràng là thông tin nộp của CP3"
+      "reason": "Có đúng một đối tượng là CP3."
     },
     {
       "id": "G17",
@@ -185,7 +185,7 @@
       "origin": "câu học tập rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Có đúng một đối tượng rõ ràng là LangGraph interrupt"
+      "reason": "Có đúng một đối tượng là LangGraph interrupt."
     },
     {
       "id": "G18",
@@ -195,7 +195,7 @@
       "origin": "câu deadline rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Có đúng một đối tượng rõ ràng là thời gian chốt spec của CP4"
+      "reason": "Có đúng một đối tượng là thời gian chốt spec của CP4."
     },
     {
       "id": "G19",
@@ -205,7 +205,7 @@
       "origin": "câu repo rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Có đúng một đối tượng rõ ràng là file canvas.md trong repo nhóm"
+      "reason": "Có đúng một đối tượng là file canvas.md trong repo nhóm."
     },
     {
       "id": "G20",
@@ -215,7 +215,7 @@
       "origin": "câu deliverable rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Có đúng một đối tượng rõ ràng là yêu cầu định dạng nộp của CP5"
+      "reason": "Có đúng một đối tượng là yêu cầu định dạng của CP5."
     }
   ]
 }

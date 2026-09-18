@@ -1,0 +1,46 @@
+{
+  "passed": 5,
+  "total": 5,
+  "results": [
+    {
+      "id": "pain",
+      "input": "tìm pain có bằng chứng là gì",
+      "expected_source": "D20-PAIN",
+      "actual_source": "D20-PAIN",
+      "pass": true,
+      "answer": "Tìm pain có bằng chứng nghĩa là đọc chatlog Tutor, quan sát hành vi thật và ghi lại những lượt hệ thống trả lời sai ngữ cảnh, không chọn vấn đề chỉ vì nghe có vẻ hay [D20-PAIN]."
+    },
+    {
+      "id": "slice",
+      "input": "chốt lát cắt một câu là gì",
+      "expected_source": "D20-SLICE",
+      "actual_source": "D20-SLICE",
+      "pass": true,
+      "answer": "Lát cắt của nhóm là: học viên gửi câu hỏi mơ hồ, AI nhận diện thiếu ý định, học viên chọn cách hiểu, rồi Tutor mới tiếp tục trả lời [D20-SLICE]."
+    },
+    {
+      "id": "definition",
+      "input": "một bài toán đạt tiêu chuẩn là gì",
+      "expected_source": "D20-DEFINITION",
+      "actual_source": "D20-DEFINITION",
+      "pass": true,
+      "answer": "Một bài toán đạt tiêu chuẩn khi có đúng một người dùng cụ thể, thực hiện một công việc cụ thể, thông qua một quyết định AI cụ thể, để tạo ra một kết quả đo đếm được [D20-DEFINITION]."
+    },
+    {
+      "id": "demo",
+      "input": "vì sao cần kiểm tra ngay trong bài học",
+      "expected_source": "D20-DEMO",
+      "actual_source": "D20-DEMO",
+      "pass": true,
+      "answer": "Cần kiểm tra ngay trong bài học để mở Trợ giảng AI và thử câu 'cho tôi link', nhằm đảm bảo bản cải tiến phải hỏi cần loại link nào thay vì tự chọn repo lớp 3A hoặc 3B [D20-DEMO]."
+    },
+    {
+      "id": "not_visible",
+      "input": "CP3 cần nộp gì",
+      "expected_source": "",
+      "actual_source": "",
+      "pass": true,
+      "answer": "Mình chưa thấy nội dung này trong bài đang mở. Anh hãy chọn hoặc hỏi về phần đang hiển thị trên trang."
+    }
+  ]
+}

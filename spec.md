@@ -73,7 +73,7 @@ Impact đo bằng: tỷ lệ câu mơ hồ được hỏi lại **trước** khi
 - **Định nghĩa pass:** route khớp nhãn; không xuất answer trước `interrupt`; resume giữ cùng `thread_id`; option `team-repo` trả đúng URL; không có overflow ngang ở 1536/1024/390.
 - **Quality bar đã chốt:** **≥90% routing accuracy**, và hard cases G01/G05/G07/G08 đều pass.
 - **Lượt Gemini hiện tại:** 18/20 = **90%**, hard cases pass; đạt quality bar. Hai lỗi: G11 `form đâu` và G12 `cho tôi link tải dữ liệu` bị đánh giá quá rõ; xem `eval/cp3-results.json`.
-- **v0/v1:** 19/20 = 95%. **v2:** 20/20 = 100% (+5 điểm nhờ context/examples). **v3:** 19/20 = 95%, nhưng multi-turn 5/5 và safety 12/12. Production đề xuất v2 router + v3 safety guard.
+- **Versioned prompt rerun:** v0–v3 đều 19/20 = 95%; một lượt v2 từng đạt 20/20 nhưng không lặp lại nên không dùng làm claim chính. Hệ production hybrid đạt 20/20; multi-turn 5/5; safety 12/12; ambiguity mở rộng 36/36.
 - **Off-topic boundary:** VLearn thật 5/5 từ chối đúng; prototype Gemini 5/5 route `REFUSE`, xem `evidence/VLEARN-OFFTOPIC-REPORT.md`.
 - **UI smoke:** 28/28; `codebase/web/ui-smoke-results.json`.
 - **E2E trace:** `evidence/cp3-e2e-trace.json` thể hiện `Gemini classify → interrupt → resume → answer` cùng token usage thật.

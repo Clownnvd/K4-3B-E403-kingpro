@@ -1,21 +1,8 @@
 {
-  "version": "v0",
-  "model": "gemini-3.5-flash-lite",
-  "passed": 19,
+  "system": "gemini-3.5-flash-lite + hard ambiguity guard + visible-source retrieval",
+  "passed": 20,
   "total": 20,
-  "accuracy": 0.95,
-  "usage": {
-    "promptTokenCount": 370,
-    "candidatesTokenCount": 914,
-    "totalTokenCount": 1284,
-    "promptTokensDetails": [
-      {
-        "modality": "TEXT",
-        "tokenCount": 370
-      }
-    ],
-    "serviceTier": "standard"
-  },
+  "accuracy": 1.0,
   "results": [
     {
       "id": "G01",
@@ -25,7 +12,13 @@
       "origin": "live VLearn 17/09",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thiếu ngữ cảnh, không biết người dùng đang yêu cầu link của tài nguyên nào."
+      "status": "needs_clarification",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ]
     },
     {
       "id": "G02",
@@ -35,7 +28,13 @@
       "origin": "biến thể G01",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thiếu thông tin về loại link cần gửi."
+      "status": "needs_clarification",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ]
     },
     {
       "id": "G03",
@@ -45,7 +44,13 @@
       "origin": "biến thể G01",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Không xác định được link của tài liệu hay trang web nào."
+      "status": "needs_clarification",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ]
     },
     {
       "id": "G04",
@@ -55,7 +60,13 @@
       "origin": "chatlog pattern",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Không rõ đang nhắc đến repository của dự án hoặc bài tập nào."
+      "status": "needs_clarification",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ]
     },
     {
       "id": "G05",
@@ -65,7 +76,13 @@
       "origin": "T11228 + live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Không rõ đáp án của câu hỏi hoặc bài tập nào."
+      "status": "needs_clarification",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ]
     },
     {
       "id": "G06",
@@ -75,7 +92,13 @@
       "origin": "biến thể G05",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Quá chung chung, không rõ đáp án cho vấn đề gì."
+      "status": "needs_clarification",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ]
     },
     {
       "id": "G07",
@@ -85,7 +108,13 @@
       "origin": "T11653 + live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Từ viết tắt hoặc cụm từ quá ngắn, không đủ ý nghĩa rõ ràng."
+      "status": "needs_clarification",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ]
     },
     {
       "id": "G08",
@@ -95,7 +124,13 @@
       "origin": "live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Thiếu từ chỉ định 'cái này' ám chỉ đối tượng cụ thể nào."
+      "status": "needs_clarification",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ]
     },
     {
       "id": "G09",
@@ -105,7 +140,13 @@
       "origin": "đại từ không tham chiếu",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Đại từ 'nó' chưa được xác định rõ nghĩa trong ngữ cảnh."
+      "status": "needs_clarification",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ]
     },
     {
       "id": "G10",
@@ -115,7 +156,13 @@
       "origin": "đại từ không tham chiếu",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Không rõ câu nào đang được đề cập tới."
+      "status": "needs_clarification",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ]
     },
     {
       "id": "G11",
@@ -125,7 +172,13 @@
       "origin": "nhiều form checkpoint",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Không rõ form nộp bài hay biểu mẫu nào."
+      "status": "needs_clarification",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ]
     },
     {
       "id": "G12",
@@ -133,9 +186,15 @@
       "expected": "AMBIGUOUS",
       "layer": "③ ngoài phạm vi xác định",
       "origin": "thiếu tên data",
-      "actual": "CLEAR",
-      "pass": false,
-      "reason": "Yêu cầu rõ ràng về việc lấy link tải dữ liệu."
+      "actual": "AMBIGUOUS",
+      "pass": true,
+      "status": "needs_clarification",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:AMBIGUOUS",
+        "retrieve_vlearn_sources",
+        "build_options"
+      ]
     },
     {
       "id": "G13",
@@ -145,7 +204,13 @@
       "origin": "đối chứng G01",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Yêu cầu cụ thể link repo của nhóm kingpro."
+      "status": "completed",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:CLEAR",
+        "retrieve_vlearn_sources",
+        "generate_grounded_answer"
+      ]
     },
     {
       "id": "G14",
@@ -155,7 +220,13 @@
       "origin": "đối chứng G01",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Xác định rõ yêu cầu link repo đề bài của lớp 3B."
+      "status": "completed",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:CLEAR",
+        "retrieve_vlearn_sources",
+        "generate_grounded_answer"
+      ]
     },
     {
       "id": "G15",
@@ -165,7 +236,13 @@
       "origin": "đối chứng G11",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Hỏi rõ vị trí của form CP2."
+      "status": "completed",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:CLEAR",
+        "retrieve_vlearn_sources:NO_MATCH",
+        "stop_without_grounding"
+      ]
     },
     {
       "id": "G16",
@@ -175,7 +252,13 @@
       "origin": "câu thật trong sự kiện",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Câu hỏi cụ thể về yêu cầu nộp bài cho CP3."
+      "status": "completed",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:CLEAR",
+        "retrieve_vlearn_sources:NO_MATCH",
+        "stop_without_grounding"
+      ]
     },
     {
       "id": "G17",
@@ -185,7 +268,13 @@
       "origin": "câu học tập rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Yêu cầu giải thích một khái niệm kỹ thuật cụ thể là LangGraph interrupt."
+      "status": "completed",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:CLEAR",
+        "retrieve_vlearn_sources:NO_MATCH",
+        "stop_without_grounding"
+      ]
     },
     {
       "id": "G18",
@@ -195,7 +284,13 @@
       "origin": "câu deadline rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Câu hỏi cụ thể về thời gian chốt spec của CP4."
+      "status": "completed",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:CLEAR",
+        "retrieve_vlearn_sources",
+        "generate_grounded_answer"
+      ]
     },
     {
       "id": "G19",
@@ -205,7 +300,13 @@
       "origin": "câu repo rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Câu hỏi rõ ràng về sự tồn tại của file canvas.md trong repo nhóm."
+      "status": "completed",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:CLEAR",
+        "retrieve_vlearn_sources",
+        "generate_grounded_answer"
+      ]
     },
     {
       "id": "G20",
@@ -215,7 +316,13 @@
       "origin": "câu deliverable rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Yêu cầu cụ thể về định dạng nộp bài (slide PDF hay link Canva) trong CP5."
+      "status": "completed",
+      "trace": [
+        "receive_input",
+        "classify_ambiguity:CLEAR",
+        "retrieve_vlearn_sources",
+        "generate_grounded_answer"
+      ]
     }
   ]
 }

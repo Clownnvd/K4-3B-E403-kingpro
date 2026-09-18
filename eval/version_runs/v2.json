@@ -1,13 +1,13 @@
 {
   "version": "v2",
   "model": "gemini-3.5-flash-lite",
-  "passed": 20,
+  "passed": 19,
   "total": 20,
-  "accuracy": 1.0,
+  "accuracy": 0.95,
   "usage": {
     "promptTokenCount": 389,
-    "candidatesTokenCount": 955,
-    "totalTokenCount": 1344,
+    "candidatesTokenCount": 643,
+    "totalTokenCount": 1032,
     "promptTokensDetails": [
       {
         "modality": "TEXT",
@@ -25,7 +25,7 @@
       "origin": "live VLearn 17/09",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Yêu cầu 'cho tôi link' quá chung chung, thiếu ngữ cảnh."
+      "reason": "Thieu thong tin cu the ve link gi."
     },
     {
       "id": "G02",
@@ -35,7 +35,7 @@
       "origin": "biến thể G01",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Yêu cầu 'gửi link' thiếu thông tin về link nào."
+      "reason": "Thieu thong tin cu the ve link gi."
     },
     {
       "id": "G03",
@@ -45,7 +45,7 @@
       "origin": "biến thể G01",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Câu hỏi 'link đâu' không rõ đang hỏi link của tài nguyên gì."
+      "reason": "Thieu thong tin cu the ve link gi."
     },
     {
       "id": "G04",
@@ -55,7 +55,7 @@
       "origin": "chatlog pattern",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Câu hỏi 'repo nào' thiếu ngữ cảnh để biết đang nói về repo nào."
+      "reason": "Khong xac dinh duoc repo nao."
     },
     {
       "id": "G05",
@@ -65,7 +65,7 @@
       "origin": "T11228 + live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Câu hỏi 'đáp án gì' mơ hồ, không rõ đáp án của bài/câu hỏi nào."
+      "reason": "Khong xac dinh duoc dap an cua cau nao."
     },
     {
       "id": "G06",
@@ -75,7 +75,7 @@
       "origin": "biến thể G05",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Từ khóa 'đáp án' đơn lẻ, không đủ thông tin."
+      "reason": "Khong xac dinh duoc dap an cho cai gi."
     },
     {
       "id": "G07",
@@ -85,7 +85,7 @@
       "origin": "T11653 + live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Từ 'cgi' quá ngắn và không rõ nghĩa trong ngữ cảnh hiện tại."
+      "reason": "Tu khoa qua mo ho."
     },
     {
       "id": "G08",
@@ -95,7 +95,7 @@
       "origin": "live VLearn",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Câu hỏi 'cái này là gì' thiếu đại từ chỉ định rõ ràng hoặc ngữ cảnh bài đang mở."
+      "reason": "Thieu ngu canh 'cái này' la gi."
     },
     {
       "id": "G09",
@@ -105,7 +105,7 @@
       "origin": "đại từ không tham chiếu",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Câu hỏi 'nó là gì' thiếu chủ thể cần giải thích."
+      "reason": "Thieu ngu canh 'nó' la gi."
     },
     {
       "id": "G10",
@@ -115,7 +115,7 @@
       "origin": "đại từ không tham chiếu",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Câu hỏi 'câu này sao' không rõ 'câu này' ám chỉ phần nào."
+      "reason": "Thieu ngu canh 'câu này' la cau nao."
     },
     {
       "id": "G11",
@@ -125,7 +125,7 @@
       "origin": "nhiều form checkpoint",
       "actual": "AMBIGUOUS",
       "pass": true,
-      "reason": "Yêu cầu 'form đâu' thiếu tên cụ thể của form."
+      "reason": "Khong biet form nao."
     },
     {
       "id": "G12",
@@ -133,9 +133,9 @@
       "expected": "AMBIGUOUS",
       "layer": "③ ngoài phạm vi xác định",
       "origin": "thiếu tên data",
-      "actual": "AMBIGUOUS",
-      "pass": true,
-      "reason": "Yêu cầu 'cho tôi link tải dữ liệu' chưa chỉ rõ dữ liệu của bài hoặc phần nào."
+      "actual": "CLEAR",
+      "pass": false,
+      "reason": "Yeu cau link tai du lieu cu the."
     },
     {
       "id": "G13",
@@ -145,7 +145,7 @@
       "origin": "đối chứng G01",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Yêu cầu chỉ định rõ link repo nhóm kingpro."
+      "reason": "Yeu cau link repo nhom kingpro cu the."
     },
     {
       "id": "G14",
@@ -155,7 +155,7 @@
       "origin": "đối chứng G01",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Yêu cầu chỉ định rõ link repo đề bài lớp 3B."
+      "reason": "Yeu cau link repo de bai lop 3B."
     },
     {
       "id": "G15",
@@ -165,7 +165,7 @@
       "origin": "đối chứng G11",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Yêu cầu chỉ định rõ vị trí form CP2."
+      "reason": "Hoi ve vi tri form CP2."
     },
     {
       "id": "G16",
@@ -175,7 +175,7 @@
       "origin": "câu thật trong sự kiện",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Câu hỏi cụ thể về yêu cầu nộp bài của CP3."
+      "reason": "Hoi ve noi dung nop cho CP3."
     },
     {
       "id": "G17",
@@ -185,7 +185,7 @@
       "origin": "câu học tập rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Yêu cầu giải thích rõ ràng khái niệm LangGraph interrupt."
+      "reason": "Yeu cau giai thich LangGraph interrupt."
     },
     {
       "id": "G18",
@@ -195,7 +195,7 @@
       "origin": "câu deadline rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Câu hỏi cụ thể về thời gian chốt spec của CP4."
+      "reason": "Hoi ve thoi gian chot spec CP4."
     },
     {
       "id": "G19",
@@ -205,7 +205,7 @@
       "origin": "câu repo rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Câu hỏi cụ thể về sự tồn tại của file canvas.md trong repo nhóm."
+      "reason": "Kiem tra file canvas.md trong repo nhom."
     },
     {
       "id": "G20",
@@ -215,7 +215,7 @@
       "origin": "câu deliverable rõ",
       "actual": "CLEAR",
       "pass": true,
-      "reason": "Câu hỏi cụ thể về định dạng nộp trong CP5 (slide PDF hay link Canva)."
+      "reason": "Hoi ve dinh dang yeu cau trong CP5."
     }
   ]
 }
