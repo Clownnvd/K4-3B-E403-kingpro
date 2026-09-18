@@ -33,6 +33,10 @@ Kết quả tự động: **15/15** kiểm tra UX đạt. Bước còn phụ thu
 4. Chép đúng quote, kể cả sai chính tả.
 5. Sau ít nhất hai người, chọn một điểm kẹt lặp lại để sửa và ghi vào `spec.md` §9.
 
-## Owner form
+## Owner form & Quy trình của Đô
 
-Vũ Huy Đô chịu trách nhiệm dựng Google Form theo `validation/WILLING-USER-FORM.md`, gửi cho Thái và Cương, kiểm tra đủ hai phản hồi và xuất bảng tổng hợp vào thư mục này.
+Vũ Huy Đô chịu trách nhiệm:
+1. Dựng Google Form theo đặc tả tại [WILLING-USER-FORM.md](file:///home/do/projects/K4-3B-E403-kingpro-do/validation/WILLING-USER-FORM.md) và gửi cho Thái và Cương.
+2. Trực tiếp quan sát hai bạn dùng thử prototype, ghi nhận thời gian, chỗ dừng >5 giây và chép nguyên văn quote vào [DO-RAW-NOTES.md](file:///home/do/projects/K4-3B-E403-kingpro-do/validation/DO-RAW-NOTES.md).
+3. Chỉ cập nhật bảng trên khi có kết quả thử nghiệm thực tế (tuyệt đối không bịa quote hoặc điền trước).
+4. Thực hiện đối soát số liệu CP3 (18/20) và thời lượng video 30s tại [DO-MISMATCH-REPORT.md](file:///home/do/projects/K4-3B-E403-kingpro-do/validation/DO-MISMATCH-REPORT.md).
