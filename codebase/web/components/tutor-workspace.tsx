@@ -22,7 +22,7 @@ import {
   Sparkles,
   X,
 } from "lucide-react";
-import { FormEvent, useRef, useState } from "react";
+import { FormEvent, KeyboardEvent, useRef, useState } from "react";
 import { scenarios, type ClarificationOption, type Scenario, type ScenarioId } from "@/lib/scenarios";
 
 type Stage = "idle" | "clarify" | "loading" | "answered" | "custom" | "failed";
@@ -206,6 +206,11 @@ function TutorPanel({ open, close, onSourceHighlight }: { open: boolean; close: 
   const submitCustom = (event: FormEvent) => { event.preventDefault(); if (customText.trim().length < 4) return; choose({ id: "custom", label: customText.trim(), detail: "Do học viên bổ sung", answer: `Đã hiểu ý anh: ${customText.trim()}`, source: "Ý định do học viên xác nhận" }); };
   const correct = () => { setSelected(null); setSourceOpen(false); onSourceHighlight(false); if (rounds >= 2) setStage("failed"); else { setRounds((value) => value + 1); setStage("clarify"); } };
   const send = (event: FormEvent) => { event.preventDefault(); const text = composerText.trim(); if (!text) return; setComposerText(""); void runRealCase(text); };
+  const sendOnEnter = (event: KeyboardEvent<HTMLTextAreaElement>) => {
+    if (event.key !== "Enter" || event.shiftKey || event.nativeEvent.isComposing) return;
+    event.preventDefault();
+    event.currentTarget.form?.requestSubmit();
+  };
 
   return (
     <aside className={`tutorPanel ${open ? "tutorOpen" : ""}`} aria-label="Trợ giảng AI">
@@ -222,7 +227,7 @@ function TutorPanel({ open, close, onSourceHighlight }: { open: boolean; close: 
         {stage === "answered" && selected && <article className="answerCard"><header><span className="aiMark small"><Sparkles size={14} /></span><div><small>Trợ giảng AI</small><p>{selected.answer}</p></div></header>{directAnswerUrl && <><a className="directAnswer" href={directAnswerUrl} target="_blank" rel="noreferrer"><Link2 size={14} /><span><small>Đáp án trực tiếp</small><strong>{selected.source}</strong></span><ChevronRight size={15} /></a><button type="button" className="sourceToggle" aria-pressed={sourceOpen} onClick={() => { const next = !sourceOpen; setSourceOpen(next); onSourceHighlight(next); }}><span><BookOpen size={14} /> {sourceOpen ? "Nguồn đang được bôi sáng" : "Kiểm tra nguồn trong bài"}</span><ChevronRight size={14} /></button></>}<footer><button type="button" onClick={correct}><RotateCcw size={14} /> Không phải ý này</button><span><Check size={13} /> Đã xử lý xong</span></footer><GraphTrace stage={stage} rounds={rounds} /></article>}
         {stage === "failed" && <article className="failureCard"><CircleHelp size={19} /><div><strong>{apiError ? "Agent chưa thể hoàn thành lượt chạy." : "Mình vẫn chưa xác định được ý anh."}</strong><p>{apiError || "Hãy chọn một đoạn trong bài hoặc nhập tên đối tượng cụ thể."}</p><button type="button" onClick={apiError ? () => void runRealCase(displayQuestion) : reset}>{apiError ? "Thử lại" : "Bắt đầu chat mới"}</button></div></article>}
       </div>
-      <form className="tutorComposer" onSubmit={send}><textarea aria-label="Câu hỏi cho Trợ giảng AI" value={composerText} onChange={(event) => setComposerText(event.target.value)} placeholder="Hỏi bất cứ điều gì…" rows={1} /><button type="submit" disabled={!composerText.trim()} aria-label="Gửi"><ArrowUp size={18} /></button><span>Trợ giảng AI có thể sai — hãy đối chiếu với bài giảng.</span></form>
+      <form className="tutorComposer" onSubmit={send}><textarea aria-label="Câu hỏi cho Trợ giảng AI" value={composerText} onChange={(event) => setComposerText(event.target.value)} onKeyDown={sendOnEnter} placeholder="Hỏi bất cứ điều gì…" rows={1} /><button type="submit" disabled={!composerText.trim()} aria-label="Gửi"><ArrowUp size={18} /></button><span>Enter để gửi · Shift+Enter xuống dòng · Hãy kiểm tra lại nguồn.</span></form>
     </aside>
   );
 }
