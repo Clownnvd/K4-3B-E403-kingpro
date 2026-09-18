@@ -2,6 +2,8 @@
 
 **File nộp:** `evidence/video/CP3-30s-ambiguity-end-to-end.mp4`
 
+**Trạng thái:** Đã nộp Google Form CP3 và nhận thông báo “Hệ thống đã ghi lại câu trả lời của bạn”. Ảnh xác nhận: `evidence/screenshots/cp3-form-submitted.png`.
+
 - Thời lượng: 30,0 giây.
 - Khung hình: 1600 × 900, H.264.
 - Case: `phần kia nghĩa là sao`.
