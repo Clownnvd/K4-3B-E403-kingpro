@@ -1,0 +1,11 @@
+{
+  "email": "magicduy56@gmail.com",
+  "team": "kingpro",
+  "zone": "C1",
+  "leader": "Nguyễn Văn Duy - 2A202602729",
+  "project_title": "Clarify First — Tutor hỏi lại trước câu mơ hồ",
+  "solution": "Học viên K4 đang gặp khó khăn khi họ hỏi phần chưa hiểu trên VLearn bằng câu ngắn hoặc mơ hồ. Trong 3.097 lượt Tutor, chỉ 6 lượt dùng hành vi hỏi lại, tương đương 0,19%; khi kiểm thử trực tiếp, 9/11 câu mơ hồ bị trả lời theo giả định. Hiện người học phải tự hỏi lại và kiểm tra thủ công, có thể nhận sai ngữ cảnh như repo lớp 3A trên trang lớp 3B. Team kingpro giải quyết bằng Gemini phân loại toàn bộ input thành CLEAR, AMBIGUOUS hoặc REFUSE; khi mơ hồ, LangGraph interrupt để người học xác nhận rồi mới trả lời có nguồn. Bản full-Gemini đạt 20/20 trên golden set; nhóm chưa có dữ liệu người dùng thật về phần trăm tiết kiệm thời gian nên không khai số giả.",
+  "video_url": "https://raw.githubusercontent.com/Clownnvd/K4-3B-E403-kingpro/main/artifacts/demo-backup.mp4",
+  "slide_url": "https://raw.githubusercontent.com/Clownnvd/K4-3B-E403-kingpro/main/demo-slides.pdf",
+  "evidence_url": "https://github.com/Clownnvd/K4-3B-E403-kingpro/blob/main/evidence/VLEARN-LIVE-AMBIGUITY-REPORT.md"
+}
