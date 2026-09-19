@@ -1,0 +1,212 @@
+[
+  {
+    "id": "CL-T10297",
+    "turn_id": "T10297",
+    "lecture_code": "D01",
+    "input": "wdym, do u understand me?",
+    "expected": "AMBIGUOUS",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T10299",
+    "turn_id": "T10299",
+    "lecture_code": "D01",
+    "input": "so what I should do",
+    "expected": "AMBIGUOUS",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T10326",
+    "turn_id": "T10326",
+    "lecture_code": "D03",
+    "input": "Giải thích lại giúp mình phần mà mình hay thấy khó.",
+    "expected": "AMBIGUOUS",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T10608",
+    "turn_id": "T10608",
+    "lecture_code": "D01",
+    "input": "(Đang học phần “day01-ai-ml-dl-va-DataLifecycle” của buổi này)\nno no no, trả lời vào trọng tâm nào",
+    "expected": "AMBIGUOUS",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T10654",
+    "turn_id": "T10654",
+    "lecture_code": "D01",
+    "input": "(Đang học phần “Mở đúng repo và nhìn thấy đích đến” của buổi này)\ngiảng viên tôi yêu cầu thế",
+    "expected": "AMBIGUOUS",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T10655",
+    "turn_id": "T10655",
+    "lecture_code": "D01",
+    "input": "(Đang học phần “Mở đúng repo và nhìn thấy đích đến” của buổi này)\ntrong lab có câu hỏi đó mà",
+    "expected": "AMBIGUOUS",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T10662",
+    "turn_id": "T10662",
+    "lecture_code": "D01",
+    "input": "(Đang học phần “Mở đúng repo và nhìn thấy đích đến” của buổi này)\ntrong file material_mrxpq9zu_t8e6xs cơ mà",
+    "expected": "AMBIGUOUS",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T10663",
+    "turn_id": "T10663",
+    "lecture_code": "D01",
+    "input": "(Đang học phần “Mở đúng repo và nhìn thấy đích đến” của buổi này)\nai yêu cầu bạn làm thế",
+    "expected": "AMBIGUOUS",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T10670",
+    "turn_id": "T10670",
+    "lecture_code": "D01",
+    "input": "(Đang học phần “Mở đúng repo và nhìn thấy đích đến” của buổi này)\nweu0wbenueuưe[6bviymvtơyv",
+    "expected": "AMBIGUOUS",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T11228",
+    "turn_id": "T11228",
+    "lecture_code": "D01",
+    "input": "(Đang học phần “Quiz cuối ngày” của buổi này)\nđáp án gì",
+    "expected": "AMBIGUOUS",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "give_direct_answer",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T11653",
+    "turn_id": "T11653",
+    "lecture_code": "D03",
+    "input": "(Đang học phần “Ôn toàn bộ câu hỏi” của buổi này)\ncgi",
+    "expected": "AMBIGUOUS",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T10330",
+    "turn_id": "T10330",
+    "lecture_code": "D01",
+    "input": "(Đang học phần “Chuẩn bị notebook và nơi nộp bài” của buổi này)\nlink github của bài của trường đang bị đóng đúng không",
+    "expected": "CLEAR",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T10336",
+    "turn_id": "T10336",
+    "lecture_code": "D01",
+    "input": "(Đang học phần “Chuẩn bị notebook và nơi nộp bài” của buổi này)\nTôi ấn vaafo repository nguồn và hiện lỗi 404",
+    "expected": "CLEAR",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T10339",
+    "turn_id": "T10339",
+    "lecture_code": "D01",
+    "input": "(Đang học phần “Chuẩn bị notebook và nơi nộp bài” của buổi này)\nLàm sao để biết repository đã được truy cập thành công?",
+    "expected": "CLEAR",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T10406",
+    "turn_id": "T10406",
+    "lecture_code": "D01",
+    "input": "(Đang học phần “day01-slide-v2-blue” của buổi này)\nLLM là gì?",
+    "expected": "CLEAR",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T10409",
+    "turn_id": "T10409",
+    "lecture_code": "D01",
+    "input": "(Đang học phần “day01-slide-v2-blue” của buổi này)\nDeep Learning là gì? Cho ví dụ về Deep Learning trong đời sống thực tế",
+    "expected": "CLEAR",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T10410",
+    "turn_id": "T10410",
+    "lecture_code": "D01",
+    "input": "(Đang học phần “day01-slide-v2-blue” của buổi này)\nSự khác biệt chính giữa Machine Learning và Deep Learning là gì?",
+    "expected": "CLEAR",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T10657",
+    "turn_id": "T10657",
+    "lecture_code": "D01",
+    "input": "(Đang học phần “Mở đúng repo và nhìn thấy đích đến” của buổi này)\nrepo không vào được thì sao ?",
+    "expected": "CLEAR",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T10840",
+    "turn_id": "T10840",
+    "lecture_code": "D03",
+    "input": "(Đang học phần “Bài mới” của buổi này)\nLàm thế nào để xác định bài toán cần AI hay không?",
+    "expected": "CLEAR",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T11149",
+    "turn_id": "T11149",
+    "lecture_code": "D01",
+    "input": "(Đang học phần “Lấy repo và nhìn thấy đích đến” của buổi này)\nNộp links repo Lab 1 ở đâu ?",
+    "expected": "CLEAR",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "give_direct_answer",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  },
+  {
+    "id": "CL-T10802",
+    "turn_id": "T10802",
+    "lecture_code": "D01",
+    "input": "(Đang học phần “Lấy repo và nhìn thấy đích đến” của buổi này)\ncó cần thiết phải có 1 agent llm trong bước này ko",
+    "expected": "CLEAR",
+    "baseline_route": "CLEAR",
+    "baseline_move_used": "review_concept",
+    "origin": "tutor_turns.csv snapshot 2026-09-15"
+  }
+]

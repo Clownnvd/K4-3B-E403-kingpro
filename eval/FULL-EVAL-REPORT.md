@@ -1,5 +1,14 @@
 # Full eval report
 
+## Before/after trên cùng chatlog golden set
+
+- Nguồn: 21 câu nguyên văn có `turn_id` từ `tutor_turns.csv`.
+- Before: **10/21 = 47,6%**.
+- After full Gemini: **21/21 = 100%**.
+- Delta: **+52,4 điểm phần trăm**.
+- Gemini classification: 21/21; local fallback: 0.
+- Chi tiết: `chatlog-before-after-results.json`; phương pháp: `../evidence/CHATLOG-BEFORE-AFTER-REPORT.md`.
+
 ## v0 → v3 cùng golden set 20 case
 
 | Version | Trọng tâm | Accuracy |

@@ -2,7 +2,7 @@
 
 ## 0:00–0:35 · Vấn đề
 
-“Nhóm em không làm thêm một chatbot. Nhóm sửa đúng một lỗi trong Tutor VLearn: khi học viên hỏi thiếu ý, Tutor vẫn trả lời theo suy đoán. Trong 3.097 lượt K4, hành vi probing chỉ xuất hiện 6 lần, tương đương 0,19%. Khi test live bốn câu mơ hồ, cả bốn đều bị trả lời trước khi ý định được xác nhận.”
+“Nhóm em không làm thêm một chatbot. Nhóm sửa đúng một lỗi trong Tutor VLearn: khi học viên hỏi thiếu ý, Tutor vẫn trả lời theo suy đoán. Trong 3.097 lượt K4, hành vi probing chỉ xuất hiện 6 lần, tương đương 0,19%. Trên golden set 21 câu nguyên văn có turn ID từ chatlog, hành vi before chỉ đạt 10/21.”
 
 ## 0:35–1:10 · Lát cắt
 
@@ -23,7 +23,7 @@
 
 ## 3:25–4:15 · Số đo
 
-“Quality bar chốt trước: ít nhất 90%, bốn hard case bắt buộc pass. Lượt CP3 đã khóa đạt 18/20 = 90% và giữ nguyên hai fail. Bản full-Gemini hiện tại đạt 20/20, cả 20 lượt đều do Gemini phân loại, không dùng rule đi trước model.”
+“Quality bar chốt trước: ít nhất 90%, bốn hard case bắt buộc pass. Trên cùng 21 câu chatlog thật, before đạt 10/21 và full-Gemini after đạt 21/21, tăng 52,4 điểm phần trăm. Lượt CP3 đã khóa vẫn giữ nguyên 18/20; nhóm không ghi đè lịch sử.”
 
 ## 4:15–5:00 · Giá trị và giới hạn
 

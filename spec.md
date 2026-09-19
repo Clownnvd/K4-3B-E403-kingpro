@@ -11,6 +11,7 @@
 - **Evidence B — mining tái lập:** `tutor_turns.csv` có 3.097 lượt K4 nhưng chỉ 6 lượt dùng `ask_probing_question` = **0,19%**. Script: `evidence/count_tutor_failures.py`.
 - **Evidence trực tiếp:** suite live trên VLearn có **2/11 pass = 18,2%** theo tiêu chí “hỏi lại trước mọi nội dung suy đoán”; 9/11 câu bị trả lời từ một giả định. `cho tôi link` trả repo 3A trong trang lớp 3B; `phần kia nghĩa là sao` bị tự gán thành Quality Bar.
 - **Ví dụ kiểm chứng:** transcript 10 case tại `evidence/vlearn-ambiguity-live-suite.json`; báo cáo `evidence/VLEARN-LIVE-AMBIGUITY-REPORT.md`; chatlog `T11228` và `T11653`.
+- **Before/after cùng dữ liệu thật:** golden 21 câu nguyên văn có `turn_id` từ `tutor_turns.csv`; Tutor before đạt 10/21 = 47,6%, full-Gemini after đạt 21/21 = 100%, tăng 52,4 điểm phần trăm. Xem `evidence/CHATLOG-BEFORE-AFTER-REPORT.md`.
 
 ## §2. Impact & quyết định chọn
 
@@ -70,6 +71,7 @@ Impact đo bằng: tỷ lệ câu mơ hồ được hỏi lại **trước** khi
 ## §7. Kiểm thử
 
 - **Golden set:** `eval/golden-set.json` 20 case; thêm 5 multi-turn và 12 safety case.
+- **Chatlog golden set:** `eval/chatlog-golden-set.json` gồm 21 input nguyên văn từ chatlog thật; before/after nằm trong `eval/chatlog-before-after-results.json`.
 - **Định nghĩa pass:** route khớp nhãn; không xuất answer trước `interrupt`; resume giữ cùng `thread_id`; option `team-repo` trả đúng URL; không có overflow ngang ở 1536/1024/390.
 - **Quality bar đã chốt:** **≥90% routing accuracy**, và hard cases G01/G05/G07/G08 đều pass.
 - **Lượt CP3 đã khóa:** 18/20 = **90%**, hard cases pass; đạt quality bar. Hai lỗi: G11 `form đâu` và G12 `cho tôi link tải dữ liệu` bị đánh giá quá rõ; xem `eval/cp3-results.json`.
